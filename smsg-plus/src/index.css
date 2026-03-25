@@ -1,0 +1,121 @@
+@import "tailwindcss";
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@theme {
+  --font-sans: "SUIT Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-manrope: "SUIT Variable", "Inter", sans-serif;
+
+  --color-primary: #004ac6;
+  --color-primary-container: #2563eb;
+  --color-on-primary: #ffffff;
+  
+  --color-secondary: #006e2d;
+  --color-secondary-container: #7cf994;
+  --color-on-secondary-container: #007230;
+
+  --color-surface: #faf8ff;
+  --color-surface-container-low: #f2f3ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-surface: #131b2e;
+  --color-on-surface-variant: #434655;
+  --color-outline-variant: #c3c6d7;
+
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 600;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased font-normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'ss01', 'cv01';
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-manrope tracking-tight font-bold;
+  }
+
+  strong, b {
+    @apply font-bold;
+  }
+
+  /* Focus-visible ring — WCAG AA compliant */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Selection */
+  ::selection {
+    background: color-mix(in srgb, var(--color-primary) 18%, transparent);
+  }
+}
+
+/* ─── Shared Typography (luna-m 기준) ─── */
+@layer components {
+  .heading-1 {
+    @apply text-[2.75rem] sm:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.1];
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  .heading-2 {
+    @apply text-[1.75rem] sm:text-[2rem] lg:text-[2.5rem] font-bold leading-[1.15];
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  .heading-3 {
+    @apply text-lg sm:text-xl font-semibold;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  /* ─── Shared Button System (luna-m 기준) ─── */
+  .btn-primary,
+  .btn-hero-primary,
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 font-semibold text-[15px] cursor-pointer;
+    transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .btn-primary:active,
+  .btn-hero-primary:active,
+  .btn-ghost:active {
+    transform: scale(0.97);
+  }
+  .btn-primary:focus-visible,
+  .btn-hero-primary:focus-visible,
+  .btn-ghost:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .btn-primary {
+    @apply rounded-[10px] px-6 py-3;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+
+  .btn-hero-primary {
+    @apply rounded-[10px] px-7 py-3.5;
+  }
+
+  .btn-ghost {
+    @apply rounded-[10px] px-7 py-3.5;
+  }
+}
+
+@utility ghost-border {
+  @apply border border-outline-variant/20;
+}
