@@ -8,6 +8,7 @@ import { motion, useScroll, useMotionValueEvent, useTransform, useInView, animat
 import statisticsImg from './statistics.png';
 import consultingImg from './img_consulting.png';
 import partnersImg from './partners.png';
+import iso27001Img from './iso27001.png';
 import Aurora from './Aurora';
 import {
   Users,
@@ -236,7 +237,7 @@ const ProblemSection = () => (
           {/* Arrow + Solution bubble */}
           <motion.div variants={fadeUp} transition={{ duration: 0.4, ease }} className="flex flex-col items-center mt-2">
             <ArrowDown size={28} strokeWidth={2.5} className="text-primary mb-3" />
-            <div className="bg-primary-container text-on-primary font-semibold text-[15px] px-6 py-3.5 rounded-2xl shadow-md w-full text-center">
+            <div className="bg-white border border-primary text-primary font-semibold text-[15px] px-6 py-3.5 rounded-2xl w-full text-center">
               스마트메시지 플러스로 한방에 해결!
             </div>
           </motion.div>
@@ -485,7 +486,7 @@ const OnsiteBanner = () => (
         <motion.h2 variants={fadeUp} transition={{ duration: 0.5, ease }} className="heading-2 mb-4">
           스마트메시지 플러스는
           <br />
-          <span className="text-primary">온사이트 배너</span>랑 함께 사용하면 더욱 좋아요.
+          <span className="text-primary">온사이트 배너</span>와 함께 사용하면 더욱 좋아요.
         </motion.h2>
         <motion.p variants={fadeUp} transition={{ duration: 0.5, ease }} className="text-base text-on-surface-variant leading-relaxed max-w-2xl mx-auto">
           고객의 특정행동을 기반으로 개인화된 맞춤 배너를 노출하여
@@ -497,7 +498,7 @@ const OnsiteBanner = () => (
         </motion.p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14 items-end">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mt-6 items-end">
         {[
           { title: '간단알림', src: 'https://lunasoft.co.kr/images/homepage/smartmsgPlus/@2x/simple_noti.png', alt: '온사이트 배너 간단알림', scale: '60%', mb: -24 },
           { title: '워딩알림', src: 'https://lunasoft.co.kr/images/homepage/smartmsgPlus/@2x/wording_noti.png', alt: '온사이트 배너 워딩알림', scale: '100%', mb: 24 },
@@ -524,7 +525,7 @@ const OnsiteBanner = () => (
 /* ─── Final CTA ─── */
 const FinalCTA = () => (
   <>
-    <section className="pt-24 md:pt-32 pb-8 md:pb-12 px-6 bg-surface-container-lowest" id="contact">
+    <section className="py-24 px-6 bg-surface-container-lowest" id="contact">
       <div className="max-w-[1280px] mx-auto text-center">
         {/* Trust strip */}
         <motion.div
@@ -532,7 +533,6 @@ const FinalCTA = () => (
           whileInView="visible"
           viewport={{ once: true }}
           variants={stagger}
-          className="mb-20"
         >
           <motion.h2 variants={fadeUp} transition={{ duration: 0.5, ease }} className="heading-2 mb-10">
             스마트메시지 플러스를 도입한
@@ -556,7 +556,7 @@ const FinalCTA = () => (
           transition={{ duration: 0.6, ease }}
         >
           <h2 className="heading-2 mb-4">스마트메시지 플러스 지금 바로 시작하세요!</h2>
-          <p className="text-on-surface-variant mb-8 text-base">무료 체험으로 시작하고, 성과를 직접 확인하세요.</p>
+          <p className="text-on-surface-variant mb-8 text-base">더 효과적인 메시지 마케팅으로 성과를 만들어보세요.</p>
           <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="btn-hero-primary bg-on-surface text-surface shadow-xl hover:shadow-2xl hover:opacity-90 transition-all">
             서비스 신청하기 <ArrowRight size={18} />
           </a>
@@ -598,70 +598,106 @@ const footerLinks = [
   },
 ];
 
-const Footer = () => (
-  <footer className="w-full bg-white border-t border-outline-variant/10">
-    <div className="max-w-[1280px] mx-auto px-6 md:px-12">
-      {/* Upper: Contact + Links */}
-      <div className="py-12 md:py-16 flex flex-col lg:flex-row gap-10 lg:gap-16">
-        <div className="shrink-0 lg:w-[240px]">
-          <div className="text-lg font-bold text-on-surface mb-4" style={{ letterSpacing: '-0.02em' }}>
-            스마트메시지 <span className="text-primary">플러스</span>
-          </div>
-          <div>
-            <p className="text-on-surface-variant/60 text-[13px] leading-relaxed">
-              <span>csm@blumn.ai</span>
-            </p>
-            <p className="text-on-surface text-2xl font-bold tracking-tight mt-1 mb-4">1644-4998</p>
-          </div>
-          <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[13px] font-medium px-4 py-2 rounded-lg bg-on-surface text-surface hover:opacity-90 transition-colors">
-            도입 문의하기 <ArrowRight size={14} />
-          </a>
-        </div>
+const Footer = () => {
+  const [ismsOpen, setIsmsOpen] = React.useState(false);
 
-        <div className="grid grid-cols-2 md:grid-cols-[30%_30%_40%] gap-8 md:gap-6 flex-1">
-          {footerLinks.map((section) => (
-            <div key={section.title}>
-              <p className="text-on-surface-variant/40 text-[13px] font-medium mb-4">{section.title}</p>
-              {section.title === '블룸에이아이' ? (
-                <div className="grid grid-cols-2 gap-x-5 gap-y-2.5">
-                  {section.links.map((link) => (
-                    <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-[13px] text-on-surface-variant/70 hover:text-on-surface transition-colors">
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              ) : (
-                <div className="flex flex-col gap-2.5">
-                  {section.links.map((link) => (
-                    <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-[13px] text-on-surface-variant/70 hover:text-on-surface transition-colors">
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              )}
+  return (
+    <>
+      <footer className="w-full bg-white border-t border-outline-variant/10">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-12">
+          {/* Upper: Contact + Links */}
+          <div className="py-12 md:py-16 flex flex-col lg:flex-row gap-10 lg:gap-16">
+            <div className="shrink-0 lg:w-[240px]">
+              <div className="text-lg font-bold text-on-surface mb-4" style={{ letterSpacing: '-0.02em' }}>
+                스마트메시지 <span className="text-primary">플러스</span>
+              </div>
+              <div>
+                <p className="text-on-surface-variant/60 text-[13px] leading-relaxed">
+                  <span>csm@blumn.ai</span>
+                </p>
+                <p className="text-on-surface text-2xl font-bold tracking-tight mt-1 mb-4">1644-4998</p>
+              </div>
+              <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[13px] font-medium px-4 py-2 rounded-lg bg-on-surface text-surface hover:opacity-90 transition-colors">
+                도입 문의하기 <ArrowRight size={14} />
+              </a>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Bottom: Company Info + Copyright */}
-      <div className="py-8 border-t border-outline-variant/10">
-        <div className="flex flex-col md:flex-row justify-between gap-4">
-          <div>
-            <p className="font-bold text-on-surface-variant text-[13px] mb-1.5">(주)블룸에이아이</p>
-            <div className="space-y-0.5 text-on-surface-variant/40 text-[12px] leading-relaxed">
-              <p>서울 중구 서소문로 89, 순화빌딩 6층, 대표이사: 김범수, 박진영</p>
-              <p>사업자등록번호: 773-87-00356 통신판매업 신고번호: 제 2024-서울중구-1646호</p>
+            <div className="grid grid-cols-2 md:grid-cols-[30%_30%_40%] gap-8 md:gap-6 flex-1">
+              {footerLinks.map((section) => (
+                <div key={section.title}>
+                  <p className="text-on-surface-variant/40 text-[13px] font-medium mb-4">{section.title}</p>
+                  {section.title === '블룸에이아이' ? (
+                    <div className="grid grid-cols-2 gap-x-5 gap-y-2.5">
+                      {section.links.map((link) => (
+                        <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-[13px] text-on-surface-variant/70 hover:text-on-surface transition-colors">
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="flex flex-col gap-2.5">
+                      {section.links.map((link) => (
+                        <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-[13px] text-on-surface-variant/70 hover:text-on-surface transition-colors">
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
-          <div className="flex items-center gap-4">
-            <p className="text-on-surface-variant/40 text-[12px]">© Blumn AI Corp. All rights Reserved.</p>
+
+          {/* Bottom: Company Info + Copyright */}
+          <div className="py-8 border-t border-outline-variant/10">
+            <div className="flex flex-col md:flex-row justify-between gap-4">
+              <div>
+                <p className="font-bold text-on-surface-variant text-[13px] mb-1.5">(주)블룸에이아이</p>
+                <div className="space-y-0.5 text-on-surface-variant/40 text-[12px] leading-relaxed">
+                  <p>서울 중구 서소문로 89, 순화빌딩 6층, 대표이사: 김범수, 박진영</p>
+                  <p>사업자등록번호: 773-87-00356 통신판매업 신고번호: 제 2024-서울중구-1646호</p>
+                </div>
+              </div>
+              <div className="flex flex-col items-end gap-3">
+                <div className="flex items-center gap-2">
+                  <button onClick={() => setIsmsOpen(true)} className="cursor-pointer">
+                    <img src="https://shoplic.kr/wp-content/uploads/2025/06/ISMS.png" alt="ISMS 인증" className="w-[36px] h-[36px] rounded-full object-cover" />
+                  </button>
+                  <img src={iso27001Img} alt="ISO 27001 인증" className="w-[36px] h-[36px] rounded-full object-cover" />
+                </div>
+                <p className="text-on-surface-variant/40 text-[12px]">© Blumn AI Corp. All rights Reserved.</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </footer>
-);
+      </footer>
+
+      {/* ISMS Modal */}
+      {ismsOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4" onClick={() => setIsmsOpen(false)}>
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+          <div className="relative bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setIsmsOpen(false)} className="absolute top-4 right-4 text-on-surface-variant/40 hover:text-on-surface transition-colors">
+              <X size={20} />
+            </button>
+            <h2 className="text-lg font-bold text-on-surface mb-6">블룸에이아이 정보보호 관리체계 인증 획득</h2>
+            <div className="space-y-4 text-[14px] text-on-surface-variant leading-relaxed">
+              <div>
+                <p className="font-semibold text-on-surface mb-1">🔒 인증범위</p>
+                <p>채팅상담, ARS 콜센터 솔루션 및 고객관리 솔루션 운영<br />(정보통신방법 제47조의7에 따른 인증의 특례)</p>
+              </div>
+              <div>
+                <p className="font-semibold text-on-surface mb-1">🔒 유효기간</p>
+                <p>2025.11.19 ~ 2028.11.18</p>
+              </div>
+            </div>
+            <img src="https://landing.happytalk.io/_next/static/media/isms_certificate.6cdb089a.png" alt="ISMS 인증서" className="w-full rounded-lg mt-6" />
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 /* ─── App ─── */
 export default function App() {
