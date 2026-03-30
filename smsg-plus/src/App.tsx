@@ -674,10 +674,10 @@ const Footer = () => {
 
       {/* ISMS Modal */}
       {ismsOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-4" onClick={() => setIsmsOpen(false)}>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-8" onClick={() => setIsmsOpen(false)}>
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
-          <div className="relative bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <button onClick={() => setIsmsOpen(false)} className="absolute top-4 right-4 text-on-surface-variant/40 hover:text-on-surface transition-colors">
+          <div className="relative bg-white rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-8 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setIsmsOpen(false)} className="sticky top-0 float-right text-on-surface-variant/40 hover:text-on-surface transition-colors">
               <X size={20} />
             </button>
             <h2 className="text-lg font-bold text-on-surface mb-6">블룸에이아이 정보보호 관리체계 인증 획득</h2>
@@ -695,6 +695,8 @@ const Footer = () => {
           </div>
         </div>
       )}
+
+
     </>
   );
 };

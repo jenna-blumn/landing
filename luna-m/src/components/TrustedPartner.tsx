@@ -1,6 +1,8 @@
 import { Shield, Users, Zap, Bot } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import iso27001Img from "@/assets/iso27001.png";
+import daubadgeImg from "@/assets/daubadge.png";
 
 const features = [
   {
@@ -83,7 +85,7 @@ const formatStatValue = (item: StatItem, count: number) => {
 const StatCounter = ({ item, startCounting }: { item: StatItem; startCounting: boolean }) => {
   const count = useCountUp(item.numericValue, 2000, startCounting);
   return (
-    <p className="text-3xl sm:text-4xl font-semibold text-white mb-1" style={{ fontVariantNumeric: 'tabular-nums' }}>
+    <p className="text-3xl sm:text-4xl font-bold text-yellow-200 mb-1" style={{ fontVariantNumeric: 'tabular-nums' }}>
       {formatStatValue(item, count)}
     </p>
   );
@@ -166,10 +168,12 @@ const TrustedPartner = () => {
               </div>
             ))}
             <div className="text-center flex flex-col items-center">
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-1 overflow-hidden card-glass-dark !p-0">
-                <img src="https://cdn.prod.website-files.com/65fbab61ea85400f3507e37f/665d8687b688e1399f605da6_img_2.png" alt="ISMS 인증" className="w-full h-full object-contain p-2" />
+              <div className="flex items-center gap-2 mb-1">
+                <img src="https://cdn.prod.website-files.com/65fbab61ea85400f3507e37f/665d8687b688e1399f605da6_img_2.png" alt="ISMS 인증" className="w-14 h-14 rounded-full object-contain bg-white p-1.5" />
+                <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center"><img src={iso27001Img} alt="ISO 27001 인증" className="w-[44px] h-[44px] rounded-full object-cover" /></div>
+                <img src={daubadgeImg} alt="DAU 인증" className="w-14 h-14 rounded-full object-cover bg-white" />
               </div>
-              <p className="text-zinc-300 text-[13px] font-medium">ISMS 인증</p>
+              <p className="text-zinc-300 text-[13px] font-medium">강력한 보안/인증</p>
             </div>
           </div>
         </div>

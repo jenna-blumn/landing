@@ -1,6 +1,8 @@
 import React from 'react';
 import { ArrowRight, X } from 'lucide-react';
 import iso27001Img from '../assets/iso27001.png';
+import daubadgeImg from '../assets/daubadge.png';
+import dauCertImg from '../assets/dau-msg-certificate.jpg';
 
 const footerLinks = [
   {
@@ -32,6 +34,7 @@ const footerLinks = [
 
 const Footer = () => {
   const [ismsOpen, setIsmsOpen] = React.useState(false);
+  const [dauOpen, setDauOpen] = React.useState(false);
 
   return (
     <>
@@ -119,6 +122,9 @@ const Footer = () => {
                   <img src="https://shoplic.kr/wp-content/uploads/2025/06/ISMS.png" alt="ISMS 인증" className="w-[36px] h-[36px] rounded-full object-cover" />
                 </button>
                 <img src={iso27001Img} alt="ISO 27001 인증" className="w-[36px] h-[36px] rounded-full object-cover" />
+                <button onClick={() => setDauOpen(true)} className="cursor-pointer">
+                  <img src={daubadgeImg} alt="DAU 인증" className="w-[36px] h-[36px] rounded-full object-cover" />
+                </button>
               </div>
               <p className="text-zinc-400 text-[12px]">© Blumn AI Corp. All rights Reserved.</p>
             </div>
@@ -129,10 +135,10 @@ const Footer = () => {
 
     {/* ISMS Modal */}
     {ismsOpen && (
-      <div className="fixed inset-0 z-50 flex items-center justify-center px-4" onClick={() => setIsmsOpen(false)}>
+      <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-8" onClick={() => setIsmsOpen(false)}>
         <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
-        <div className="relative bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl" onClick={(e) => e.stopPropagation()}>
-          <button onClick={() => setIsmsOpen(false)} className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-900 transition-colors">
+        <div className="relative bg-white rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-8 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+          <button onClick={() => setIsmsOpen(false)} className="sticky top-0 float-right text-zinc-400 hover:text-zinc-900 transition-colors">
             <X size={20} />
           </button>
           <h2 className="text-lg font-bold text-zinc-900 mb-6">블룸에이아이 정보보호 관리체계 인증 획득</h2>
@@ -147,6 +153,19 @@ const Footer = () => {
             </div>
           </div>
           <img src="https://landing.happytalk.io/_next/static/media/isms_certificate.6cdb089a.png" alt="ISMS 인증서" className="w-full rounded-lg mt-6" />
+        </div>
+      </div>
+    )}
+
+    {/* DAU Modal */}
+    {dauOpen && (
+      <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-8" onClick={() => setDauOpen(false)}>
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+        <div className="relative bg-white rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-8 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+          <button onClick={() => setDauOpen(false)} className="sticky top-0 float-right text-zinc-400 hover:text-zinc-900 transition-colors">
+            <X size={20} />
+          </button>
+          <img src={dauCertImg} alt="DAU 메시지 인증서" className="w-full rounded-lg" />
         </div>
       </div>
     )}

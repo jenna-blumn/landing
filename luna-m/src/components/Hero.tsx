@@ -16,7 +16,7 @@ const slides = [
   {
     id: 3,
     title: "고객 맞춤형 쿠폰으로\n전환율을 3배 상승",
-    description: "타겟팅된 프로모션 메시지로 구매 전환을 극대화합니다.",
+    description: "타겟팅된 프로모션 메시지로 구매 전환을 극대화하세요.",
   },
 ];
 
@@ -26,31 +26,38 @@ const createCardSvg = (c4: string, c6: string, label: string, iconPath: string) 
     `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600">
       <defs>
         <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c4}"/><stop offset="1" stop-color="${c6}"/></linearGradient>
-        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="white" stop-opacity="0.12"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="white" stop-opacity="0.08"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient>
       </defs>
       <rect fill="url(#bg)" width="800" height="600" rx="40"/>
       <rect fill="url(#g)" width="800" height="600" rx="40"/>
-      <g transform="translate(400,230) scale(1.12)" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">${iconPath}</g>
-      <text x="400" y="390" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="38" font-weight="600" font-family="system-ui,-apple-system,sans-serif">${label}</text>
+      <circle cx="400" cy="240" r="72" fill="rgba(255,255,255,0.1)"/>
+      <g transform="translate(400,240) scale(1.8)" fill="none" stroke="rgba(255,255,255,0.95)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${iconPath}</g>
+      <text x="400" y="400" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="36" font-weight="600" font-family="system-ui,-apple-system,sans-serif">${label}</text>
     </svg>`
   )}`;
 
+// 4-color palette: olive, taupe, mauve, slate
+const olive = ['#9da87e', '#636c42'] as const;
+const taupe = ['#a8a09a', '#6e655e'] as const;
+const mauve = ['#a899ac', '#6e5f74'] as const;
+const slate = ['#99b0c0', '#5e7282'] as const;
+
 const galleryItems = [
-  { image: createCardSvg('#a3a3a3','#525252', '브랜드 메시지',
+  { image: createCardSvg(olive[0], olive[1], '브랜드 메시지',
       '<rect x="-24" y="-18" width="48" height="36" rx="5"/><polyline points="-8,18 0,28 8,18"/>') },
-  { image: createCardSvg('#a8a29e','#57534e', '주문 알림',
+  { image: createCardSvg(taupe[0], taupe[1], '주문 알림',
       '<path d="M0-24a16 16 0 00-16 16v12h32v-12a16 16 0 00-16-16"/><line x1="-18" y1="4" x2="18" y2="4"/><path d="M-4 4a4 4 0 008 0"/>') },
-  { image: createCardSvg('#a09890','#6e655e', '배송 조회',
+  { image: createCardSvg(mauve[0], mauve[1], '배송 조회',
       '<rect x="-24" y="-10" width="32" height="22" rx="3"/><path d="M8-10v22h16v-14l-8-8z"/><circle cx="-8" cy="14" r="5"/><circle cx="16" cy="14" r="5"/>') },
-  { image: createCardSvg('#a899ac','#6e5f74', '쿠폰 발송',
-      '<rect x="-24" y="-16" width="48" height="32" rx="5"/><line x1="-4" y1="-16" x2="-4" y2="16" stroke-dasharray="4 4"/><circle cx="-4" cy="-16" r="5" fill="#8B7B8E" stroke="rgba(255,255,255,0.9)"/><circle cx="-4" cy="16" r="5" fill="#8B7B8E" stroke="rgba(255,255,255,0.9)"/>') },
-  { image: createCardSvg('#99b0c0','#5e7282', '고객 세그먼트',
+  { image: createCardSvg(slate[0], slate[1], '쿠폰 발송',
+      '<rect x="-24" y="-16" width="48" height="32" rx="5"/><line x1="-4" y1="-16" x2="-4" y2="16" stroke-dasharray="4 4"/><circle cx="-4" cy="-16" r="5" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.95)"/><circle cx="-4" cy="16" r="5" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.95)"/>') },
+  { image: createCardSvg(olive[0], olive[1], '고객 세그먼트',
       '<circle cx="-10" cy="-6" r="10"/><circle cx="14" cy="-6" r="10"/><path d="M-24 18a14 14 0 0128 0"/><path d="M0 18a14 14 0 0128 0"/>') },
-  { image: createCardSvg('#9da87e','#636c42', '마케팅 자동화',
+  { image: createCardSvg(taupe[0], taupe[1], '마케팅 자동화',
       '<polygon points="0,-24 4,-8 -12,-8"/><polygon points="0,24 -4,8 12,8"/><line x1="-20" y1="0" x2="20" y2="0"/>') },
-  { image: createCardSvg('#8a8a8a','#4a4a4a', '실시간 분석',
+  { image: createCardSvg(mauve[0], mauve[1], '실시간 분석',
       '<line x1="-20" y1="20" x2="-20" y2="-4"/><line x1="-6" y1="20" x2="-6" y2="-16"/><line x1="8" y1="20" x2="8" y2="0"/><line x1="22" y1="20" x2="22" y2="-22"/><line x1="-24" y1="20" x2="26" y2="20"/>') },
-  { image: createCardSvg('#9c938c','#635b55', 'A/B 테스트',
+  { image: createCardSvg(slate[0], slate[1], 'A/B 테스트',
       '<rect x="-24" y="-18" width="20" height="36" rx="4"/><rect x="4" y="-18" width="20" height="36" rx="4"/><line x1="-14" y1="4" x2="-14" y2="12" stroke-dasharray="3 3"/><line x1="14" y1="4" x2="14" y2="12" stroke-dasharray="3 3"/>') },
 ];
 
