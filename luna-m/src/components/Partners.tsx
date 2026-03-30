@@ -18,6 +18,10 @@ const partners = [
   { name: '핀다', subName: 'Finda', logo: 'https://image.fnnews.com/resource/media/image/2021/07/29/202107290906268840_e.jpg', h: 22 },
   { name: '돌쇠네농산물', subName: 'Dolfarmer', logo: 'https://www.dolfarmer.com/data/board/sm7396/28/ds_symbol.png' },
   { name: '핫핑', subName: 'Hotping', logo: 'https://hotping.co.kr/renewSkin/img/new/logo.png', h: 20 },
+  { name: '카카오모빌리티', subName: 'Kakao Mobility', logo: 'https://t1.kakaocdn.net/kakaomobility/company_website/images/logo.svg' },
+  { name: '오리온', subName: 'Orion', logo: 'https://www.orionworld.com/theme/102114/kr/assets/images/common/logo.png' },
+  { name: '동아제약', subName: 'Dong-A Pharm', logo: 'http://www.donga.co.kr/images/common/logo.png' },
+  { name: 'IBK투자증권', subName: 'IBK Securities', logo: 'https://m.ibks.com/images/logo/main_logo.png' },
 ];
 
 const Partners = () => {
@@ -72,7 +76,7 @@ const Partners = () => {
         </div>
 
         <p className="text-center text-[13px] text-zinc-600 mt-8">
-          외 다수의 파트너사와 함께하고 있습니다
+          외 4만 여개 파트너사와 함께하고 있습니다
         </p>
       </div>
     </section>
