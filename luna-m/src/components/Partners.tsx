@@ -20,7 +20,7 @@ const partners = [
   { name: '핫핑', subName: 'Hotping', logo: 'https://hotping.co.kr/renewSkin/img/new/logo.png', h: 20 },
   { name: '카카오모빌리티', subName: 'Kakao Mobility', logo: 'https://t1.kakaocdn.net/kakaomobility/company_website/images/logo.svg' },
   { name: '오리온', subName: 'Orion', logo: 'https://www.orionworld.com/theme/102114/kr/assets/images/common/logo.png' },
-  { name: '동아제약', subName: 'Dong-A Pharm', logo: 'http://www.donga.co.kr/images/common/logo.png' },
+  { name: '동아제약', subName: 'Dong-A Pharm', logo: 'https://www.dapharm.com/img/logo_black-50f74305af14d040dba73088d93ada55.svg' },
   { name: 'IBK투자증권', subName: 'IBK Securities', logo: 'https://m.ibks.com/images/logo/main_logo.png' },
 ];
 
@@ -52,7 +52,7 @@ const Partners = () => {
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="max-w-[180px] object-contain opacity-60 group-hover:opacity-100 mb-2"
+                  className="max-w-[180px] object-contain opacity-60 group-hover:opacity-100 mb-4"
                   style={{
                     height: 'h' in partner && partner.h ? partner.h : 32,
                     transition: 'opacity 200ms ease',
