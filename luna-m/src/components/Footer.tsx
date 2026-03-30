@@ -1,4 +1,6 @@
-import { ArrowRight } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, X } from 'lucide-react';
+import iso27001Img from '../assets/iso27001.png';
 
 const footerLinks = [
   {
@@ -29,7 +31,10 @@ const footerLinks = [
 ];
 
 const Footer = () => {
+  const [ismsOpen, setIsmsOpen] = React.useState(false);
+
   return (
+    <>
     <footer className="bg-white border-t border-zinc-200">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
         {/* Upper: Brand + Links */}
@@ -108,13 +113,44 @@ const Footer = () => {
                 <p>사업자등록번호: 773-87-00356 통신판매업 신고번호: 제 2024-서울중구-1646호</p>
               </div>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col items-end gap-3">
+              <div className="flex items-center gap-2">
+                <button onClick={() => setIsmsOpen(true)} className="cursor-pointer">
+                  <img src="https://shoplic.kr/wp-content/uploads/2025/06/ISMS.png" alt="ISMS 인증" className="w-[36px] h-[36px] rounded-full object-cover" />
+                </button>
+                <img src={iso27001Img} alt="ISO 27001 인증" className="w-[36px] h-[36px] rounded-full object-cover" />
+              </div>
               <p className="text-zinc-400 text-[12px]">© Blumn AI Corp. All rights Reserved.</p>
             </div>
           </div>
         </div>
       </div>
     </footer>
+
+    {/* ISMS Modal */}
+    {ismsOpen && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center px-4" onClick={() => setIsmsOpen(false)}>
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+        <div className="relative bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+          <button onClick={() => setIsmsOpen(false)} className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-900 transition-colors">
+            <X size={20} />
+          </button>
+          <h2 className="text-lg font-bold text-zinc-900 mb-6">블룸에이아이 정보보호 관리체계 인증 획득</h2>
+          <div className="space-y-4 text-[14px] text-zinc-600 leading-relaxed">
+            <div>
+              <p className="font-semibold text-zinc-900 mb-1">🔒 인증범위</p>
+              <p>채팅상담, ARS 콜센터 솔루션 및 고객관리 솔루션 운영<br />(정보통신방법 제47조의7에 따른 인증의 특례)</p>
+            </div>
+            <div>
+              <p className="font-semibold text-zinc-900 mb-1">🔒 유효기간</p>
+              <p>2025.11.19 ~ 2028.11.18</p>
+            </div>
+          </div>
+          <img src="https://landing.happytalk.io/_next/static/media/isms_certificate.6cdb089a.png" alt="ISMS 인증서" className="w-full rounded-lg mt-6" />
+        </div>
+      </div>
+    )}
+    </>
   );
 };
 
