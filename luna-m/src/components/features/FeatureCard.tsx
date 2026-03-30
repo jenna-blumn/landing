@@ -44,9 +44,9 @@ const FeatureCard = ({ card }: FeatureCardProps) => {
             {card.title}
           </h3>
           {card.description && (
-            <div className="flex flex-col gap-1.5 lg:max-w-[70%]">
+            <div className="flex flex-col gap-1.5">
               {card.description.split("\n\n").map((paragraph, idx) => (
-                <p key={idx} className="fc-text text-[14px] leading-relaxed whitespace-pre-line" style={{ textWrap: 'pretty' }}>
+                <p key={idx} className="fc-text text-[14px] leading-relaxed whitespace-pre-wrap" style={{ textWrap: 'pretty' }}>
                   {paragraph}
                 </p>
               ))}
@@ -80,7 +80,7 @@ const FeatureCard = ({ card }: FeatureCardProps) => {
           {card.description && (
             <div className="flex flex-col gap-1.5">
               {card.description.split("\n\n").map((paragraph, idx) => (
-                <p key={idx} className="fc-text text-[14px] leading-relaxed whitespace-pre-line" style={{ textWrap: 'pretty' }}>
+                <p key={idx} className="fc-text text-[14px] leading-relaxed whitespace-pre-wrap" style={{ textWrap: 'pretty' }}>
                   {paragraph}
                 </p>
               ))}
@@ -88,12 +88,19 @@ const FeatureCard = ({ card }: FeatureCardProps) => {
           )}
 
           {card.tags && (
-            <div className="flex flex-wrap gap-1.5 mt-5 max-w-sm">
-              {card.tags.map((tag) => (
-                <span key={tag} className="fc-tag px-3 py-1.5 rounded-lg text-[13px] font-medium">
-                  {tag}
-                </span>
-              ))}
+            <div className="mt-5 max-w-sm">
+              {card.tagsTitle && (
+                <h4 className="fc-text mb-2 text-sm font-semibold tracking-[0.01em]">
+                  {card.tagsTitle}
+                </h4>
+              )}
+              <div className="flex flex-wrap gap-1.5">
+                {card.tags.map((tag) => (
+                  <span key={tag} className="fc-tag px-3 py-1.5 rounded-lg text-[13px] font-medium">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           )}
         </div>

@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "microsoft_teams-kcu286-93": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.composio.dev/partner/composio/microsoft_teams/mcp?customerId=4898ec0e-1837-48fe-9cb0-3b7fadfc2637&agent=claude"
+      ],
+      "env": {
+        "npm_config_yes": "true"
+      }
+    }
+  }
+}

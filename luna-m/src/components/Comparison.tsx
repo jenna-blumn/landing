@@ -10,7 +10,7 @@ const comparisonData: ComparisonRow[] = [
   { feature: '메시지 성격', alimtalk: '정보성·안내성 메시지', bizmsg: '마케팅·홍보·브랜드 메시지' },
   { feature: '발송 대상', alimtalk: '휴대폰 번호 기반 고객', bizmsg: '카카오 채널 친구' },
   { feature: '광고성 메시지 발송', alimtalk: false, bizmsg: true },
-  { feature: '메시지 형식', alimtalk: '텍스트 중심', bizmsg: '텍스트 + 이미지' },
+  { feature: '지원 메시지 포맷', alimtalk: '텍스트 중심', bizmsg: '이미지형, 와이드형, 캐러셀형, 커머스형' },
   { feature: '이미지 사용', alimtalk: false, bizmsg: true },
   { feature: '버튼 삽입', alimtalk: true, bizmsg: true },
   { feature: '발송 조건', alimtalk: '사전 등록된 템플릿 필수', bizmsg: '자유로운 메시지 작성' },

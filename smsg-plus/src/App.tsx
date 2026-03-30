@@ -90,45 +90,45 @@ const Navbar = () => {
         className="transition-all duration-300"
         style={{ borderBottom: scrolled ? '1px solid rgba(0,0,0,0.06)' : '1px solid transparent' }}
       >
-      <div className="flex justify-between items-center h-16 px-6 max-w-[1280px] mx-auto">
-        <a href="#" className="flex items-center">
-          <span className="font-semibold text-lg text-on-surface font-manrope" style={{ letterSpacing: '-0.02em' }}>
-            스마트메시지 <span className="text-primary">플러스</span>
-          </span>
-        </a>
-
-        <div className="hidden md:flex items-center">
-          <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold px-4 py-[7px] rounded-[8px] bg-primary-container text-on-primary shadow-sm hover:opacity-90 transition-all duration-150 active:scale-[0.97]">
-            도입 문의
+        <div className="flex justify-between items-center h-16 px-6 max-w-[1280px] mx-auto">
+          <a href="#" className="flex items-center">
+            <span className="font-semibold text-lg text-on-surface font-manrope" style={{ letterSpacing: '-0.02em' }}>
+              스마트메시지 <span className="text-primary">플러스</span>
+            </span>
           </a>
-        </div>
 
-        {/* Mobile menu toggle */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden p-2 rounded-lg hover:bg-on-surface/[0.04] transition-colors"
-          aria-label="메뉴 열기"
-        >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div
-          className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl"
-          style={{
-            borderBottom: '1px solid rgba(0,0,0,0.06)',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
-          }}
-        >
-          <div className="px-6 py-5">
-            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="block text-center text-[13px] font-semibold px-4 py-2.5 rounded-[8px] bg-primary-container text-on-primary" onClick={() => setMenuOpen(false)}>
+          <div className="hidden md:flex items-center">
+            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold px-4 py-[7px] rounded-[8px] bg-primary-container text-on-primary shadow-sm hover:opacity-90 transition-all duration-150 active:scale-[0.97]">
               도입 문의
             </a>
           </div>
+
+          {/* Mobile menu toggle */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden p-2 rounded-lg hover:bg-on-surface/[0.04] transition-colors"
+            aria-label="메뉴 열기"
+          >
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
-      )}
+
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div
+            className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl"
+            style={{
+              borderBottom: '1px solid rgba(0,0,0,0.06)',
+              boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
+            }}
+          >
+            <div className="px-6 py-5">
+              <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="block text-center text-[13px] font-semibold px-4 py-2.5 rounded-[8px] bg-primary-container text-on-primary" onClick={() => setMenuOpen(false)}>
+                도입 문의
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
@@ -523,50 +523,50 @@ const OnsiteBanner = () => (
 
 /* ─── Final CTA ─── */
 const FinalCTA = () => (
-<>
-  <section className="pt-24 md:pt-32 pb-8 md:pb-12 px-6 bg-surface-container-lowest" id="contact">
-    <div className="max-w-[1280px] mx-auto text-center">
-      {/* Trust strip */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={stagger}
-        className="mb-20"
-      >
-        <motion.h2 variants={fadeUp} transition={{ duration: 0.5, ease }} className="heading-2 mb-10">
-          스마트메시지 플러스를 도입한
-          <br />
-          대표 파트너사
-        </motion.h2>
-        <motion.div variants={fadeUp} transition={{ duration: 0.5, ease }}>
-          <img className="w-full max-w-3xl mx-auto" src={partnersImg} alt="대표 파트너사" />
+  <>
+    <section className="pt-24 md:pt-32 pb-8 md:pb-12 px-6 bg-surface-container-lowest" id="contact">
+      <div className="max-w-[1280px] mx-auto text-center">
+        {/* Trust strip */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={stagger}
+          className="mb-20"
+        >
+          <motion.h2 variants={fadeUp} transition={{ duration: 0.5, ease }} className="heading-2 mb-10">
+            스마트메시지 플러스를 도입한
+            <br />
+            대표 파트너사
+          </motion.h2>
+          <motion.div variants={fadeUp} transition={{ duration: 0.5, ease }}>
+            <img className="w-full max-w-3xl mx-auto" src={partnersImg} alt="대표 파트너사" />
+          </motion.div>
         </motion.div>
-      </motion.div>
 
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <section className="py-24 md:py-32 px-6 relative overflow-hidden">
-    <div className="relative z-10 max-w-[1280px] mx-auto text-center">
-      <motion.div
-        initial={{ opacity: 0, y: 32 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease }}
-      >
-        <h2 className="heading-2 mb-4">스마트메시지 플러스 지금 바로 시작하세요!</h2>
-        <p className="text-on-surface-variant mb-8 text-base">무료 체험으로 시작하고, 성과를 직접 확인하세요.</p>
-        <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="btn-hero-primary bg-on-surface text-surface shadow-xl hover:shadow-2xl hover:opacity-90 transition-all">
-          서비스 신청하기 <ArrowRight size={18} />
-        </a>
-      </motion.div>
-    </div>
-    <div className="absolute inset-0 -z-10 pointer-events-none opacity-60" aria-hidden>
-      <Aurora colors={['#3b82f6', '#7cf994', '#60a5fa']} speed="8s" blur="100px" />
-    </div>
-  </section>
-</>
+    <section className="py-24 md:py-32 px-6 relative overflow-hidden">
+      <div className="relative z-10 max-w-[1280px] mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease }}
+        >
+          <h2 className="heading-2 mb-4">스마트메시지 플러스 지금 바로 시작하세요!</h2>
+          <p className="text-on-surface-variant mb-8 text-base">무료 체험으로 시작하고, 성과를 직접 확인하세요.</p>
+          <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="btn-hero-primary bg-on-surface text-surface shadow-xl hover:shadow-2xl hover:opacity-90 transition-all">
+            서비스 신청하기 <ArrowRight size={18} />
+          </a>
+        </motion.div>
+      </div>
+      <div className="absolute inset-0 -z-10 pointer-events-none opacity-60" aria-hidden>
+        <Aurora colors={['#3b82f6', '#7cf994', '#60a5fa']} speed="8s" blur="100px" />
+      </div>
+    </section>
+  </>
 );
 
 /* ─── Footer ─── */
@@ -574,8 +574,8 @@ const footerLinks = [
   {
     title: '약관 및 정책',
     links: [
-      { label: '이용약관', href: 'https://happytalk.io/auth/terms' },
-      { label: '개인정보 처리방침', href: 'https://happytalk.io/auth/policies' },
+      { label: '서비스 이용약관', href: 'https://blumnai.notion.site/2c5c0b1104dd802a83e4dcd94a5a6e14' },
+      { label: '개인정보 처리방침', href: 'https://blumnai.notion.site/2c5c0b1104dd800bb205c2ceb3c40ff7' },
     ],
   },
   {
@@ -586,22 +586,14 @@ const footerLinks = [
     ],
   },
   {
-    title: '다운로드',
-    links: [
-      { label: '윈도우 프로그램', href: 'https://happytalk.io/desktop_app/download/windows' },
-      { label: '안드로이드 앱', href: 'https://play.google.com/store/apps/details?id=com.mbi.happytalkconsultant&hl=ko' },
-      { label: '아이폰 앱', href: 'https://apps.apple.com/kr/app/%ED%95%B4%ED%94%BC%ED%86%A1-%EA%B3%A0%EA%B0%9D%EC%83%81%EB%8B%B4%EC%9D%84-%EB%8D%94-%EC%9E%98%ED%95%98%EA%B2%8C/id1184789384' },
-    ],
-  },
-  {
     title: '블룸에이아이',
     links: [
       { label: '회사소개', href: 'https://blumn.ai/' },
       { label: '콜브릿지', href: 'https://callbridge.ai/' },
       { label: '헤이데어', href: 'https://hey-there.io/' },
       { label: '해피싱크', href: 'https://www.happysync.io/' },
-      { label: '스마트메시지+', href: 'https://lunasoft.co.kr/home/main/page/service/smartmsgPlusIntro' },
-      { label: '카카오 알림톡', href: 'https://lunasoft.co.kr/home/main/page/service/lunatalk' },
+      { label: '해피톡', href: 'https://www.happytalk.io/' },
+      { label: '루나M', href: 'https://luna-m.ai/' },
     ],
   },
 ];
@@ -609,29 +601,27 @@ const footerLinks = [
 const Footer = () => (
   <footer className="w-full bg-white border-t border-outline-variant/10">
     <div className="max-w-[1280px] mx-auto px-6 md:px-12">
-      {/* Upper */}
+      {/* Upper: Contact + Links */}
       <div className="py-12 md:py-16 flex flex-col lg:flex-row gap-10 lg:gap-16">
         <div className="shrink-0 lg:w-[240px]">
-          <div className="text-lg font-bold text-on-surface mb-8" style={{ letterSpacing: '-0.02em' }}>
+          <div className="text-lg font-bold text-on-surface mb-4" style={{ letterSpacing: '-0.02em' }}>
             스마트메시지 <span className="text-primary">플러스</span>
           </div>
-          <div className="mb-6">
+          <div>
             <p className="text-on-surface-variant/60 text-[13px] leading-relaxed">
-              <span>24시간 고객센터</span>
-              <span className="mx-1.5 text-outline-variant">·</span>
-              <span>help@blumn.ai</span>
+              <span>csm@blumn.ai</span>
             </p>
-            <p className="text-on-surface text-2xl font-bold tracking-tight mt-1 tabular-nums">1666-5263</p>
+            <p className="text-on-surface text-2xl font-bold tracking-tight mt-1 mb-4">1644-4998</p>
           </div>
-          <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[13px] font-medium px-4 py-2 rounded-lg bg-on-surface text-surface hover:opacity-90 transition-all">
+          <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[13px] font-medium px-4 py-2 rounded-lg bg-on-surface text-surface hover:opacity-90 transition-colors">
             도입 문의하기 <ArrowRight size={14} />
           </a>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 flex-1">
+        <div className="grid grid-cols-2 md:grid-cols-[30%_30%_40%] gap-8 md:gap-6 flex-1">
           {footerLinks.map((section) => (
             <div key={section.title}>
-              <p className="text-on-surface-variant/40 text-[13px] font-semibold mb-4">{section.title}</p>
+              <p className="text-on-surface-variant/40 text-[13px] font-medium mb-4">{section.title}</p>
               {section.title === '블룸에이아이' ? (
                 <div className="grid grid-cols-2 gap-x-5 gap-y-2.5">
                   {section.links.map((link) => (
@@ -654,7 +644,7 @@ const Footer = () => (
         </div>
       </div>
 
-      {/* Bottom */}
+      {/* Bottom: Company Info + Copyright */}
       <div className="py-8 border-t border-outline-variant/10">
         <div className="flex flex-col md:flex-row justify-between gap-4">
           <div>
@@ -664,7 +654,7 @@ const Footer = () => (
               <p>사업자등록번호: 773-87-00356 통신판매업 신고번호: 제 2024-서울중구-1646호</p>
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center gap-4">
             <p className="text-on-surface-variant/40 text-[12px]">© Blumn AI Corp. All rights Reserved.</p>
           </div>
         </div>

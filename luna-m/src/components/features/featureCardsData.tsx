@@ -20,6 +20,7 @@ export interface FeatureCard {
   subtitle?: string;
   description: string;
   visual: ReactNode;
+  tagsTitle?: string;
   tags?: string[];
   badge?: string;
   dark: boolean;
@@ -29,7 +30,7 @@ export interface FeatureCard {
   height?: number;
 }
 
-const bizmsgTags = ["알림톡", "친구톡", "문자", "이미지형", "와이드형", "캐러셀형", "커머스형"];
+const bizmsgTags = ["이미지형", "와이드형", "캐러셀형", "커머스형"];
 
 export const featureCards: FeatureCard[] = [
   {
@@ -39,6 +40,7 @@ export const featureCards: FeatureCard[] = [
     title: "발송 대상 확대로 높은 도달률 제공",
     description: "카카오톡 채널 친구이거나 마케팅 수신 동의 고객에게 광고성 메시지 발송\n메시지의 투명성과 안정성 강화로 고객 신뢰 기반의 메시지 제공",
     visual: <BizmsgVisual />,
+    tagsTitle: "지원 메시지 포맷",
     tags: bizmsgTags,
     dark: false,
     height: 420,
@@ -58,7 +60,7 @@ export const featureCards: FeatureCard[] = [
     icon: Coins,
     iconBg: "bg-zinc-700",
     title: "쉽고 빠른 메시지 발송 자동화",
-    description: "카카오 메시지(알림톡·브랜드메시지)와 문자 메시지 대량 발송 자동화 제공\n\n세그먼트 설정을 통한 타겟 발송\n 엑셀 업로드 기반 대량 발송으로 효율적인 메시지 운영\n\n주문·결제·배송·회원 이벤트 등 트리거 기반 자동 발송\n쇼핑몰·CRM·ERP 등 시스템 연동을 위한 API 제공",
+    description: "카카오 메시지(알림톡·브랜드메시지)와 문자 메시지 대량 발송 자동화 제공\n  - 세그먼트 설정을 통한 타겟 발송\n  - 엑셀 업로드 기반 대량 발송으로 효율적인 메시지 운영\n주문·결제·배송·회원 이벤트 등 트리거 기반 자동 발송\n쇼핑몰·CRM·ERP 등 시스템 연동을 위한 API 제공",
     visual: <CostVisual />,
     tags: ["세그먼트 설정", "타겟 발송", "엑셀 업로드", "대량 발송", "효율적인 메시지 운영"],
     dark: true,

@@ -4,8 +4,8 @@ const footerLinks = [
   {
     title: '약관 및 정책',
     links: [
-      { label: '이용약관', href: 'https://happytalk.io/auth/terms' },
-      { label: '개인정보 처리방침', href: 'https://happytalk.io/auth/policies' },
+      { label: '서비스 이용약관', href: 'https://www.notion.so/2c5c0b1104dd802a83e4dcd94a5a6e14?pvs=21' },
+      { label: '개인정보 처리방침', href: 'https://www.notion.so/2c5c0b1104dd800bb205c2ceb3c40ff7?pvs=21' },
     ],
   },
   {
@@ -16,22 +16,14 @@ const footerLinks = [
     ],
   },
   {
-    title: '다운로드',
-    links: [
-      { label: '윈도우 프로그램', href: 'https://happytalk.io/desktop_app/download/windows' },
-      { label: '안드로이드 앱', href: 'https://play.google.com/store/apps/details?id=com.mbi.happytalkconsultant&hl=ko' },
-      { label: '아이폰 앱', href: 'https://apps.apple.com/kr/app/%ED%95%B4%ED%94%BC%ED%86%A1-%EA%B3%A0%EA%B0%9D%EC%83%81%EB%8B%B4%EC%9D%84-%EB%8D%94-%EC%9E%98%ED%95%98%EA%B2%8C/id1184789384' },
-    ],
-  },
-  {
     title: '블룸에이아이',
     links: [
       { label: '회사소개', href: 'https://blumn.ai/' },
+      { label: '해피톡', href: 'https://www.happytalk.io/' },
       { label: '콜브릿지', href: 'https://callbridge.ai/' },
       { label: '헤이데어', href: 'https://hey-there.io/' },
       { label: '해피싱크', href: 'https://www.happysync.io/' },
-      { label: '스마트메시지+', href: 'https://lunasoft.co.kr/home/main/page/service/smartmsgPlusIntro' },
-      { label: '카카오 알림톡', href: 'https://lunasoft.co.kr/home/main/page/service/lunatalk' },
+      { label: '스마트메시지+', href: 'http://smplus.blumn.ai/' },
     ],
   },
 ];
@@ -44,19 +36,17 @@ const Footer = () => {
         <div className="py-12 md:py-16 flex flex-col lg:flex-row gap-10 lg:gap-16">
           {/* Brand + Contact */}
           <div className="shrink-0 lg:w-[240px]">
-            <div className="mb-8">
+            <div className="mb-4">
               <span className="font-bold text-lg text-zinc-900" style={{ letterSpacing: '-0.02em' }}>
                 루나M
               </span>
             </div>
 
-            <div className="mb-6">
+            <div>
               <p className="text-zinc-500 text-[13px] leading-relaxed">
-                <span>24시간 고객센터</span>
-                <span className="mx-1.5 text-zinc-300">·</span>
-                <span>help@blumn.ai</span>
+                <span>csm@blumn.ai</span>
               </p>
-              <p className="text-zinc-900 text-2xl font-bold tracking-tight mt-1">1666-5263</p>
+              <p className="text-zinc-900 text-2xl font-bold tracking-tight mt-1 mb-4">1644-4998</p>
             </div>
 
             <a
@@ -70,7 +60,7 @@ const Footer = () => {
           </div>
 
           {/* Link Columns */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 flex-1">
+          <div className="grid grid-cols-2 md:grid-cols-[30%_30%_40%] gap-8 md:gap-6 flex-1">
             {footerLinks.map((section) => (
               <div key={section.title}>
                 <p className="text-zinc-400 text-[13px] font-medium mb-4">{section.title}</p>
