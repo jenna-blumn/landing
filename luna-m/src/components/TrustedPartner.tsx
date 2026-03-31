@@ -114,7 +114,7 @@ const TrustedPartner = () => {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-15"
+        className="absolute inset-0 w-full h-full object-cover opacity-25"
         src="https://www.pexels.com/ko-kr/download/video/2385276/"
       />
 
