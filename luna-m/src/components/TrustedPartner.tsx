@@ -7,7 +7,7 @@ import daubadgeImg from "@/assets/daubadge.png";
 const features = [
   {
     icon: Shield,
-    title: "카카오 공식 비즈메시지 파트너",
+    title: "카카오 공식 비즈메시지 파트너 1위",
     description: "카카오로부터 인증받은 공식 파트너사로서 안정적인 서비스를 제공합니다.",
   },
   {
@@ -65,10 +65,10 @@ type StatItem = {
 
 const statItems: StatItem[] = [
   { numericValue: 10, suffix: "년+", label: "서비스 운영" },
-  { numericValue: 20000, suffix: "+", label: "기업 고객사" },
+  { numericValue: 42000, suffix: "+", label: "기업 고객사" },
   { numericValue: 120, suffix: "억 건+", label: "누적 발송량" },
   { numericValue: 999, suffix: "%", prefix: "", label: "서비스 안정성", decimals: 1 },
-  { numericValue: 48, suffix: "/5.0", prefix: "", label: "고객 만족도", decimals: 1 },
+  { numericValue: 49, suffix: "/5.0", prefix: "", label: "고객 만족도", decimals: 1 },
 ];
 
 const formatStatValue = (item: StatItem, count: number) => {

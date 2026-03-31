@@ -8,10 +8,10 @@ type ComparisonRow = {
 
 const comparisonData: ComparisonRow[] = [
   { feature: '메시지 성격', alimtalk: '정보성·안내성 메시지', bizmsg: '마케팅·홍보·브랜드 메시지' },
-  { feature: '발송 대상', alimtalk: '휴대폰 번호 기반 고객', bizmsg: '카카오 채널 친구' },
+  { feature: '발송 대상', alimtalk: '휴대폰 번호 기반 고객', bizmsg: '카카오친구 + 휴대폰 번호기반 고객' },
   { feature: '광고성 메시지 발송', alimtalk: false, bizmsg: true },
   { feature: '지원 메시지 포맷', alimtalk: '텍스트 중심', bizmsg: '이미지형, 와이드형, 캐러셀형, 커머스형' },
-  { feature: '이미지 사용', alimtalk: false, bizmsg: true },
+  { feature: '이미지 사용', alimtalk: '카카오 사전 승인 필요', bizmsg: '승인 없이 즉시 발송' },
   { feature: '버튼 삽입', alimtalk: true, bizmsg: true },
   { feature: '발송 조건', alimtalk: '사전 등록된 템플릿 필수', bizmsg: '자유로운 메시지 작성' },
   { feature: '템플릿 심사', alimtalk: '필수 (카카오 사전 승인)', bizmsg: '불필요' },
@@ -64,7 +64,7 @@ export const ComparisonContent = () => (
             background: 'linear-gradient(to bottom, #27272a, #18181b)',
           }}
         >
-          <span className="font-semibold text-white text-sm">비즈메시지</span>
+          <span className="font-semibold text-white text-sm">브랜드 메시지</span>
         </div>
       </div>
 

@@ -16,7 +16,7 @@ const Navbar = () => {
   const navLinks = [
     { label: '서비스 소개', href: '#features' },
     { label: '요금 비교', href: '#comparison' },
-    { label: '문의하기', href: '#contact' },
+    { label: '문의하기', href: 'https://mbisolution.recatch.cc/workflows/dkqkmxcfig' },
   ];
 
   return (
@@ -34,7 +34,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <a key={link.label} href={link.href} className="nav-link">
+              <a key={link.label} href={link.href} className="nav-link" {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
                 {link.label}
               </a>
             ))}
@@ -42,7 +42,7 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <a href="#" className="nav-login">로그인</a>
+            <a href="https://bizmsg.blumn.ai/login" target="_blank" rel="noopener noreferrer" className="nav-login">로그인</a>
             <a href="https://mbisolution.recatch.cc/workflows/dkqkmxcfig" target="_blank" rel="noopener noreferrer" className="nav-cta">상담 신청</a>
           </div>
 
@@ -69,6 +69,7 @@ const Navbar = () => {
                 <a
                   key={link.label}
                   href={link.href}
+                  {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   className="block text-zinc-600 font-medium py-2.5 px-3 rounded-lg hover:bg-zinc-50 hover:text-zinc-900"
                   style={{ transition: 'background-color 150ms ease, color 150ms ease' }}
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -77,7 +78,7 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="pt-3 mt-2 border-t border-zinc-100 space-y-2">
-                <a href="#" className="block text-center text-zinc-600 font-medium py-2.5 rounded-lg hover:bg-zinc-50">
+                <a href="https://bizmsg.blumn.ai/login" target="_blank" rel="noopener noreferrer" className="block text-center text-zinc-600 font-medium py-2.5 rounded-lg hover:bg-zinc-50">
                   로그인
                 </a>
                 <a href="https://mbisolution.recatch.cc/workflows/dkqkmxcfig" target="_blank" rel="noopener noreferrer" className="block text-center btn-primary py-2.5" onClick={() => setIsMobileMenuOpen(false)}>

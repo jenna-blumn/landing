@@ -75,9 +75,9 @@ const Partners = () => {
           ))}
         </div>
 
-        <p className="text-center text-[13px] text-zinc-600 mt-8">
-          외 4만 여개 파트너사와 함께하고 있습니다
-        </p>
+        <h3 className="text-center text-xl md:text-2xl font-bold text-zinc-800 mt-10 tracking-tight">
+          외 40,000 여개 파트너사와 함께하고 있습니다
+        </h3>
       </div>
     </section>
   );
