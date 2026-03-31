@@ -13,13 +13,6 @@ const footerLinks = [
     ],
   },
   {
-    title: '리소스',
-    links: [
-      { label: '블로그', href: 'https://blog.happytalk.io/' },
-      { label: '서비스 소개서', href: 'https://sclu.io/share/bulk/file/bfKGJEdhn8Es' },
-    ],
-  },
-  {
     title: '블룸에이아이',
     links: [
       { label: '회사소개', href: 'https://blumn.ai/' },
@@ -68,7 +61,7 @@ const Footer = () => {
           </div>
 
           {/* Link Columns */}
-          <div className="grid grid-cols-2 md:grid-cols-[30%_30%_40%] gap-8 md:gap-6 flex-1">
+          <div className="grid grid-cols-2 md:grid-cols-[40%_60%] gap-8 md:gap-6 flex-1">
             {footerLinks.map((section) => (
               <div key={section.title}>
                 <p className="text-zinc-400 text-[13px] font-medium mb-4">{section.title}</p>

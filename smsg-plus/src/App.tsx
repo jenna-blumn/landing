@@ -459,7 +459,8 @@ const ConsultingSection = () => (
           스마트메시지 플러스는<br />별도 비용 없이 컨설팅을 도와 드립니다.
         </motion.h2>
         <motion.p variants={fadeUp} transition={{ duration: 0.5, ease }} className="text-base text-on-surface-variant leading-relaxed max-w-xl mx-auto">
-          단발성 메시지 발송도, 효율체크도 스마트메시지 플러스와 함께라면 문제 없습니다.
+          단발성 메시지 발송도, 효율체크도 스마트메시지 플러스와 함께라면{' '}
+          <span className="whitespace-nowrap">문제 없습니다.</span>
         </motion.p>
       </motion.div>
       <motion.div
@@ -579,13 +580,6 @@ const footerLinks = [
     ],
   },
   {
-    title: '리소스',
-    links: [
-      { label: '블로그', href: 'https://blog.happytalk.io/' },
-      { label: '서비스 소개서', href: 'https://sclu.io/share/bulk/file/bfKGJEdhn8Es' },
-    ],
-  },
-  {
     title: '블룸에이아이',
     links: [
       { label: '회사소개', href: 'https://blumn.ai/' },
@@ -622,7 +616,7 @@ const Footer = () => {
               </a>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-[30%_30%_40%] gap-8 md:gap-6 flex-1">
+            <div className="grid grid-cols-2 md:grid-cols-[40%_60%] gap-8 md:gap-6 flex-1">
               {footerLinks.map((section) => (
                 <div key={section.title}>
                   <p className="text-on-surface-variant/40 text-[13px] font-medium mb-4">{section.title}</p>
