@@ -1,0 +1,42 @@
+For all designs I ask you to make, have them be beautiful, not cookie cutter. Make webpages that are fully featured and worthy for production.
+
+By default, this template supports JSX syntax with Tailwind CSS classes, React hooks, and @blumnai-studio/blumnai-design-system for UI components and icons. Do not install other packages for UI themes, icons, etc unless absolutely necessary or I request them.
+
+Use Icon component from @blumnai-studio/blumnai-design-system for all icons.
+
+## 프로젝트: 데스크잇 (Deskit)
+
+컨택센터 상담 애플리케이션. React 18 + TypeScript + Vite + Tailwind CSS 기반.
+
+### 핵심 규칙
+
+- UI 텍스트는 한국어
+- 스타일은 Tailwind 유틸리티 클래스 사용
+- 상태 관리: App.tsx 전역 state + props drilling, 기능별 커스텀 훅
+- localStorage 기반 Mock API (Supabase 마이그레이션 파일은 스키마 참조용)
+- Portal: `task-drawer-container` ID로 모달 렌더링
+
+### 디자인 시스템 (DS)
+
+- 패키지: `@blumnai-studio/blumnai-design-system`
+- Calendar 컴포넌트: react-day-picker 기반, range 선택 시 `rounded-sm`/`rounded-r-none`/`rounded-l-none` CSS longhand 순서로 동작
+- 단일 날짜 선택 시 `{ from }` 만 전달 (to 생략) — `{ from, to: from }` 사용 금지 (border-radius 소실 버그)
+
+### 주요 기능 영역
+
+- `src/features/taskManagement/` — 할일 관리 (서랍, 캘린더, 칸반보드, 공지)
+- `src/features/customerTab/` — 고객 정보 (기본정보, 메모, 태그)
+- `src/features/contactTab/` — 컨택 상담 정보 (상담 노트, 분류, AI 요약)
+- `src/features/channelComposer/` — 채널 컴포저 (채팅/이메일/SMS/알림톡 발신)
+- `src/features/history/` — 상담 이력
+- `src/features/search/` — 검색 및 필터링
+- `src/features/myKnowledge/` — 지식 베이스 (개인 지식, AI 응답, 템플릿)
+- `src/features/integrations/` — OMS 외부 연동 (Cafe24, 스마트스토어 등)
+- `src/features/referenceSettings/` — 참조 패널 설정
+
+### 코드 검증
+
+코드 변경 후 반드시 실행:
+```bash
+npx tsc --noEmit && npm run lint
+```

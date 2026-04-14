@@ -1,0 +1,19 @@
+src/features/contactTab/*
+src/features/history/*
+src/features/integrations/*
+src/features/knowledgeBase/*
+src/features/myKnowledge/*
+src/features/referenceSettings/*
+src/features/search/*
+
+src/components/ContactReferenceArea/*
+src/components/ContactRoomArea/*
+src/components/SharedReferenceArea/*
+src/components/SearchArea/*
+src/components/SidebarArea/*
+src/components/OmsContentPlaceholder.tsx
+src/components/OmsConnectionModal.tsx
+src/components/RightNavigationBar.tsx
+src/components/SecondaryReferenceArea.tsx
+
+# src/features/taskMangement/*

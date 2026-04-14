@@ -1,0 +1,6 @@
+node_modules
+plan-info/node_modules
+plan-info/out
+zip-output
+screenshot-full.png
+.git

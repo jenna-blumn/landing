@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>채팅상담 - 해피톡 | AI 상담 솔루션</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #111115;
+      background: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== TOP BAR ===== */
+    .top-bar {
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 13px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 101;
+    }
+    .top-bar a {
+      text-decoration: none;
+      color: #64748b;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .top-bar a:hover { color: #1e293b; }
+    .top-bar a.active {
+      background: #1e293b;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: fixed; top: 36px; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #eee;
+    }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-size: 22px; font-weight: 700; color: #111; text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .logo svg { width: 28px; height: 28px; }
+    .nav { display: flex; gap: 32px; align-items: center; }
+    .nav a { text-decoration: none; color: #555; font-size: 15px; font-weight: 500; transition: color 0.2s; }
+    .nav a:hover, .nav a.active { color: #111; }
+    .header-actions { display: flex; gap: 12px; align-items: center; }
+    .btn-login { padding: 8px 16px; font-size: 14px; color: #555; text-decoration: none; font-weight: 500; }
+    .btn-start {
+      padding: 8px 20px; font-size: 14px; font-weight: 600; color: #fff;
+      background: #111; border-radius: 8px; text-decoration: none; transition: background 0.2s;
+    }
+    .btn-start:hover { background: #333; }
+
+    /* ===== COMMON ===== */
+    .section { padding: 100px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-badge {
+      display: inline-block; padding: 6px 16px; background: #f0f4ff; color: #3366ff;
+      font-size: 13px; font-weight: 600; border-radius: 20px; margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: 36px; font-weight: 700; line-height: 1.3; letter-spacing: -0.8px; margin-bottom: 12px;
+    }
+    .section-desc { font-size: 17px; color: #6f6f77; line-height: 1.7; max-width: 540px; }
+
+    /* ===== HERO ===== */
+    .hero { padding-top: 176px; padding-bottom: 80px; text-align: center; background: linear-gradient(180deg, #f8faff 0%, #fff 100%); }
+    .hero .section-title { font-size: 48px; margin-bottom: 16px; }
+    .hero .section-desc { font-size: 18px; margin: 0 auto 36px; max-width: 500px; }
+    .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; background: #3366ff; color: #fff;
+      font-size: 16px; font-weight: 600; border-radius: 12px;
+      text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: #2255ee; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(51,102,255,0.3); }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; background: #fff; color: #111;
+      font-size: 16px; font-weight: 600; border-radius: 12px;
+      text-decoration: none; border: 1px solid #ddd; transition: all 0.2s; cursor: pointer;
+    }
+    .btn-secondary:hover { border-color: #aaa; background: #fafafa; }
+
+    /* ===== CLIENT LOGOS ===== */
+    .client-logos {
+      padding: 60px 24px 40px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .logo-track-wrapper {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .logo-track-wrapper::before,
+    .logo-track-wrapper::after {
+      content: '';
+      position: absolute; top: 0; width: 120px; height: 100%; z-index: 2;
+    }
+    .logo-track-wrapper::before { left: 0; background: linear-gradient(90deg, #fff, transparent); }
+    .logo-track-wrapper::after { right: 0; background: linear-gradient(270deg, #fff, transparent); }
+
+    .logo-track {
+      display: flex; gap: 40px; align-items: center;
+      animation: scrollLogos 30s linear infinite;
+      width: max-content;
+    }
+    .logo-track.reverse { animation: scrollLogosReverse 35s linear infinite; }
+
+    @keyframes scrollLogos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes scrollLogosReverse {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+    .logo-item {
+      flex-shrink: 0;
+      font-size: 16px; font-weight: 700; color: #888;
+      white-space: nowrap; padding: 8px 12px;
+      opacity: 0.7; transition: opacity 0.2s;
+    }
+    .logo-item:hover { opacity: 1; }
+
+    /* Client quote */
+    .client-quote {
+      max-width: 700px; margin: 32px auto 0;
+      text-align: center; padding: 24px 32px;
+      background: #f8f9fa; border-radius: 16px;
+      border: 1px solid #e8eaed;
+    }
+    .client-quote p {
+      font-size: 15px; color: #555; line-height: 1.7; font-style: italic;
+    }
+    .client-quote .quote-source {
+      margin-top: 8px; font-size: 14px; color: #999; font-weight: 600; font-style: normal;
+    }
+
+    /* ===== PAIN POINTS SECTION ===== */
+    .pain-points { padding: 100px 24px 80px; background: #fff; }
+    .pain-points-header { text-align: center; margin-bottom: 56px; }
+    .pain-points-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+      max-width: 1000px; margin: 0 auto;
+    }
+    .pain-card {
+      background: #fafbfc; border-radius: 20px; padding: 32px 24px; text-align: center;
+      border: 1px solid #e8eaed; transition: all 0.3s; position: relative;
+    }
+    .pain-card:hover { border-color: #ff4d4f; background: #fff5f5; box-shadow: 0 8px 32px rgba(255,77,79,0.08); }
+    .pain-icon {
+      width: 56px; height: 56px; margin: 0 auto 18px; background: #fff0f0;
+      border-radius: 16px; display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+    }
+    .pain-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #111; }
+    .pain-card p { font-size: 14px; color: #888; line-height: 1.6; }
+
+    /* ===== SOLUTION APPROACH SECTION ===== */
+    .solution-approach { padding: 80px 24px 100px; background: linear-gradient(180deg, #f8faff 0%, #fff 100%); }
+    .solution-approach-header { text-align: center; margin-bottom: 56px; }
+    .solution-approach-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+      max-width: 1000px; margin: 0 auto;
+    }
+    .solution-card {
+      background: #fff; border-radius: 20px; padding: 32px 24px; text-align: center;
+      border: 1px solid #e0e8ff; transition: all 0.3s;
+    }
+    .solution-card:hover { border-color: #3366ff; box-shadow: 0 8px 32px rgba(51,102,255,0.08); }
+    .solution-icon {
+      width: 56px; height: 56px; margin: 0 auto 18px; background: #f0f4ff;
+      border-radius: 16px; display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+    }
+    .solution-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #111; }
+    .solution-card p { font-size: 14px; color: #888; line-height: 1.5; margin-bottom: 16px; }
+    .solution-badges { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+    .solution-badge {
+      display: inline-block; padding: 5px 12px; border-radius: 20px;
+      background: #f0f4ff; color: #3366ff; font-size: 12px; font-weight: 600;
+    }
+
+    /* ===== AI HIGHLIGHT SECTION ===== */
+    /* ===== AI UNIFIED SECTION ===== */
+    .ai-highlight { padding: 100px 24px; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #fff; }
+    .ai-highlight-header { text-align: center; margin-bottom: 60px; }
+    .ai-highlight-header .section-badge { background: rgba(51,102,255,0.2); color: #88b4ff; }
+    .ai-highlight-header .section-title { color: #fff; }
+    .ai-highlight-header .section-desc { color: rgba(255,255,255,0.6); margin: 0 auto; }
+
+    .ai-highlight-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .ai-highlight-card {
+      background: rgba(255,255,255,0.06); border-radius: 24px; padding: 40px 36px;
+      border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .ai-highlight-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .ai-highlight-card.assistant::before { background: linear-gradient(90deg, #3366ff, #22c55e); }
+    .ai-highlight-card.agent::before { background: linear-gradient(90deg, #ff8c00, #ffd700); }
+    .ai-highlight-card.knowledge::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+    .ai-highlight-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+    .ai-card-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 20px;
+    }
+    .ai-highlight-card.assistant .ai-card-badge { background: rgba(51,102,255,0.2); color: #88b4ff; }
+    .ai-highlight-card.agent .ai-card-badge { background: rgba(255,140,0,0.2); color: #ffc266; }
+    .ai-highlight-card.knowledge .ai-card-badge { background: rgba(139,92,246,0.2); color: #c4b5fd; }
+
+    .ai-highlight-card h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; color: #fff; }
+    .ai-highlight-card > p { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 28px; }
+
+    .ai-feature-list { list-style: none; padding: 0; margin: 0 0 20px; }
+    .ai-feature-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 0; font-size: 15px; color: rgba(255,255,255,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .ai-feature-list li:last-child { border-bottom: none; }
+    .ai-feature-list li .feat-icon { flex-shrink: 0; font-size: 16px; margin-top: 2px; }
+
+    .ai-effect-list { list-style: none; padding: 0; margin: 0; }
+    .ai-effect-list li {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 0; font-size: 14px; color: #22c55e; font-weight: 500;
+    }
+    .ai-effect-list li::before { content: '→'; font-weight: 700; color: #22c55e; }
+
+    /* AI Flow Bar */
+    .ai-flow-bar {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      max-width: 800px; margin: 56px auto 0;
+      padding: 28px 36px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+    }
+    .ai-flow-step {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      padding: 12px 20px; border-radius: 14px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.2s; min-width: 100px;
+    }
+    .ai-flow-step.highlight {
+      background: rgba(51,102,255,0.2); border-color: rgba(51,102,255,0.4);
+    }
+    .ai-flow-icon { font-size: 24px; }
+    .ai-flow-step span { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.85); white-space: nowrap; }
+    .ai-flow-arrow { color: rgba(255,255,255,0.3); display: flex; align-items: center; flex-shrink: 0; }
+    .ai-flow-arrow svg { width: 20px; height: 20px; }
+    .ai-flow-or {
+      font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.35);
+      padding: 0 4px;
+    }
+
+    /* AI Section CTA */
+    .ai-section-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 36px; background: #3366ff; color: #fff;
+      font-size: 16px; font-weight: 600; border-radius: 14px;
+      text-decoration: none; border: none; cursor: pointer; transition: all 0.2s;
+    }
+    .ai-section-cta:hover { background: #2255ee; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(51,102,255,0.3); }
+
+    /* Knowledge Base Sub-description */
+    .ai-kb-desc {
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+    }
+    .ai-kb-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #ffc266;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .ai-kb-link:hover { color: #ffd700; }
+    .ai-kb-link svg { transition: transform 0.2s; }
+    .ai-kb-link:hover svg { transform: translateX(3px); }
+
+    .btn-cta-block { display: flex; justify-content: center; margin-top: 32px; }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 36px; background: #3366ff; color: #fff;
+      font-size: 16px; font-weight: 600; border-radius: 14px;
+      text-decoration: none; border: none; cursor: pointer; transition: all 0.2s;
+    }
+    .btn-cta:hover { background: #2255ee; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(51,102,255,0.3); }
+
+    /* ===== FIND SOLUTION ===== */
+    .find-solution { padding: 100px 24px; background: #fff; }
+    .find-solution-header { text-align: center; margin-bottom: 48px; }
+    .find-solution-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .solution-option {
+      border-radius: 20px; padding: 36px; transition: all 0.3s; position: relative;
+      display: flex; flex-direction: column;
+    }
+    .solution-option.onprem {
+      background: #fff; color: #111; border: 1px solid #e8eaed;
+    }
+    .solution-option:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+    .solution-option-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500; margin-bottom: 12px; opacity: 0.8;
+    }
+    .solution-option h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+    .solution-option p { font-size: 15px; line-height: 1.6; margin-bottom: 16px; color: #6f6f77; }
+    .solution-option-features { list-style: none; padding: 0; margin: 0 0 24px; flex: 1; }
+    .solution-option-features li {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; padding: 4px 0; color: #555;
+    }
+    .solution-option-features li::before { content: '✓'; font-weight: 700; color: #3366ff; }
+    .solution-option-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 12px; font-size: 15px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; cursor: pointer;
+      background: #fff; color: #111; border: 1px solid #ddd;
+      align-self: flex-start;
+    }
+    .solution-option-btn:hover { background: #f5f5f5; }
+
+    /* ===== STATS ===== */
+    .stats-section { padding: 80px 24px; background: #111115; color: #fff; }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 900px; margin: 0 auto; text-align: center; }
+    .stat-item h3 {
+      font-size: 42px; font-weight: 800;
+      background: linear-gradient(135deg, #6b9dff, #88c8ff);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 8px;
+    }
+    .stat-item p { font-size: 15px; color: #999; }
+
+    /* ===== PREVIEW SECTION ===== */
+    .preview-section { padding: 80px 24px 100px; background: #fafbfc; }
+    .preview-header { text-align: center; margin-bottom: 12px; }
+    .preview-eye {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; background: #eef1f6; border-radius: 20px;
+      font-size: 13px; color: #555; font-weight: 500; margin-bottom: 20px;
+    }
+    .preview-header h2 { font-size: 40px; font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
+    .preview-header p { font-size: 17px; color: #6f6f77; line-height: 1.6; }
+
+    .preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+    .preview-card {
+      background: #fff; border-radius: 20px; padding: 36px;
+      border: 1px solid #e8eaed; transition: box-shadow 0.3s;
+    }
+    .preview-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+    .preview-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .preview-card-icon {
+      width: 40px; height: 40px; border-radius: 10px; background: #f0f4ff;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .preview-card-icon svg { width: 20px; height: 20px; color: #3366ff; }
+    .preview-card h3 { font-size: 20px; font-weight: 700; }
+    .preview-card > p { font-size: 14px; color: #888; margin-bottom: 24px; }
+    .preview-card-body { display: flex; gap: 20px; }
+    .preview-controls { flex: 1; min-width: 200px; }
+    .control-group { margin-bottom: 18px; }
+    .control-label { font-size: 13px; font-weight: 600; color: #333; margin-bottom: 8px; }
+    .control-options { display: flex; gap: 6px; flex-wrap: wrap; }
+    .control-option {
+      padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 500;
+      border: 1px solid #e0e0e0; background: #fff; color: #666; cursor: pointer; transition: all 0.2s;
+    }
+    .control-option.active { background: #3366ff; color: #fff; border-color: #3366ff; }
+    .control-option:hover:not(.active) { border-color: #999; }
+    .preview-mockup { flex: 1; min-width: 220px; max-width: 280px; }
+    .phone-frame { background: #f5f7fa; border-radius: 20px; padding: 16px; border: 1px solid #e0e3e8; position: relative; }
+    .phone-screen { background: #fff; border-radius: 14px; height: 320px; display: flex; flex-direction: column; overflow: hidden; }
+    .phone-topbar { padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #999; }
+    .phone-content { flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .chat-bubble { padding: 10px 14px; border-radius: 14px; font-size: 12px; max-width: 85%; line-height: 1.5; }
+    .chat-bubble.bot { background: #f0f4ff; color: #333; align-self: flex-start; border-bottom-left-radius: 4px; }
+    .chat-bubble.user { background: #3366ff; color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .floating-btn {
+      position: absolute; bottom: 24px; right: 24px; width: 52px; height: 52px;
+      border-radius: 50%; background: #3366ff; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(51,102,255,0.35); cursor: pointer; transition: transform 0.2s;
+    }
+    .floating-btn:hover { transform: scale(1.08); }
+    .floating-btn svg { width: 24px; height: 24px; color: #fff; }
+    .channel-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .channel-tag { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+    .channel-tag.happytalk { background: #e8f0fe; color: #3366ff; border: 1px solid #c5d5fc; }
+    .channel-tag.kakao { background: #fff8e1; color: #b8860b; border: 1px solid #ffe082; }
+    .channel-tag.naver { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+    .color-options { display: flex; gap: 8px; align-items: center; }
+    .color-dot { width: 28px; height: 28px; border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+    .color-dot.active { border-color: #3366ff; box-shadow: 0 0 0 2px rgba(51,102,255,0.2); }
+    .color-dot.blue { background: #3366ff; }
+    .color-dot.white { background: #fff; border: 1px solid #ddd; }
+    .color-dot.custom { background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3); }
+
+    /* Custom examples */
+    .custom-examples h2 { text-align: center; font-size: 28px; font-weight: 700; margin-bottom: 40px; }
+    .examples-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1100px; margin: 0 auto; }
+    .example-card {
+      background: #fafbfc; border-radius: 16px; padding: 28px 20px; text-align: center;
+      border: 1px solid #eee; transition: all 0.2s;
+    }
+    .example-card:hover { border-color: #3366ff; background: #f8faff; }
+    .example-icon {
+      width: 48px; height: 48px; margin: 0 auto 14px; background: #f0f4ff;
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    }
+    .example-icon svg { width: 22px; height: 22px; color: #3366ff; }
+    .example-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .example-card p { font-size: 13px; color: #888; }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      padding: 100px 24px; text-align: center;
+      background: #f5f5f5;
+      position: relative;
+    }
+    .cta-section h2 { font-size: 40px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.8px; }
+    .cta-section > p { font-size: 17px; color: #6f6f77; margin-bottom: 40px; }
+
+    .cta-btn-main {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 18px 56px; font-size: 17px; font-weight: 700;
+      color: #fff; background: #111; border-radius: 14px;
+      text-decoration: none; border: none; cursor: pointer;
+      position: relative; transition: all 0.2s;
+    }
+    .cta-btn-main::before {
+      content: ''; position: absolute; inset: -3px;
+      background: linear-gradient(135deg, #7c3aed, #3366ff, #22c55e);
+      border-radius: 17px; z-index: -1;
+    }
+    .cta-btn-main:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    .cta-perks { display: flex; gap: 32px; justify-content: center; margin: 28px 0 40px; }
+    .cta-perk { display: flex; align-items: center; gap: 6px; font-size: 15px; color: #555; font-weight: 500; }
+    .cta-perk svg { width: 20px; height: 20px; color: #555; }
+
+    /* Channel icons */
+    .channel-icons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .channel-icon-item {
+      width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #fff; padding: 60px 24px 0; border-top: 1px solid #e8e8e8;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; gap: 80px;
+    }
+    .footer-brand { min-width: 240px; }
+    .footer-brand .footer-logo { font-size: 20px; font-weight: 700; margin-bottom: 16px; }
+    .footer-brand .footer-cs { font-size: 13px; color: #888; margin-bottom: 4px; }
+    .footer-brand .footer-phone { font-size: 22px; font-weight: 700; color: #111; margin-bottom: 4px; }
+    .footer-brand .footer-email { font-size: 14px; color: #555; margin-bottom: 16px; }
+    .footer-download-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border: 1px solid #ddd; border-radius: 8px;
+      font-size: 13px; color: #555; text-decoration: none; font-weight: 500; margin-bottom: 20px;
+    }
+    .footer-download-btn:hover { background: #f5f5f5; }
+    .footer-badges { display: flex; gap: 12px; margin-top: 8px; }
+    .footer-badge {
+      width: 48px; height: 48px; border-radius: 8px; background: #f5f5f5;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 700; color: #666; text-align: center; line-height: 1.2;
+      border: 1px solid #e8e8e8;
+    }
+
+    .footer-links-area { display: flex; gap: 60px; flex: 1; }
+    .footer-col h4 { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 14px; color: #888; text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-col a:hover { color: #555; }
+
+    .footer-bottom {
+      max-width: 1100px; margin: 40px auto 0;
+      padding: 20px 0; border-top: 1px solid #eee;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; color: #aaa;
+    }
+    .footer-bottom-right { display: flex; align-items: center; gap: 12px; }
+    .footer-corp-icon {
+      width: 32px; height: 32px; border-radius: 6px; background: #111; color: #fff;
+      display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700;
+    }
+
+    /* ===== STATS DOWNLOADS ===== */
+    .stats-downloads {
+      display: flex; gap: 16px; justify-content: center; margin-top: 48px;
+    }
+    .stats-download-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; background: transparent; color: #ccc;
+      font-size: 14px; font-weight: 500; border-radius: 10px;
+      text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s;
+    }
+    .stats-download-btn:hover {
+      background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.4);
+    }
+    .stats-download-btn svg { color: #888; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 960px) {
+      .hero .section-title { font-size: 32px; }
+      .preview-grid { grid-template-columns: 1fr; }
+      .preview-card-body { flex-direction: column; }
+      .preview-mockup { max-width: 100%; }
+      .examples-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: 1fr; gap: 24px; }
+      .top-bar { display: none; }
+      .header { top: 0; }
+      .hero { padding-top: 140px; }
+      .nav { display: none; }
+      .stats-downloads { flex-direction: column; align-items: center; gap: 10px; }
+      .footer-inner { flex-direction: column; gap: 40px; }
+      .footer-links-area { flex-wrap: wrap; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .pain-points-grid { grid-template-columns: repeat(2, 1fr); }
+      .solution-approach-grid { grid-template-columns: repeat(2, 1fr); }
+      .ai-highlight-grid { grid-template-columns: 1fr; }
+      .ai-flow-bar { flex-wrap: wrap; gap: 8px; padding: 20px; }
+      .ai-flow-step { min-width: 80px; padding: 10px 14px; }
+    }
+    @media (max-width: 600px) {
+      .hero .section-title { font-size: 28px; }
+      .section-title { font-size: 28px; }
+      .examples-grid { grid-template-columns: 1fr 1fr; }
+      .find-solution-grid { grid-template-columns: 1fr; }
+      .cta-perks { flex-direction: column; align-items: center; gap: 12px; }
+      .preview-header h2 { font-size: 28px; }
+      .cta-section h2 { font-size: 28px; }
+      .stats-downloads { flex-direction: column; align-items: center; }
+      .pain-points-grid { grid-template-columns: 1fr; }
+      .solution-approach-grid { grid-template-columns: 1fr 1fr; }
+      .ai-flow-bar { flex-direction: column; align-items: center; }
+      .ai-flow-arrow { transform: rotate(90deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <a href="#" class="active">채팅상담</a>
+    <a href="#">디지털 서비스</a>
+    <a href="#">해피톡 구축형 솔루션</a>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#3366ff"/><path d="M8 10.5C8 9.67 8.67 9 9.5 9h9c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5H13l-3 2.5V17H9.5c-.83 0-1.5-.67-1.5-1.5v-5z" fill="#fff"/></svg>
+        happytalk
+      </a>
+      <nav class="nav">
+        <a href="/agent">AI 에이전트</a>
+        <a href="/chat" class="active">제품소개</a>
+        <a href="/pricing">플랜안내</a>
+        <a href="/cases">고객사례</a>
+        <a href="/support">고객지원</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/login" class="btn-login">로그인</a>
+        <a href="/signup" class="btn-start">무료시작</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero section">
+    <div class="container">
+      <div class="section-badge">채팅상담 솔루션</div>
+      <h1 class="section-title">상담의 흐름을 설계하는<br>AI 채팅 솔루션</h1>
+      <p class="section-desc">고객 문의부터 AI 자동 응대, 상담사 연결까지<br>채팅상담의 모든 흐름을 하나로 관리하세요.</p>
+      <div class="hero-cta">
+        <a href="/signup" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          채팅상담 무료시작
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT LOGOS -->
+  <section class="client-logos">
+    <div class="logo-track-wrapper">
+      <div class="logo-track">
+        <span class="logo-item" style="color:#00c4b4; font-size:18px;">+ 링티</span>
+        <span class="logo-item" style="color:#0046ff;">삼성증권</span>
+        <span class="logo-item" style="color:#00a651;">우리은행</span>
+        <span class="logo-item" style="color:#6b3a2a;">TOM N TOMS</span>
+        <span class="logo-item" style="color:#ff6600;">OK저축은행</span>
+        <span class="logo-item" style="color:#003399;">경기도</span>
+        <span class="logo-item" style="color:#111;">AHC</span>
+        <span class="logo-item" style="color:#e60012;">하이마트</span>
+        <span class="logo-item" style="color:#222;">Dr.G</span>
+        <span class="logo-item" style="color:#6c5ce7;">genie</span>
+        <span class="logo-item" style="color:#ff3366;">여기어때</span>
+        <span class="logo-item" style="color:#cc0000;">TOYOTA</span>
+        <span class="logo-item" style="color:#00b493;">오늘</span>
+        <!-- duplicate for seamless loop -->
+        <span class="logo-item" style="color:#00c4b4; font-size:18px;">+ 링티</span>
+        <span class="logo-item" style="color:#0046ff;">삼성증권</span>
+        <span class="logo-item" style="color:#00a651;">우리은행</span>
+        <span class="logo-item" style="color:#6b3a2a;">TOM N TOMS</span>
+        <span class="logo-item" style="color:#ff6600;">OK저축은행</span>
+        <span class="logo-item" style="color:#003399;">경기도</span>
+        <span class="logo-item" style="color:#111;">AHC</span>
+        <span class="logo-item" style="color:#e60012;">하이마트</span>
+        <span class="logo-item" style="color:#222;">Dr.G</span>
+        <span class="logo-item" style="color:#6c5ce7;">genie</span>
+        <span class="logo-item" style="color:#ff3366;">여기어때</span>
+        <span class="logo-item" style="color:#cc0000;">TOYOTA</span>
+        <span class="logo-item" style="color:#00b493;">오늘</span>
+      </div>
+    </div>
+    <div class="logo-track-wrapper">
+      <div class="logo-track reverse">
+        <span class="logo-item" style="color:#ff6600;">FedEx</span>
+        <span class="logo-item" style="color:#2ac1bc;">배민커넥트</span>
+        <span class="logo-item" style="color:#e6007e;">yes24</span>
+        <span class="logo-item" style="color:#333;">영단기</span>
+        <span class="logo-item" style="color:#6b6b00;">KB국민카드</span>
+        <span class="logo-item" style="color:#ff8c00;">제주관광공사</span>
+        <span class="logo-item" style="color:#003087;">KORAIL</span>
+        <span class="logo-item" style="color:#0066cc;">현대</span>
+        <span class="logo-item" style="color:#e60012;">SKT</span>
+        <span class="logo-item" style="color:#333;">FURSYS</span>
+        <span class="logo-item" style="color:#ff3300;">ezL</span>
+        <!-- duplicate -->
+        <span class="logo-item" style="color:#ff6600;">FedEx</span>
+        <span class="logo-item" style="color:#2ac1bc;">배민커넥트</span>
+        <span class="logo-item" style="color:#e6007e;">yes24</span>
+        <span class="logo-item" style="color:#333;">영단기</span>
+        <span class="logo-item" style="color:#6b6b00;">KB국민카드</span>
+        <span class="logo-item" style="color:#ff8c00;">제주관광공사</span>
+        <span class="logo-item" style="color:#003087;">KORAIL</span>
+        <span class="logo-item" style="color:#0066cc;">현대</span>
+        <span class="logo-item" style="color:#e60012;">SKT</span>
+        <span class="logo-item" style="color:#333;">FURSYS</span>
+        <span class="logo-item" style="color:#ff3300;">ezL</span>
+      </div>
+    </div>
+    <div class="client-quote">
+      <p>"해피톡 채팅상담솔루션과 챗봇을 도입해 상담 효율성을 대폭 향상시켰습니다.<br>챗봇 도입 후 상담사 상담 접수 건수는 30% 이상 감소했습니다"</p>
+      <div class="quote-source">— 토스</div>
+    </div>
+  </section>
+
+  <!-- 1. 문제 제기 섹션 (신규) -->
+  <section class="pain-points">
+    <div class="container">
+      <div class="pain-points-header">
+        <div class="section-badge" style="background:#fff0f0; color:#ff4d4f;">상담 운영 과제</div>
+        <h2 class="section-title">이런 상담 운영 문제를<br>겪고 있지 않나요?</h2>
+        <p class="section-desc" style="margin:0 auto;">많은 기업이 공통적으로 겪는 상담 운영의 핵심 과제입니다.</p>
+      </div>
+      <div class="pain-points-grid">
+        <div class="pain-card">
+          <div class="pain-icon">🐌</div>
+          <h4>반복 문의로 상담 속도가 느림</h4>
+          <p>반복 문의로 중요한 상담에<br>집중하기 어렵습니다.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">⚖️</div>
+          <h4>상담사마다 응대 품질이 다름</h4>
+          <p>담당자마다 답변이 달라,<br>고객 경험이 일정하지 않습니다.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">🔀</div>
+          <h4>채널이 분산되어 관리가 힘듬</h4>
+          <p>채널별 관리로<br>운영 효율이 떨어집니다.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">🚧</div>
+          <h4>상담 운영 관리가 체계적이지 않음</h4>
+          <p>상담 배정 · 관리 기준이 없어<br>운영이 비효율적입니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 해결 방식 섹션 (신규) -->
+  <section class="solution-approach">
+    <div class="container">
+      <div class="solution-approach-header">
+        <div class="section-badge">해피톡의 접근</div>
+        <h2 class="section-title">해피톡은 상담 운영을<br>이렇게 바꿉니다</h2>
+        <p class="section-desc" style="margin:0 auto;">문제 해결 중심의 설계로 상담 운영을 근본적으로 개선합니다.</p>
+      </div>
+      <div class="solution-approach-grid">
+        <div class="solution-card">
+          <div class="solution-icon">⚡</div>
+          <h4>반복 문의 자동 처리</h4>
+          <p>단순 문의는 자동으로 응대하여<br>상담 효율을 높입니다.</p>
+          <div class="solution-badges">
+            <span class="solution-badge">자동 응답</span>
+            <span class="solution-badge">반복 문의 처리</span>
+          </div>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">🤖</div>
+          <h4>AI로 상담 품질 표준화</h4>
+          <p>일관된 답변으로<br>상담 품질을 유지합니다.</p>
+          <div class="solution-badges">
+            <span class="solution-badge">상담 분류</span>
+            <span class="solution-badge">템플릿 활용</span>
+          </div>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">🔗</div>
+          <h4>다양한 채널 통합 운영</h4>
+          <p>여러 채널을 하나로 관리해<br>운영을 단순화합니다.</p>
+          <div class="solution-badges">
+            <span class="solution-badge">멀티브랜드</span>
+            <span class="solution-badge">다양한 채널 연동</span>
+          </div>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">🛠️</div>
+          <h4>상담 운영 최적화</h4>
+          <p>상담배정과 조직 관리를<br>효율적으로 운영합니다.</p>
+          <div class="solution-badges">
+            <span class="solution-badge">상담사 관리</span>
+            <span class="solution-badge">자동 배정</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 성과/지표 섹션 (해결 방식 이후로 이동) -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item"><h3>1억 2천만+</h3><p>누적 채팅방 수</p></div>
+        <div class="stat-item"><h3>97.9%</h3><p>챗봇 처리율</p></div>
+        <div class="stat-item"><h3>1,401일</h3><p>평균 가입 기간</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI 통합 섹션 -->
+  <section class="ai-highlight" id="ai-core">
+    <div class="container">
+      <div class="ai-highlight-header">
+        <div class="section-badge">핵심 기능</div>
+        <h2 class="section-title">해피톡만의 AI,<br>상담의 핵심을 바꿉니다</h2>
+        <p class="section-desc">AI 어시스턴트와 AI 에이전트가 상담 품질과 효율을 동시에 끌어올립니다.</p>
+      </div>
+
+      <!-- 3개의 핵심 카드 -->
+      <div class="ai-highlight-grid">
+        <!-- AI 어시스턴트 -->
+        <div class="ai-highlight-card assistant">
+          <div class="ai-card-badge">✨ AI 어시스턴트</div>
+          <h3>상담사를 돕는 AI</h3>
+          <p>상담 중 실시간으로 분류, 요약, 감정 분석을<br>수행하여 상담사의 업무를 지원합니다.</p>
+          <ul class="ai-feature-list">
+            <li><span class="feat-icon">📋</span>상담 내용 자동 분류</li>
+            <li><span class="feat-icon">📝</span>상담 종료 후 자동 요약</li>
+            <li><span class="feat-icon">💬</span>고객 감정 분석</li>
+          </ul>
+          <ul class="ai-effect-list">
+            <li>상담 이력 관리 시간 감소</li>
+            <li>상담 품질 표준화</li>
+          </ul>
+        </div>
+
+        <!-- AI 에이전트 -->
+        <div class="ai-highlight-card agent">
+          <div class="ai-card-badge">🤖 AI 에이전트</div>
+          <h3>고객을 직접 응대하는 AI</h3>
+          <p>고객 질문의 맥락을 이해하고,<br>자동 응대 또는 상담사 연결을 판단합니다.</p>
+          <ul class="ai-feature-list">
+            <li><span class="feat-icon">🧠</span>질문 맥락 기반 이해</li>
+            <li><span class="feat-icon">🎯</span>응대 유형 자동 판단</li>
+            <li><span class="feat-icon">⚡</span>자동 답변 또는 상담 연결</li>
+          </ul>
+          <ul class="ai-effect-list">
+            <li>반복 문의 자동 처리</li>
+            <li>상담사 업무 부담 감소</li>
+            <li>24시간 응대 가능</li>
+          </ul>
+        </div>
+
+        <!-- 지식 기반 응대 -->
+        <div class="ai-highlight-card knowledge">
+          <div class="ai-card-badge">📚 지식 기반 응대</div>
+          <h3>지식 기반 응대</h3>
+          <p>등록된 정보를 기반으로<br>일관된 상담을 제공합니다.</p>
+          <ul class="ai-feature-list">
+            <li><span class="feat-icon">📖</span>지식 등록 기반 응대</li>
+            <li><span class="feat-icon">🗂️</span>카테고리별 지식 관리</li>
+            <li><span class="feat-icon">📋</span>정책·FAQ·매뉴얼 활용</li>
+          </ul>
+          <ul class="ai-effect-list">
+            <li>엉뚱한 답변 감소</li>
+            <li>상담 정확도 향상</li>
+            <li>운영 기준 반영</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AI 흐름 다이어그램 -->
+      <div class="ai-flow-bar">
+        <div class="ai-flow-step">
+          <div class="ai-flow-icon">💬</div>
+          <span>고객 질문</span>
+        </div>
+        <div class="ai-flow-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="ai-flow-step highlight">
+          <div class="ai-flow-icon">🧠</div>
+          <span>AI 판단</span>
+        </div>
+        <div class="ai-flow-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="ai-flow-step">
+          <div class="ai-flow-icon">✨</div>
+          <span>자동 응답</span>
+        </div>
+        <div class="ai-flow-or">or</div>
+        <div class="ai-flow-step">
+          <div class="ai-flow-icon">👤</div>
+          <span>상담사 연결</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 5. 체험 섹션 (CTA 바로 위로 이동, 제목/설명 변경, 하단 CTA 추가) -->
+  <section class="preview-section">
+    <div class="container">
+      <div class="preview-header">
+        <div class="preview-eye">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/></svg>
+          설치 전 미리 체험
+        </div>
+        <h2>설치하기 전에,<br>미리 체험해보세요</h2>
+        <p>웹사이트에 노출되는 채팅 플로팅 버튼을<br>원하는 스타일로 커스터마이징 할 수 있습니다.</p>
+      </div>
+
+      <div class="preview-grid">
+        <!-- 홈 화면 설정 -->
+        <div class="preview-card">
+          <div class="preview-card-header">
+            <div class="preview-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>홈 화면 설정</h3>
+          </div>
+          <p>웹사이트에 노출될 채팅 버튼을 자유롭게 설정하세요.</p>
+          <div class="preview-card-body">
+            <div class="preview-controls">
+              <div class="control-group">
+                <div class="control-label">버튼 스타일</div>
+                <div class="control-options">
+                  <span class="control-option">기본형</span>
+                  <span class="control-option active">말풍선형</span>
+                  <span class="control-option">상담하기</span>
+                  <span class="control-option">커스텀</span>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="control-label">채팅 타입 선택</div>
+                <div class="control-options">
+                  <span class="control-option active">기본 화면</span>
+                  <span class="control-option">채널별 화면</span>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="control-label">채널 연동 미리보기</div>
+                <div class="channel-tags">
+                  <span class="channel-tag happytalk">해피톡</span>
+                  <span class="channel-tag kakao">카카오톡</span>
+                  <span class="channel-tag naver">네이버톡톡</span>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="control-label">테마 색상 (배경)</div>
+                <div class="color-options">
+                  <div class="color-dot blue active"></div>
+                  <div class="color-dot white"></div>
+                  <div class="color-dot custom"></div>
+                </div>
+              </div>
+            </div>
+            <div class="preview-mockup">
+              <img src="통합버튼_해피톡.png" alt="홈 화면 미리보기" style="width:100%; border-radius:16px; box-shadow:0 4px 24px rgba(0,0,0,0.10);">
+            </div>
+          </div>
+        </div>
+
+        <!-- 채널별 화면 설정 -->
+        <div class="preview-card">
+          <div class="preview-card-header">
+            <div class="preview-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>채널별 화면 설정</h3>
+          </div>
+          <p>카카오톡, 네이버톡톡 등 채널별 상담 화면을 미리 확인하세요.</p>
+          <div class="preview-card-body">
+            <div class="preview-controls">
+              <div class="control-group">
+                <div class="control-label">버튼 스타일</div>
+                <div class="control-options">
+                  <span class="control-option active">기본형</span>
+                  <span class="control-option">말풍선형</span>
+                  <span class="control-option">상담하기</span>
+                  <span class="control-option">커스텀</span>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="control-label">채팅 타입 선택</div>
+                <div class="control-options">
+                  <span class="control-option">기본 화면</span>
+                  <span class="control-option active">채널별 화면</span>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="control-label">채널 연동 미리보기</div>
+                <div class="channel-tags">
+                  <span class="channel-tag happytalk">해피톡</span>
+                  <span class="channel-tag kakao">카카오톡</span>
+                  <span class="channel-tag naver">네이버톡톡</span>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="control-label">테마 색상 (배경)</div>
+                <div class="color-options">
+                  <div class="color-dot blue active"></div>
+                  <div class="color-dot white"></div>
+                  <div class="color-dot custom"></div>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="control-label">채팅창 색상 선택</div>
+                <div class="control-options">
+                  <span class="control-option active">그레이</span>
+                  <span class="control-option">화이트</span>
+                  <span class="control-option">커스텀</span>
+                </div>
+              </div>
+            </div>
+            <div class="preview-mockup">
+              <img src="채널별버튼_그레이.png" alt="채널별 화면 미리보기" style="width:100%; border-radius:16px; box-shadow:0 4px 24px rgba(0,0,0,0.10);">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 체험 섹션 하단 CTA -->
+      <div class="btn-cta-block" style="margin-top:48px;">
+        <a href="/signup" class="btn-primary" style="padding:16px 40px; font-size:17px; border-radius:14px;">
+          무료로 시작하기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA (실제 사이트 스타일) -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>지금 바로 무료로 시작해보세요</h2>
+      <p>14일동안 해피톡의 모든 기능을 직접 경험해 볼 수 있어요</p>
+
+      <a href="/contact" class="cta-btn-main">도입 문의하기</a>
+
+      <div class="cta-perks">
+        <div class="cta-perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          신용카드 불필요
+        </div>
+        <div class="cta-perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          언제든 취소 가능
+        </div>
+        <div class="cta-perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          평생 무료
+        </div>
+      </div>
+
+      <!-- 연동 채널 아이콘 -->
+      <div class="channel-icons">
+        <div class="channel-icon-item" style="background:#fae100;">💬</div>
+        <div class="channel-icon-item" style="background:#2db400;">N</div>
+        <div class="channel-icon-item" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">📷</div>
+        <div class="channel-icon-item" style="background:#00b8d9;">🖥</div>
+        <div class="channel-icon-item" style="background:#a29bfe;">🤖</div>
+        <div class="channel-icon-item" style="background:#e17055;">🌊</div>
+        <div class="channel-icon-item" style="background:#636e72;">#</div>
+        <div class="channel-icon-item" style="background:#2d3436;">N</div>
+        <div class="channel-icon-item" style="background:#6c5ce7;">N+</div>
+        <div class="channel-icon-item" style="background:#d63031; font-size:11px;">cafe24</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (실제 사이트 구조) -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">happytalk</div>
+        <div class="footer-cs">24시간 고객센터</div>
+        <div class="footer-phone">1666-5263</div>
+        <div class="footer-email">happytalk@happytalk.io</div>
+        <a href="/download/brochure" class="footer-download-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          서비스 소개서 다운로드
+        </a>
+        <div class="footer-badges">
+          <div class="footer-badge">ISMS</div>
+          <div class="footer-badge">ISO<br>27001</div>
+        </div>
+      </div>
+
+      <div class="footer-links-area">
+        <div class="footer-col">
+          <h4>약관 및 정책</h4>
+          <a href="/terms">이용약관</a>
+          <a href="/privacy">개개정보처리방침</a>
+        </div>
+        <div class="footer-col">
+          <h4>리소스</h4>
+          <a href="/dev">개발자 센터</a>
+          <a href="/guide">해피톡 가이드</a>
+        </div>
+        <div class="footer-col">
+          <h4>다운로드</h4>
+          <a href="/download/windows">윈도우 프로그램</a>
+          <a href="/download/android">안드로이드 앱</a>
+          <a href="/download/ios">아이폰 앱</a>
+        </div>
+        <div class="footer-col">
+          <h4>관련 서비스</h4>
+          <a href="#">상담콜</a>
+          <a href="#">스마트메시지+</a>
+          <a href="#">해피싱크</a>
+          <a href="#">헤이데어</a>
+          <a href="#">카카오알림톡</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>(주)블룸에이아이 &nbsp;서울 중구 소공로 89, 순화빌딩 6층, 대표이사: 김범수, 박진영 &nbsp;사업자등록번호: 773-87-00356 통신판매업 신고번호: 제 2024-서울중구-1646호</span>
+      <div class="footer-bottom-right">
+        <span>&copy; Blumn AI Corp. All rights Reserved.</span>
+        <div class="footer-corp-icon">bl</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

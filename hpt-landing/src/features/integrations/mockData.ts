@@ -1,0 +1,321 @@
+import { OMSIntegration, OMSOrder } from './types';
+
+export const mockOMSIntegrations: OMSIntegration[] = [
+  {
+    id: '1',
+    name: 'Cafe24',
+    type: 'e-commerce',
+    status: 'connected',
+    api_key: 'cafe24_api_key_encrypted',
+    config: {
+      store_id: 'mystore',
+      domain: 'mystore.cafe24.com'
+    },
+    created_at: '2024-01-15T09:00:00Z',
+    updated_at: '2024-01-20T14:30:00Z'
+  },
+  {
+    id: '2',
+    name: '네이버 스마트스토어',
+    type: 'e-commerce',
+    status: 'connected',
+    api_key: 'naver_api_key_encrypted',
+    config: {
+      store_id: 'naverstore123',
+      channel_id: 'naver_channel_001'
+    },
+    created_at: '2024-01-10T10:00:00Z',
+    updated_at: '2024-01-22T16:45:00Z'
+  },
+  {
+    id: '3',
+    name: '이지어드민',
+    type: 'e-commerce',
+    status: 'disconnected',
+    api_key: 'ezadmin_api_key_encrypted',
+    config: {
+      mall_id: 'mymall',
+      api_version: 'v2'
+    },
+    created_at: '2024-01-05T11:30:00Z',
+    updated_at: '2024-01-18T09:20:00Z'
+  },
+  {
+    id: '4',
+    name: '셀메이트',
+    type: 'e-commerce',
+    status: 'not_configured',
+    config: {},
+    created_at: '2024-01-25T08:00:00Z',
+    updated_at: '2024-01-25T08:00:00Z'
+  }
+];
+
+export const generateOMSOrdersForCustomer = (customerName: string): OMSOrder[] => [
+  {
+    id: 'order_1',
+    oms_integration_id: '1',
+    order_number: 'CF24-20240120-001',
+    customer_name: customerName,
+    product: '스마트폰 케이스 (블랙)',
+    amount: 29000,
+    status: '배송완료',
+    order_date: '2024-01-20T10:30:00Z',
+    created_at: '2024-01-20T10:30:00Z',
+    updated_at: '2024-01-22T14:00:00Z',
+    details: {
+      quantity: 2,
+      unit_price: 14500,
+      discount: 0,
+      shipping_fee: 0,
+      receiver_name: customerName,
+      receiver_phone: '010-1234-5678',
+      shipping_address: '서울시 강남구 테헤란로 123, 101동 1001호',
+      shipping_message: '문 앞에 놓아주세요',
+      payment_method: '신용카드',
+      payment_date: '2024-01-20T10:30:00Z',
+      shipping_company: 'CJ대한통운',
+      tracking_number: '123456789012',
+      product_options: '색상: 블랙',
+      product_sku: 'SC-BLK-001'
+    }
+  },
+  {
+    id: 'order_2',
+    oms_integration_id: '1',
+    order_number: 'CF24-20240119-045',
+    customer_name: customerName,
+    product: '무선 이어폰 프로',
+    amount: 89000,
+    status: '배송중',
+    order_date: '2024-01-19T14:20:00Z',
+    created_at: '2024-01-19T14:20:00Z',
+    updated_at: '2024-01-20T09:15:00Z',
+    details: {
+      quantity: 1,
+      unit_price: 89000,
+      discount: 0,
+      shipping_fee: 0,
+      receiver_name: customerName,
+      receiver_phone: '010-1234-5678',
+      shipping_address: '서울시 강남구 테헤란로 123, 101동 1001호',
+      payment_method: '무통장입금',
+      payment_date: '2024-01-19T15:00:00Z',
+      shipping_company: '로젠택배',
+      tracking_number: '987654321098',
+      product_options: '색상: 화이트',
+      product_sku: 'WE-WHT-002'
+    }
+  },
+  {
+    id: 'order_3',
+    oms_integration_id: '1',
+    order_number: 'CF24-20240118-123',
+    customer_name: customerName,
+    product: '노트북 파우치 15인치',
+    amount: 45000,
+    status: '주문확인',
+    order_date: '2024-01-18T16:45:00Z',
+    created_at: '2024-01-18T16:45:00Z',
+    updated_at: '2024-01-18T16:45:00Z',
+    details: {
+      quantity: 1,
+      unit_price: 45000,
+      discount: 0,
+      shipping_fee: 0,
+      receiver_name: customerName,
+      receiver_phone: '010-1234-5678',
+      shipping_address: '서울시 강남구 테헤란로 123, 101동 1001호',
+      payment_method: '카카오페이',
+      payment_date: '2024-01-18T16:45:00Z',
+      product_options: '사이즈: 15인치, 색상: 그레이',
+      product_sku: 'NP-GRY-015'
+    }
+  },
+  {
+    id: 'order_4',
+    oms_integration_id: '2',
+    order_number: 'NV-2024011701',
+    customer_name: customerName,
+    product: '프리미엄 화장품 세트',
+    amount: 120000,
+    status: '배송완료',
+    order_date: '2024-01-17T11:30:00Z',
+    created_at: '2024-01-17T11:30:00Z',
+    updated_at: '2024-01-19T18:20:00Z',
+    details: {
+      quantity: 1,
+      unit_price: 150000,
+      discount: 30000,
+      shipping_fee: 0,
+      receiver_name: customerName,
+      receiver_phone: '010-1234-5678',
+      shipping_address: '서울시 강남구 테헤란로 123, 101동 1001호',
+      shipping_message: '배송 전 연락주세요',
+      payment_method: '네이버페이',
+      payment_date: '2024-01-17T11:30:00Z',
+      shipping_company: '한진택배',
+      tracking_number: '456789012345',
+      product_options: '세트 구성: 토너 + 로션 + 크림',
+      product_sku: 'CS-PRM-001'
+    }
+  },
+  {
+    id: 'order_5',
+    oms_integration_id: '2',
+    order_number: 'NV-2024011602',
+    customer_name: customerName,
+    product: '남성 캐주얼 셔츠',
+    amount: 59000,
+    status: '배송중',
+    order_date: '2024-01-16T09:15:00Z',
+    created_at: '2024-01-16T09:15:00Z',
+    updated_at: '2024-01-17T10:30:00Z',
+    details: {
+      quantity: 2,
+      unit_price: 35000,
+      discount: 11000,
+      shipping_fee: 0,
+      receiver_name: customerName,
+      receiver_phone: '010-1234-5678',
+      shipping_address: '서울시 강남구 테헤란로 123, 101동 1001호',
+      payment_method: '신용카드',
+      payment_date: '2024-01-16T09:15:00Z',
+      shipping_company: 'CJ대한통운',
+      tracking_number: '234567890123',
+      product_options: '사이즈: L, 색상: 네이비',
+      product_sku: 'MS-NVY-L-003'
+    }
+  },
+  {
+    id: 'order_6',
+    oms_integration_id: '2',
+    order_number: 'NV-2024011503',
+    customer_name: customerName,
+    product: '여성 가죽 핸드백',
+    amount: 185000,
+    status: '배송완료',
+    order_date: '2024-01-15T13:40:00Z',
+    created_at: '2024-01-15T13:40:00Z',
+    updated_at: '2024-01-18T15:10:00Z',
+    details: {
+      quantity: 1,
+      unit_price: 185000,
+      discount: 0,
+      shipping_fee: 0,
+      receiver_name: customerName,
+      receiver_phone: '010-1234-5678',
+      shipping_address: '서울시 강남구 테헤란로 123, 101동 1001호',
+      payment_method: '신용카드',
+      payment_date: '2024-01-15T13:40:00Z',
+      shipping_company: '로젠택배',
+      tracking_number: '345678901234',
+      product_options: '색상: 브라운',
+      product_sku: 'WB-BRN-004'
+    }
+  },
+  {
+    id: 'order_7',
+    oms_integration_id: '1',
+    order_number: 'CF24-20240115-078',
+    customer_name: customerName,
+    product: '태블릿 거치대',
+    amount: 32000,
+    status: '취소',
+    order_date: '2024-01-15T10:20:00Z',
+    created_at: '2024-01-15T10:20:00Z',
+    updated_at: '2024-01-15T14:30:00Z',
+    details: {
+      quantity: 1,
+      unit_price: 32000,
+      discount: 0,
+      shipping_fee: 0,
+      receiver_name: customerName,
+      receiver_phone: '010-1234-5678',
+      shipping_address: '서울시 강남구 테헤란로 123, 101동 1001호',
+      payment_method: '신용카드',
+      payment_date: '2024-01-15T10:20:00Z',
+      product_options: '색상: 실버',
+      product_sku: 'TS-SLV-005'
+    }
+  },
+  {
+    id: 'order_8',
+    oms_integration_id: '2',
+    order_number: 'NV-2024011404',
+    customer_name: customerName,
+    product: '런닝화 (운동화)',
+    amount: 98000,
+    status: '주문확인',
+    order_date: '2024-01-14T15:50:00Z',
+    created_at: '2024-01-14T15:50:00Z',
+    updated_at: '2024-01-14T15:50:00Z',
+    details: {
+      quantity: 1,
+      unit_price: 98000,
+      discount: 0,
+      shipping_fee: 0,
+      receiver_name: customerName,
+      receiver_phone: '010-1234-5678',
+      shipping_address: '서울시 강남구 테헤란로 123, 101동 1001호',
+      payment_method: '무통장입금',
+      payment_date: '2024-01-14T16:10:00Z',
+      product_options: '사이즈: 270mm, 색상: 블랙',
+      product_sku: 'SH-BLK-270-006'
+    }
+  },
+  {
+    id: 'order_9',
+    oms_integration_id: '1',
+    order_number: 'CF24-20240113-234',
+    customer_name: customerName,
+    product: 'LED 책상 스탠드',
+    amount: 67000,
+    status: '배송완료',
+    order_date: '2024-01-13T12:10:00Z',
+    created_at: '2024-01-13T12:10:00Z',
+    updated_at: '2024-01-16T11:20:00Z',
+    details: {
+      quantity: 1,
+      unit_price: 67000,
+      discount: 0,
+      shipping_fee: 0,
+      receiver_name: customerName,
+      receiver_phone: '010-1234-5678',
+      shipping_address: '서울시 강남구 테헤란로 123, 101동 1001호',
+      payment_method: '신용카드',
+      payment_date: '2024-01-13T12:10:00Z',
+      shipping_company: 'CJ대한통운',
+      tracking_number: '567890123456',
+      product_options: '색상: 화이트',
+      product_sku: 'DS-WHT-007'
+    }
+  },
+  {
+    id: 'order_10',
+    oms_integration_id: '2',
+    order_number: 'NV-2024011205',
+    customer_name: customerName,
+    product: '기계식 키보드',
+    amount: 145000,
+    status: '배송중',
+    order_date: '2024-01-12T08:30:00Z',
+    created_at: '2024-01-12T08:30:00Z',
+    updated_at: '2024-01-13T09:40:00Z',
+    details: {
+      quantity: 1,
+      unit_price: 145000,
+      discount: 0,
+      shipping_fee: 0,
+      receiver_name: customerName,
+      receiver_phone: '010-1234-5678',
+      shipping_address: '서울시 강남구 테헤란로 123, 101동 1001호',
+      payment_method: '네이버페이',
+      payment_date: '2024-01-12T08:30:00Z',
+      shipping_company: '한진택배',
+      tracking_number: '678901234567',
+      product_options: '축: 청축, 언어: 한영',
+      product_sku: 'KB-BLU-KR-008'
+    }
+  }
+];
