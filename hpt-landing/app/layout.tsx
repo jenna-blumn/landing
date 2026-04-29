@@ -12,6 +12,9 @@ import { EnvProvider, type EnvValues } from '@/contexts/EnvContext';
 export const dynamic = 'force-dynamic';
 
 const isProduction = process.env.PROFILE === 'production';
+const shouldShowAgentation =
+  process.env.NODE_ENV === 'development' ||
+  process.env.NEXT_PUBLIC_AGENTATION_ENABLED === 'true';
 
 function getEnv(): EnvValues {
   return {
@@ -129,7 +132,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <EnvProvider env={getEnv()}>
           <EmotionRegistry>{children}</EmotionRegistry>
         </EnvProvider>
-        {process.env.NODE_ENV === 'development' && <Agentation />}
+        {shouldShowAgentation && <Agentation />}
       </body>
     </html>
   );
