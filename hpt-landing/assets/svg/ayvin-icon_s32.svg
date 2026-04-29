@@ -1,0 +1,28 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_28_289)">
+<rect width="32" height="32" rx="12" fill="white"/>
+<ellipse cx="29.6729" cy="28.4282" rx="39.6812" ry="45.5693" transform="rotate(99.1582 29.6729 28.4282)" fill="url(#paint0_radial_28_289)"/>
+<g filter="url(#filter0_f_28_289)">
+<circle cx="-1.54604" cy="-1.54582" r="51.0805" transform="rotate(101.811 -1.54604 -1.54582)" fill="url(#paint1_radial_28_289)"/>
+</g>
+<path d="M15.5282 7.34599C15.6845 6.89987 16.3155 6.89987 16.4718 7.34599L18.3548 12.7174C18.4031 12.855 18.509 12.9647 18.6448 13.0177L23.8076 15.0343C24.2317 15.1999 24.2317 15.8001 23.8076 15.9657L18.6448 17.9823C18.509 18.0353 18.4031 18.145 18.3548 18.2826L16.4718 23.654C16.3155 24.1001 15.6845 24.1001 15.5282 23.654L13.6452 18.2826C13.5969 18.145 13.491 18.0353 13.3552 17.9823L8.19238 15.9657C7.76827 15.8001 7.76827 15.1999 8.19238 15.0343L13.3552 13.0177C13.491 12.9647 13.5969 12.855 13.6452 12.7174L15.5282 7.34599Z" fill="white"/>
+</g>
+<defs>
+<filter id="filter0_f_28_289" x="-67.6367" y="-67.6366" width="132.182" height="132.182" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="7.5" result="effect1_foregroundBlur_28_289"/>
+</filter>
+<radialGradient id="paint0_radial_28_289" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(29.6729 28.4282) rotate(90) scale(45.5693 39.6812)">
+<stop stop-color="#2F77FF"/>
+<stop offset="0.6" stop-color="#98E7BA"/>
+</radialGradient>
+<radialGradient id="paint1_radial_28_289" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-1.54604 -1.54582) rotate(89.9027) scale(51.0805)">
+<stop offset="0.201923" stop-color="#FFF100"/>
+<stop offset="1" stop-color="#E1FFC0" stop-opacity="0"/>
+</radialGradient>
+<clipPath id="clip0_28_289">
+<rect width="32" height="32" rx="12" fill="white"/>
+</clipPath>
+</defs>
+</svg>

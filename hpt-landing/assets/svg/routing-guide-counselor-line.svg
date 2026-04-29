@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="175" height="148" viewBox="0 0 175 148" fill="none">
+  <!-- 끝점 동그란 점 -->
+  <circle cx="171" cy="144" r="4" fill="url(#paint0_linear_counselor)"/>
+
+  <!-- 메인 라인 (stroke 기반, AI Line 좌우반전) -->
+  <path
+    d="M1 0 V17 C1 33.5 14.5 47 31 47 H141 C157.5 47 171 60.5 171 77 V140"
+    stroke="url(#paint0_linear_counselor)"
+    stroke-width="1.5"
+    fill="none"
+    stroke-linecap="round"
+  />
+
+  <defs>
+    <linearGradient id="paint0_linear_counselor" x1="1" y1="0" x2="1" y2="74" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEEEEE"/>
+      <stop offset="1" stop-color="#B9B9B9"/>
+    </linearGradient>
+  </defs>
+</svg>

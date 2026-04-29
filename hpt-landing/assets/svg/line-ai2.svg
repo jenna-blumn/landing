@@ -1,0 +1,9 @@
+<svg viewBox="0 0 382 607" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.50002 605.5L1.5 416.226C1.49999 347.96 47.5956 288.304 113.653 271.08L268.347 230.744C334.404 213.519 380.5 153.863 380.5 85.5967V1.5" stroke="url(#line-ai2-gradient)" stroke-width="3" stroke-linecap="round"/>
+<defs>
+<linearGradient id="line-ai2-gradient" x1="1.49936" y1="147.004" x2="1.49936" y2="327.639" gradientUnits="userSpaceOnUse">
+<stop stop-color="#377DFF"/>
+<stop offset="1" stop-color="#00C4FF" stop-opacity="0.2"/>
+</linearGradient>
+</defs>
+</svg>

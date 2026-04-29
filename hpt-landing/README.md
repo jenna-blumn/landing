@@ -1,1 +1,2 @@
-allinOneHeythere_menu66
+- Node.js: ^22.0.0
+- Next.js: 14.2.21
