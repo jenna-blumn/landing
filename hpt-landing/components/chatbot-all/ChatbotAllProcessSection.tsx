@@ -105,12 +105,12 @@ export default function ChatbotAllProcessSection() {
         </div>
 
         <div css={styles.whyChoose}>
-          <h3 css={styles.whyChooseTitle}>
+          <h2 css={styles.whyChooseTitle}>
             왜 <br />
             다-해줌을
             <br />
             선택할까요?
-          </h3>
+          </h2>
           <div css={styles.featuresGrid}>
             {FEATURES.map((f) => (
               <article key={f.title} css={styles.featureCard}>
