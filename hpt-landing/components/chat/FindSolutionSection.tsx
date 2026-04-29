@@ -26,7 +26,7 @@ export default function FindSolutionSection() {
 
         <div css={styles.grid}>
           <article css={styles.option('cloud')}>
-            <span css={styles.optionLabel('cloud')}>✨ 처음 도입할 때</span>
+            <span css={styles.optionLabel('cloud')}>처음 도입할 때</span>
             <h3 css={styles.optionTitle('cloud')}>채팅상담이 낯설어요</h3>
             <p css={styles.optionDesc('cloud')}>
               복잡한 설치 과정 없이, 가입 후 즉시 사용할 수 있는 클라우드 기반
@@ -43,9 +43,7 @@ export default function FindSolutionSection() {
           </article>
 
           <article css={styles.option('onprem')}>
-            <span css={styles.optionLabel('onprem')}>
-              🔒 구축형이 필요한 경우
-            </span>
+            <span css={styles.optionLabel('onprem')}>구축형이 필요한 경우</span>
             <h3 css={styles.optionTitle('onprem')}>보안·연동이 중요해요</h3>
             <p css={styles.optionDesc('onprem')}>
               고객사의 클라우드에 직접 구축되어 보안과 시스템 통합, 맞춤 설계를

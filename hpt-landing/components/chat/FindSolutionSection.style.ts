@@ -1,5 +1,7 @@
 import { css } from '@emotion/react';
 import { media } from '@/styles/breakpoints';
+import FlowCard1 from '@/assets/images/flow/flow-card-1.png';
+import FlowCard6 from '@/assets/images/flow/flow-card-6.png';
 
 export default {
   container: css`
@@ -74,6 +76,8 @@ export default {
   `,
 
   option: (variant: 'cloud' | 'onprem') => css`
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -84,10 +88,37 @@ export default {
       : '#fff'};
     border: ${variant === 'cloud' ? 'none' : '1px solid #e4e4e7'};
     color: ${variant === 'cloud' ? '#fff' : '#18181b'};
+    isolation: isolate;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image: url(${variant === 'cloud' ? FlowCard1.src : FlowCard6.src});
+      background-repeat: no-repeat;
+      background-size: ${variant === 'cloud' ? '120% auto' : '115% auto'};
+      background-position: ${variant === 'cloud' ? 'center bottom' : 'center bottom'};
+      opacity: ${variant === 'cloud' ? 0.32 : 0.42};
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: ${variant === 'cloud'
+        ? 'linear-gradient(135deg, rgba(84, 57, 224, 0.94), rgba(24, 24, 27, 0.82))'
+        : 'linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.76))'};
+    }
 
     ${media.desktop} {
       padding: 40px;
       gap: 20px;
+
+      &::before {
+        background-size: ${variant === 'cloud' ? '118% auto' : '112% auto'};
+      }
     }
   `,
 
