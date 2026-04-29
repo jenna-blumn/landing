@@ -199,8 +199,22 @@ export default {
   `,
 
   featureIcon: css`
-    font-size: var(--font-size-32);
-    line-height: var(--line-height-tight);
+    display: inline-flex;
+    width: 48px;
+    height: 48px;
+    color: transparent;
+    background: linear-gradient(
+      135deg,
+      oklch(70.4% 0.14 182.503),
+      oklch(42.4% 0.199 265.638)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    svg {
+      width: 48px;
+      height: 48px;
+    }
   `,
 
   featureTitle: css`
