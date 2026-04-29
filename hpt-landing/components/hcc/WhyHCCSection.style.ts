@@ -74,7 +74,7 @@ export default {
     width: 100%;
 
     ${media.desktop} {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 20px;
     }
   `,
@@ -84,9 +84,11 @@ export default {
     flex-direction: column;
     gap: 16px;
     padding: 28px;
+    align-items: center;
     background: #fff;
     border: 1px solid #e4e4e7;
     border-radius: 12px;
+    text-align: center;
 
     ${media.desktop} {
       padding: 32px;
@@ -95,7 +97,8 @@ export default {
 
   cardTop: css`
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     gap: 16px;
   `,
 
@@ -127,6 +130,7 @@ export default {
       font-weight: var(--font-weight-bold);
       line-height: var(--line-height-normal);
       letter-spacing: var(--letter-spacing-tight);
+      text-align: center;
 
       ${media.desktop} {
         font-size: var(--font-size-18);
@@ -137,7 +141,7 @@ export default {
 
   certLink: css`
     display: inline-flex;
-    align-self: flex-start;
+    align-self: center;
     align-items: center;
     gap: 8px;
     margin-top: 8px;
