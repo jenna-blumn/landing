@@ -48,11 +48,12 @@ const FEATURES = [
 type FeatureIconName = (typeof FEATURES)[number]['icon'];
 
 function FeatureIcon({ name }: { name: FeatureIconName }) {
+  const gradientId = `chatbot-all-process-${name}-gradient`;
   const icons = {
     launch: (
       <path
         fill="none"
-        stroke="currentColor"
+        stroke={`url(#${gradientId})`}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="3"
@@ -62,7 +63,7 @@ function FeatureIcon({ name }: { name: FeatureIconName }) {
     flexible: (
       <path
         fill="none"
-        stroke="currentColor"
+        stroke={`url(#${gradientId})`}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="3"
@@ -72,7 +73,7 @@ function FeatureIcon({ name }: { name: FeatureIconName }) {
     improve: (
       <path
         fill="none"
-        stroke="currentColor"
+        stroke={`url(#${gradientId})`}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="3"
@@ -89,6 +90,19 @@ function FeatureIcon({ name }: { name: FeatureIconName }) {
       aria-hidden="true"
       focusable="false"
     >
+      <defs>
+        <linearGradient
+          id={gradientId}
+          x1="4"
+          y1="4"
+          x2="44"
+          y2="44"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="oklch(70.4% 0.14 182.503)" />
+          <stop offset="1" stopColor="oklch(42.4% 0.199 265.638)" />
+        </linearGradient>
+      </defs>
       {icons[name]}
     </svg>
   );
