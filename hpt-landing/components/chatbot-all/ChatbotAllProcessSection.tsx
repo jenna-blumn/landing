@@ -25,7 +25,7 @@ const STEPS = [
     title: '운영 최적화 및 개선',
     desc: '오픈 후, 운영 데이터를 기반으로 최적화합니다.',
   },
-];
+] as const;
 
 const FEATURES = [
   {
@@ -43,7 +43,7 @@ const FEATURES = [
     title: '지속적인 개선',
     desc: '완성 이후에도 지속적으로 개선됩니다.',
   },
-];
+] as const;
 
 type FeatureIconName = (typeof FEATURES)[number]['icon'];
 
