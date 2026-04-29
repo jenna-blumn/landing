@@ -3,7 +3,7 @@
 import Header from '@/components/layout/Header';
 import ConditionalFooter from '@/components/layout/ConditionalFooter';
 import Background from '@/components/layout/Background';
-import useHappytalk from '@/hooks/useHappytalk';
+// import useHappytalk from '@/hooks/useHappytalk';
 import { useLayoutStore } from '@/stores/layoutStore';
 
 export default function MainLayout({
@@ -11,7 +11,8 @@ export default function MainLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  useHappytalk();
+  // Temporarily disabled so Agentation is not covered by the Happytalk widget.
+  // useHappytalk();
 
   const { isDesktop } = useLayoutStore();
 
