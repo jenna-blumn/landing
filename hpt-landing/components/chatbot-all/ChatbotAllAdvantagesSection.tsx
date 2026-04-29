@@ -27,8 +27,8 @@ type AgentCapIcon = (typeof AGENT_CAPS)[number]['icon'];
 const IconGradient = ({ id }: { id: string }) => (
   <defs>
     <linearGradient id={id} x1="4" y1="4" x2="44" y2="44">
-      <stop offset="0%" stopColor="oklch(70.4% 0.14 182.503)" />
-      <stop offset="100%" stopColor="oklch(42.4% 0.199 265.638)" />
+      <stop offset="0%" stopColor="#2dd4bf" />
+      <stop offset="100%" stopColor="#2563eb" />
     </linearGradient>
   </defs>
 );

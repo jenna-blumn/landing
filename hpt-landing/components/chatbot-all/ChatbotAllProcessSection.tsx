@@ -99,8 +99,8 @@ function FeatureIcon({ name }: { name: FeatureIconName }) {
           y2="44"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="oklch(70.4% 0.14 182.503)" />
-          <stop offset="1" stopColor="oklch(42.4% 0.199 265.638)" />
+          <stop stopColor="#2dd4bf" />
+          <stop offset="1" stopColor="#2563eb" />
         </linearGradient>
       </defs>
       {icons[name]}
