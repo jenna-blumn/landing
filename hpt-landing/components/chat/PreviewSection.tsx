@@ -31,7 +31,7 @@ export default function PreviewSection() {
             <EyeIcon />
             설치 전 미리 체험
           </span>
-          <h2 css={styles.title}>미리 체험해보세요</h2>
+          <h2 css={styles.title}>설치하기 전에 미리 체험해 보세요</h2>
           <p css={styles.subtitle}>
             고객사 웹사이트에 노출되는 채팅 플로팅 버튼을
             <br />

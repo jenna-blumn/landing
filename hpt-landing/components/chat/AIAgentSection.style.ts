@@ -13,6 +13,7 @@ export default {
     flex-direction: column;
     align-items: center;
     padding: 60px 20px;
+    background: #0b0f19;
 
     ${media.desktop} {
       padding: 72px 60px;
@@ -48,7 +49,7 @@ export default {
     border: 2px solid transparent;
     border-radius: 9999px;
     background:
-      linear-gradient(#fff, #fff) padding-box,
+      linear-gradient(#0b0f19, #0b0f19) padding-box,
       linear-gradient(
           90deg,
           #4cdec1 0%,
@@ -56,7 +57,7 @@ export default {
           #3e76f9 100%
         )
         border-box;
-    color: #18181b;
+    color: #fff;
     font-size: var(--font-size-13);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
@@ -69,7 +70,7 @@ export default {
   `,
 
   title: css`
-    color: rgba(17, 17, 21, 0.9);
+    color: #fff;
     font-size: var(--font-size-32);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
@@ -83,7 +84,7 @@ export default {
   `,
 
   subtitle: css`
-    color: #4e4e55;
+    color: rgba(255, 255, 255, 0.72);
     font-size: var(--font-size-18);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);

@@ -68,12 +68,12 @@ export default function AIAgentSection() {
     >
       <div css={styles.inner}>
         <div css={styles.header}>
-          <span css={styles.badge}>AI 에이전트</span>
-          <h2 css={styles.title}>상담, 이제 AI 상담사가 대신합니다</h2>
+          <span css={styles.badge}>핵심기능</span>
+          <h2 css={styles.title}>해피톡만의 AI, 상담의 핵심을 바꿉니다.</h2>
           <p css={styles.subtitle}>
-            고객 질문의 맥락을 이해하고
+            AI어시스턴트와 AI에이전트가
             <br />
-            등록된 지식 기반으로 응대합니다.
+            상담 품질과 효율을 동시에 끌어올립니다.
           </p>
         </div>
 
