@@ -152,7 +152,7 @@ export default {
 
   whyChooseTitle: css`
     color: rgba(17, 17, 21, 0.9);
-    font-size: var(--font-size-21);
+    font-size: var(--font-size-32);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
     letter-spacing: var(--letter-spacing-tight);
@@ -161,6 +161,7 @@ export default {
 
     ${media.desktop} {
       width: 280px;
+      font-size: var(--font-size-32);
       line-height: var(--line-height-tight);
       letter-spacing: var(--letter-spacing-tight);
 
