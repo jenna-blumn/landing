@@ -47,9 +47,9 @@ interface CTASectionProps {
 
 export default function CTASection({
   gtmEvent,
-  description,
-  ctaText = '도입 문의하기',
-  ctaHref = '/contact',
+  description = null,
+  ctaText = '무료로 시작하기',
+  ctaHref = 'https://counselor.happytalk.io/auth/join',
   badges = CTA_BADGES,
 }: CTASectionProps) {
   const { isDesktop } = useLayoutStore();

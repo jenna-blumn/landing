@@ -91,4 +91,4 @@ export const STATS_GRADIENT_COLORS = ['#19C257', '#3676FF', '#003CBD'];
 
 export const STATS_FOOTNOTE = '2026년 1월 20일 기준';
 
-export const CTA_BADGES = ['신용카드 불필요', '언제든 취소 가능', '평생 무료'];
+export const CTA_BADGES = ['14일 무료체험', '가입 즉시 상담 시작', '합리적인 플랜'];

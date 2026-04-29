@@ -17,13 +17,7 @@ export default function ChatbotAllPage() {
       <ChatbotAllStatsSection />
       <ChatbotAllPopularSection />
       <ChatbotAllAdvantagesSection />
-      <CTASection
-        gtmEvent="CHATBOT_ALL_SALES_INQUIRY"
-        description={null}
-        ctaText="무료로 시작하기"
-        ctaHref="https://counselor.happytalk.io/auth/join"
-        badges={['14일 무료체험', '가입 즉시 상담 시작', '합리적인 플랜']}
-      />
+      <CTASection gtmEvent="CHATBOT_ALL_SALES_INQUIRY" />
     </>
   );
 }
