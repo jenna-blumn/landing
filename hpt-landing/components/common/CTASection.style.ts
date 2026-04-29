@@ -144,12 +144,13 @@ export default {
       padding: 18px 24px;
       justify-content: center;
       align-items: center;
-      border: 2.4px solid rgba(0, 0, 0, 0.2);
-      background: #11181c;
+      border: 1px solid rgba(39, 39, 42, 0.12);
+      border-radius: 8px;
+      background: #fff;
       box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.1),
         0 2px 4px -2px rgba(0, 0, 0, 0.1);
-      color: #fff;
+      color: rgba(17, 17, 21, 0.9);
       text-align: center;
       font-size: var(--font-size-18);
       font-weight: var(--font-weight-bold);

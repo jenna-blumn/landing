@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import Link from 'next/link';
-import ShineBorder from '@/components/ui/ShineBorder';
 import styles from './CTASection.style';
 
 import LineGroup from '@/assets/svg/cta-line-group.svg';
@@ -77,13 +76,7 @@ export default function CTASection({
       </div>
       <div css={styles.contentContainer}>
         <LineSvgGroup css={styles.lineGroup} />
-        <ShineBorder
-          borderWidth={2}
-          duration={10}
-          shineColor={['#BD59FF', '#2F9BFF', '#27E62F']}
-          borderRadius={8}
-          css={styles.freeButton}
-        >
+        <div css={styles.freeButton}>
           {isExternalCta ? (
             <a
               href={ctaHref}
@@ -101,7 +94,7 @@ export default function CTASection({
               {ctaText}
             </Link>
           )}
-        </ShineBorder>
+        </div>
         <div css={styles.badgeGroup}>
           {badges.map((badge) => (
             <div key={badge} css={styles.badge}>
