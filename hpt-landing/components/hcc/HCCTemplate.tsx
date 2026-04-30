@@ -15,7 +15,10 @@ export default function HCCTemplate() {
       <AdvantagesSection />
       <SolutionSection />
       <CaseStudySection />
-      <CTASection gtmEvent="HCC_SALES_INQUIRY" />
+      <CTASection
+        gtmEvent="HCC_SALES_INQUIRY"
+        title="복잡한 상담을 편리하게!"
+      />
     </>
   );
 }

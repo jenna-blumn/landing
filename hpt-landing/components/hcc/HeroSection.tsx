@@ -1,7 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './HeroSection.style';
+import FlowCardImage from '@/assets/images/hcc/hero_new.png';
 
 const ArrowRight = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
@@ -10,6 +12,9 @@ const ArrowRight = () => (
 );
 
 export default function HeroSection() {
+  const { scrollY } = useScroll();
+  const imageY = useTransform(scrollY, (y) => 40 + y * 0.15);
+
   return (
     <section css={styles.container}>
       <div css={styles.inner}>
@@ -34,6 +39,9 @@ export default function HeroSection() {
           </Link>
         </div>
       </div>
+      <motion.div css={styles.flowImageWrap} style={{ y: imageY }}>
+        <img src={FlowCardImage.src} alt="" css={styles.flowImage} />
+      </motion.div>
     </section>
   );
 }

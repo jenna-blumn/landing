@@ -11,20 +11,26 @@ const marquee = keyframes`
   }
 `;
 
+const rainbowMove = keyframes`
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+`;
+
 export default {
   container: css`
     position: relative;
     display: flex;
     width: 100%;
-    padding: 48px 12px 56px;
+    padding: 56px 12px;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 32px;
     background-color: #f5f5f5;
     overflow: hidden;
 
     ${media.desktop} {
-      padding: 48px 60px 72px;
+      padding: 72px 60px;
+      gap: 40px;
     }
   `,
 
@@ -65,6 +71,79 @@ export default {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+  `,
+
+  primaryBtn: css`
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    margin-top: 8px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-family: inherit;
+    font-size: var(--font-size-18);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-tight);
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 9999px;
+    background:
+      linear-gradient(#18181b, #18181b) padding-box,
+      linear-gradient(
+          #18181b 50%,
+          rgba(24, 24, 27, 0.6) 80%,
+          rgba(24, 24, 27, 0)
+        )
+        border-box,
+      linear-gradient(
+          90deg,
+          hsl(0 100% 63%),
+          hsl(90 100% 63%),
+          hsl(210 100% 63%),
+          hsl(195 100% 63%),
+          hsl(270 100% 63%)
+        )
+        border-box;
+    background-size: 200%;
+    animation: ${rainbowMove} 2s linear infinite;
+    transition: opacity 0.15s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: 50%;
+      z-index: -1;
+      height: 20%;
+      width: 60%;
+      transform: translateX(-50%);
+      background: linear-gradient(
+        90deg,
+        hsl(0 100% 63%),
+        hsl(90 100% 63%),
+        hsl(210 100% 63%),
+        hsl(195 100% 63%),
+        hsl(270 100% 63%)
+      );
+      background-size: 200%;
+      filter: blur(12px);
+      animation: ${rainbowMove} 2s linear infinite;
+      pointer-events: none;
+    }
+
+    &:hover {
+      opacity: 0.95;
+    }
+
+    > svg {
+      width: 16px;
+      height: 16px;
     }
   `,
 
@@ -118,75 +197,17 @@ export default {
     }
   `,
 
-  contentContainer: css`
-    position: relative;
-    width: 100%;
-    max-width: 624px;
-    height: 294px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    ${media.desktop} {
-      width: 624px;
-      height: 226px;
-    }
-  `,
-
-  freeButton: css`
-    position: relative;
-    margin-top: 19px;
-
-    a {
-      width: 220px;
-      height: 64px;
-      display: inline-flex;
-      padding: 18px 24px;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid rgba(39, 39, 42, 0.12);
-      border-radius: 8px;
-      background: #fff;
-      box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.1),
-        0 2px 4px -2px rgba(0, 0, 0, 0.1);
-      color: rgba(17, 17, 21, 0.9);
-      text-align: center;
-      font-size: var(--font-size-18);
-      font-weight: var(--font-weight-bold);
-      line-height: var(--line-height-normal);
-      letter-spacing: var(--letter-spacing-tight);
-    }
-
-    ${media.desktop} {
-      a {
-        width: 291px;
-      }
-    }
-  `,
-
-  lineGroup: css`
-    position: absolute;
-    left: 30px;
-
-    ${media.desktop} {
-      left: 76px;
-    }
-  `,
-
   badgeGroup: css`
-    position: absolute;
+    position: relative;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 8px;
-    top: 119px;
 
     ${media.desktop} {
       flex-direction: row;
-      gap: 30px;
-      top: 122px;
+      gap: 12px;
     }
   `,
 
@@ -197,12 +218,9 @@ export default {
     align-items: center;
     gap: 6px;
     border-radius: 9999px;
-    border: 1px solid rgba(39, 39, 42, 0.15);
-    background: #fff;
-
-    box-shadow:
-      0 -1px 0 0 rgba(0, 0, 0, 0.08) inset,
-      0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(39, 39, 42, 0.12);
+    background: rgba(255, 255, 255, 0.6);
+    color: oklch(62.3% 0.214 259.815);
 
     > span {
       color: rgba(17, 17, 21, 0.9);
@@ -214,10 +232,8 @@ export default {
   `,
 
   partnerGroup: css`
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
+    width: 100%;
     overflow: hidden;
     -webkit-mask-image: linear-gradient(
       to right,
@@ -235,10 +251,8 @@ export default {
     );
 
     ${media.desktop} {
-      left: 50%;
-      right: auto;
-      transform: translateX(-50%);
       width: fit-content;
+      align-self: center;
       overflow: visible;
       -webkit-mask-image: none;
       mask-image: none;

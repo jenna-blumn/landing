@@ -100,21 +100,17 @@ export default {
 
   icon: css`
     display: inline-flex;
-    width: 44px;
-    height: 44px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    background: linear-gradient(
-      135deg,
-      oklch(54.6% 0.245 262.881),
-      #18181b
-    );
-    color: #fff;
+    width: 36px;
+    height: 36px;
 
     > svg {
-      width: 22px;
-      height: 22px;
+      width: 100%;
+      height: 100%;
+    }
+
+    ${media.desktop} {
+      width: 40px;
+      height: 40px;
     }
   `,
 

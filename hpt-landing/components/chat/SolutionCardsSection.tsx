@@ -286,7 +286,7 @@ export default function SolutionCardsSection() {
     target: bridgeRef,
     offset: ['start 90%', 'end 30%'],
   });
-  const bridgePathLength = useTransform(bridgeProgress, [0, 1], [0, 1]);
+  const bridgePathLength = useTransform(bridgeProgress, [0, 0.55], [0, 1]);
   const [activeIndex, setActiveIndex] = useState(0);
   const isDesktop = useLayoutStore((state) => state.isDesktop);
 

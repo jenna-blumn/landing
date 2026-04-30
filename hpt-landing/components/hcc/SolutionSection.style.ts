@@ -155,7 +155,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding-top: 4px;
+    padding-top: 16px;
     border-top: 1px solid #f4f4f5;
     margin-top: 4px;
 

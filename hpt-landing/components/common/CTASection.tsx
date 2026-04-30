@@ -2,9 +2,13 @@ import { ReactNode } from 'react';
 import Link from 'next/link';
 import styles from './CTASection.style';
 
-import LineGroup from '@/assets/svg/cta-line-group.svg';
-import LineGroupMobile from '@/assets/svg/cta-line-group_mobile.svg';
 import CheckCircleIcon from '@/assets/svg/check-circle-icon_s18.svg';
+
+const ArrowRight = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
+    <path d="M5 12h14M12 5l7 7-7 7" />
+  </svg>
+);
 
 import PartnerKakao from '@/assets/images/partner/partner-kakao.png';
 import PartnerNaver from '@/assets/images/partner/partner-naver.png';
@@ -38,6 +42,7 @@ const partners = [
 
 interface CTASectionProps {
   gtmEvent?: string;
+  title?: ReactNode;
   description?: ReactNode | null;
   ctaText?: string;
   ctaHref?: string;
@@ -46,14 +51,18 @@ interface CTASectionProps {
 
 export default function CTASection({
   gtmEvent,
+  title = (
+    <>
+      지금 바로 <br />
+      무료로 시작해보세요
+    </>
+  ),
   description = null,
   ctaText = '무료로 시작하기',
   ctaHref = 'https://counselor.happytalk.io/auth/join',
   badges = CTA_BADGES,
 }: CTASectionProps) {
   const { isDesktop } = useLayoutStore();
-
-  const LineSvgGroup = isDesktop ? LineGroup : LineGroupMobile;
   const isExternalCta = /^https?:\/\//.test(ctaHref);
 
   return (
@@ -62,10 +71,7 @@ export default function CTASection({
         <img src={DottedGlowEffect.src} />
       </div>
       <div css={styles.titleContainer}>
-        <h2>
-          지금 바로 <br />
-          무료로 시작해보세요
-        </h2>
+        <h2>{title}</h2>
         {description !== null &&
           (description ?? (
             <p>
@@ -73,61 +79,60 @@ export default function CTASection({
               직접 경험해 볼 수 있어요
             </p>
           ))}
+        {isExternalCta ? (
+          <a
+            href={ctaHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            css={styles.primaryBtn}
+            {...(gtmEvent ? { 'data-gtm-event': gtmEvent } : {})}
+          >
+            {ctaText}
+            <ArrowRight />
+          </a>
+        ) : (
+          <Link
+            href={ctaHref}
+            css={styles.primaryBtn}
+            {...(gtmEvent ? { 'data-gtm-event': gtmEvent } : {})}
+          >
+            {ctaText}
+            <ArrowRight />
+          </Link>
+        )}
       </div>
-      <div css={styles.contentContainer}>
-        <LineSvgGroup css={styles.lineGroup} />
-        <div css={styles.freeButton}>
-          {isExternalCta ? (
-            <a
-              href={ctaHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              {...(gtmEvent ? { 'data-gtm-event': gtmEvent } : {})}
-            >
-              {ctaText}
-            </a>
-          ) : (
-            <Link
-              href={ctaHref}
-              {...(gtmEvent ? { 'data-gtm-event': gtmEvent } : {})}
-            >
-              {ctaText}
-            </Link>
-          )}
-        </div>
-        <div css={styles.badgeGroup}>
-          {badges.map((badge) => (
-            <div key={badge} css={styles.badge}>
-              <CheckCircleIcon />
-              <span>{badge}</span>
-            </div>
-          ))}
-        </div>
-        <div css={styles.partnerGroup}>
-          <div css={styles.partnerTrack}>
-            {isDesktop ? (
-              partners.map((partner, i) => (
-                <img key={i} src={partner.src} css={styles.partnerImage} />
-              ))
-            ) : (
-              <>
-                <div css={styles.partnerSet}>
-                  {partners.map((partner, i) => (
-                    <img key={i} src={partner.src} css={styles.partnerImage} />
-                  ))}
-                </div>
-                <div css={styles.partnerSet}>
-                  {partners.map((partner, i) => (
-                    <img
-                      key={`c-${i}`}
-                      src={partner.src}
-                      css={styles.partnerImage}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
+      <div css={styles.badgeGroup}>
+        {badges.map((badge) => (
+          <div key={badge} css={styles.badge}>
+            <CheckCircleIcon />
+            <span>{badge}</span>
           </div>
+        ))}
+      </div>
+      <div css={styles.partnerGroup}>
+        <div css={styles.partnerTrack}>
+          {isDesktop ? (
+            partners.map((partner, i) => (
+              <img key={i} src={partner.src} css={styles.partnerImage} />
+            ))
+          ) : (
+            <>
+              <div css={styles.partnerSet}>
+                {partners.map((partner, i) => (
+                  <img key={i} src={partner.src} css={styles.partnerImage} />
+                ))}
+              </div>
+              <div css={styles.partnerSet}>
+                {partners.map((partner, i) => (
+                  <img
+                    key={`c-${i}`}
+                    src={partner.src}
+                    css={styles.partnerImage}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

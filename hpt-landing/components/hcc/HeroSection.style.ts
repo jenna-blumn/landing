@@ -12,20 +12,31 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 120px 20px 80px;
-    background: radial-gradient(
-        ellipse at top,
-        oklch(54.6% 0.245 262.881) 0%,
-        #18181b 70%
-      ),
-      #18181b;
-    color: #fff;
+    padding: 120px 20px 240px;
+    background: #f1f5f9;
+    color: rgba(17, 17, 21, 0.9);
     text-align: center;
     overflow: hidden;
 
     ${media.desktop} {
-      padding: 160px 60px 120px;
+      padding: 160px 60px 320px;
     }
+  `,
+
+  flowImageWrap: css`
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+  `,
+
+  flowImage: css`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   `,
 
   inner: css`
@@ -40,14 +51,18 @@ export default {
   `,
 
   title: css`
-    color: #fff;
+    color: rgba(17, 17, 21, 0.9);
     font-size: var(--font-size-32);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
     letter-spacing: var(--letter-spacing-tight);
 
     > .highlight {
-      background: linear-gradient(135deg, #b2dbf1 0%, #ffffff 100%);
+      background: linear-gradient(
+        135deg,
+        oklch(54.6% 0.245 262.881) 0%,
+        #18181b 100%
+      );
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -62,7 +77,7 @@ export default {
   `,
 
   subtitle: css`
-    color: #c9dbfe;
+    color: #4e4e55;
     font-size: var(--font-size-18);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);

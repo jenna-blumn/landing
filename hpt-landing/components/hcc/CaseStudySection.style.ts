@@ -111,8 +111,23 @@ export default {
     min-height: 300px;
   `,
 
+  cardTop: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 29px;
+  `,
+
+  logo: css`
+    max-height: 29px;
+    max-width: 168px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  `,
+
   cardArrow: css`
-    align-self: flex-end;
     color: #71717a;
 
     > svg {
@@ -136,8 +151,9 @@ export default {
   `,
 
   client: css`
+    margin-top: 16px;
     color: rgba(17, 17, 21, 0.9);
-    font-size: var(--font-size-21);
+    font-size: var(--font-size-15);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
     letter-spacing: var(--letter-spacing-tight);
