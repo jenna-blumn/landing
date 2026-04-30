@@ -64,7 +64,9 @@ body {
     'Helvetica Neue',
     Arial,
     sans-serif;
+  font-size: var(--font-size-15);
   font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
   -ms-overflow-style: none;
   scrollbar-width: none;
   word-break: keep-all !important;
