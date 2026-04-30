@@ -13,7 +13,7 @@ export default {
     flex-direction: column;
     align-items: center;
     padding: 60px 20px;
-    background: #0b0f19;
+    background: #1e293b;
 
     ${media.desktop} {
       padding: 72px 60px;
@@ -49,7 +49,7 @@ export default {
     border: 2px solid transparent;
     border-radius: 9999px;
     background:
-      linear-gradient(#0b0f19, #0b0f19) padding-box,
+      linear-gradient(#1e293b, #1e293b) padding-box,
       linear-gradient(
           90deg,
           #4cdec1 0%,
@@ -115,8 +115,8 @@ export default {
     flex-direction: column;
     gap: 12px;
     padding: 28px;
-    background: #fafafa;
-    border: 1px solid #e4e4e7;
+    background: #334155;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
 
     ${media.desktop} {
@@ -130,8 +130,8 @@ export default {
     align-items: flex-start;
     gap: 14px;
     padding: 16px;
-    background: #fff;
-    border: 1px solid #e4e4e7;
+    background: #475569;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
   `,
 
@@ -150,7 +150,7 @@ export default {
     gap: 6px;
 
     > strong {
-      color: #18181b;
+      color: #fff;
       font-size: var(--font-size-15);
       font-weight: var(--font-weight-bold);
       line-height: var(--line-height-normal);
@@ -163,7 +163,7 @@ export default {
     }
 
     > span {
-      color: #71717a;
+      color: rgba(255, 255, 255, 0.6);
       font-size: var(--font-size-13);
       font-weight: var(--font-weight-regular);
       line-height: var(--line-height-normal);
@@ -188,8 +188,8 @@ export default {
     align-items: center;
     padding: 3px 10px;
     border-radius: 9999px;
-    background: #f4f4f5;
-    color: #52525b;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.72);
     font-size: var(--font-size-13);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
@@ -201,8 +201,8 @@ export default {
     flex-direction: column;
     gap: 16px;
     padding: 28px;
-    background: #fff;
-    border: 1px solid #e4e4e7;
+    background: #334155;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     align-items: center;
     justify-content: center;
@@ -217,9 +217,9 @@ export default {
     align-items: center;
     gap: 10px;
     padding: 12px 16px;
-    background: #f4f4f5;
+    background: #475569;
     border-radius: 16px;
-    color: #18181b;
+    color: #fff;
     font-size: var(--font-size-15);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
@@ -248,13 +248,13 @@ export default {
       width: 4px;
       height: 4px;
       border-radius: 50%;
-      background: #d4d4d8;
+      background: rgba(255, 255, 255, 0.32);
     }
 
     > .line {
       width: 2px;
       height: 18px;
-      background: #d4d4d8;
+      background: rgba(255, 255, 255, 0.32);
     }
   `,
 
@@ -332,8 +332,10 @@ export default {
     gap: 6px;
     padding: 10px 14px;
     border-radius: 12px;
-    background: ${variant === 'ai' ? '#eef4ff' : '#fff7e6'};
-    color: ${variant === 'ai' ? 'oklch(54.6% 0.245 262.881)' : '#b45309'};
+    background: ${variant === 'ai'
+      ? 'rgba(76, 222, 193, 0.12)'
+      : 'rgba(245, 158, 11, 0.12)'};
+    color: ${variant === 'ai' ? '#7ee9d2' : '#fbbf24'};
     font-size: var(--font-size-13);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
@@ -347,6 +349,26 @@ export default {
   `,
 
   ctaButton: css`
+    color: #18181b;
+    background:
+      linear-gradient(#fff, #fff) padding-box,
+      linear-gradient(
+          #fff 50%,
+          rgba(255, 255, 255, 0.6) 80%,
+          rgba(255, 255, 255, 0)
+        )
+        border-box,
+      linear-gradient(
+          90deg,
+          hsl(0 100% 63%),
+          hsl(90 100% 63%),
+          hsl(210 100% 63%),
+          hsl(195 100% 63%),
+          hsl(270 100% 63%)
+        )
+        border-box;
+    background-size: 200%;
+
     > svg {
       width: 16px;
       height: 16px;

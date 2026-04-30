@@ -104,22 +104,15 @@ export default {
 
   icon: css`
     display: inline-flex;
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    background: linear-gradient(
-      135deg,
-      oklch(54.6% 0.245 262.881),
-      #18181b
-    );
-    color: #fff;
 
     > svg {
-      width: 22px;
-      height: 22px;
+      width: 100%;
+      height: 100%;
     }
   `,
 

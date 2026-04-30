@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import styles from './ChatbotAllAdvantagesSection.style';
-import common from '@/styles/common';
 
 const AGENT_CAPS = [
   {
@@ -130,7 +129,7 @@ export default function ChatbotAllAdvantagesSection() {
         <div css={styles.ctaWrapper}>
           <Link
             href="/agent"
-            css={common.primaryCta}
+            css={styles.ctaButton}
             data-gtm-event="CHATBOT_ALL_AGENT_EXPERIENCE"
           >
             AI 에이전트 체험하기

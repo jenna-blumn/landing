@@ -11,7 +11,6 @@ import {
 export default function StatsSection() {
   return (
     <section css={styles.container}>
-      <h2 css={styles.title}>해피톡을 믿을 수 있는 이유</h2>
       <div css={styles.content}>
         <div css={styles.statsGrid}>
           {STATS.map((stat, index) => (

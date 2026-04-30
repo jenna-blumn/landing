@@ -150,4 +150,31 @@ export default {
     width: 100%;
   `,
 
+  ctaButton: css`
+    display: inline-flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-family: inherit;
+    font-size: var(--font-size-18);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-tight);
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 9999px;
+    background: linear-gradient(
+      90deg,
+      #2563eb 0%,
+      #2dd4bf 50%,
+      #a855f7 100%
+    );
+    transition: opacity 0.15s ease;
+
+    &:hover {
+      opacity: 0.92;
+    }
+  `,
 };
