@@ -165,12 +165,10 @@ export default {
     text-decoration: none;
     cursor: pointer;
     border-radius: 9999px;
-    background: linear-gradient(
-      90deg,
-      #2563eb 0%,
-      #2dd4bf 50%,
-      #a855f7 100%
-    );
+    background: linear-gradient(97deg, #19c257 -7%, #3676ff 78.19%);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -2px rgba(0, 0, 0, 0.1);
     transition: opacity 0.15s ease;
 
     &:hover {

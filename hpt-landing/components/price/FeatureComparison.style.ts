@@ -36,13 +36,13 @@ export default {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 20px;
+    padding: 10px 18px;
     border-radius: 9999px;
     background: #fff;
-    border: 1px solid #d4d4d8;
-    color: #3f3f46;
+    border: 1px solid #e4e4e7;
+    color: #52525b;
     font-family: inherit;
-    font-size: var(--font-size-13);
+    font-size: var(--font-size-15);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
@@ -50,8 +50,12 @@ export default {
     transition: all 0.15s ease;
 
     &:hover {
-      background: #fafafa;
-      border-color: #a1a1aa;
+      border-color: #18181b;
+      color: #18181b;
+    }
+
+    ${media.desktop} {
+      padding: 12px 20px;
     }
   `,
 
