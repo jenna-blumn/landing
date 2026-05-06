@@ -32,38 +32,30 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 16px;
     text-align: center;
     margin-bottom: 56px;
   `,
 
-  eyebrow: css`
-    color: ${BLUE};
-    font-size: var(--font-size-13);
-    font-weight: var(--font-weight-bold);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  `,
-
   title: css`
-    color: #18181b;
-    font-size: var(--font-size-24);
+    color: rgba(17, 17, 21, 0.9);
+    font-size: var(--font-size-32);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
     letter-spacing: var(--letter-spacing-tight);
 
     ${media.desktop} {
-      font-size: var(--font-size-32);
+      font-size: var(--font-size-42);
     }
   `,
 
   subtitle: css`
-    color: #71717a;
-    font-size: var(--font-size-13);
+    color: #4e4e55;
+    font-size: var(--font-size-18);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
-    max-width: 420px;
+    letter-spacing: var(--letter-spacing-tight);
+    max-width: 520px;
   `,
 
   body: css`
@@ -147,7 +139,7 @@ export default {
     }
   `,
 
-  navBadge: (variant: 'paid' | 'free') => css`
+  navBadge: (variant: 'beta' | 'free') => css`
     display: inline-block;
     margin-top: 8px;
     padding: 2px 8px;
@@ -155,10 +147,10 @@ export default {
     font-size: var(--font-size-13);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
-    ${variant === 'paid'
+    ${variant === 'beta'
       ? `
-        background: rgba(251, 146, 60, 0.12);
-        color: #c2410c;
+        background: rgba(124, 58, 237, 0.12);
+        color: #6d28d9;
       `
       : `
         background: rgba(34, 197, 94, 0.12);
@@ -259,140 +251,6 @@ export default {
     ${media.desktop} {
       font-size: var(--font-size-13);
     }
-  `,
-
-  allowanceBox: css`
-    padding: 20px;
-    border-radius: 12px;
-    background: #fafafa;
-    border: 1px solid #e4e4e7;
-    margin-bottom: 16px;
-  `,
-
-  allowanceHeader: css`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    gap: 8px;
-  `,
-
-  allowanceTitle: css`
-    color: #18181b;
-    font-size: var(--font-size-13);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--line-height-normal);
-  `,
-
-  promoBadge: css`
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 4px 10px;
-    border-radius: 9999px;
-    background: rgba(251, 146, 60, 0.12);
-    border: 1px solid rgba(251, 146, 60, 0.32);
-    color: #c2410c;
-    font-size: var(--font-size-13);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--line-height-normal);
-    flex-shrink: 0;
-  `,
-
-  starIcon: css`
-    width: 12px;
-    height: 12px;
-  `,
-
-  tableWrap: css`
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #e4e4e7;
-  `,
-
-  table: css`
-    width: 100%;
-    border-collapse: collapse;
-    font-size: var(--font-size-13);
-  `,
-
-  thLeft: css`
-    text-align: left;
-    padding: 10px 16px;
-    background: #f4f4f5;
-    color: #71717a;
-    font-weight: var(--font-weight-regular);
-    font-size: var(--font-size-13);
-  `,
-
-  thRight: css`
-    text-align: right;
-    padding: 10px 16px;
-    background: #f4f4f5;
-    color: #71717a;
-    font-weight: var(--font-weight-regular);
-    font-size: var(--font-size-13);
-  `,
-
-  tr: css`
-    border-top: 1px solid #e4e4e7;
-    background: #fff;
-  `,
-
-  tdLeft: css`
-    padding: 10px 16px;
-    color: #3f3f46;
-    font-weight: var(--font-weight-bold);
-  `,
-
-  tdRight: css`
-    padding: 10px 16px;
-    text-align: right;
-    color: #52525b;
-  `,
-
-  allowanceNote: css`
-    color: #71717a;
-    font-size: var(--font-size-13);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-normal);
-    margin-top: 12px;
-  `,
-
-  billingBox: css`
-    padding: 20px;
-    border-radius: 12px;
-    background: rgba(239, 246, 255, 0.6);
-    border: 1px solid rgba(37, 99, 235, 0.32);
-  `,
-
-  billingText: css`
-    color: #3f3f46;
-    font-size: var(--font-size-13);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-normal);
-
-    > strong {
-      color: #18181b;
-      font-weight: var(--font-weight-bold);
-    }
-
-    ${media.desktop} {
-      font-size: var(--font-size-13);
-    }
-  `,
-
-  billingPrice: css`
-    color: ${BLUE};
-    font-weight: var(--font-weight-bold);
-  `,
-
-  billingNote: css`
-    color: #71717a;
-    font-size: var(--font-size-13);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-normal);
-    margin-top: 8px;
   `,
 
   freeBox: css`

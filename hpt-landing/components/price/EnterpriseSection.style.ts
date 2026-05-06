@@ -67,9 +67,10 @@ export default {
 
   subtitle: css`
     color: #d4d4d8;
-    font-size: var(--font-size-13);
+    font-size: var(--font-size-18);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-tight);
     max-width: 520px;
   `,
 
@@ -184,9 +185,10 @@ export default {
 
   stepsNote: css`
     color: #d4d4d8;
-    font-size: var(--font-size-13);
+    font-size: var(--font-size-18);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-tight);
     margin-bottom: 32px;
     text-align: center;
   `,
@@ -319,9 +321,10 @@ export default {
 
   ctaSub: css`
     color: #a1a1aa;
-    font-size: var(--font-size-13);
+    font-size: var(--font-size-18);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-tight);
     margin-bottom: 24px;
   `,
 

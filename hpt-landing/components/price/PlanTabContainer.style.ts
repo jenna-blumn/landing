@@ -1,8 +1,6 @@
 import { css } from '@emotion/react';
 import { media } from '@/styles/breakpoints';
 
-const VIOLET = '#7c3aed';
-
 export default {
   container: css`
     display: flex;
@@ -74,20 +72,19 @@ export default {
     justify-content: space-between;
     gap: 12px;
     margin-bottom: 20px;
-    padding: 10px 16px;
+    padding: 14px 20px;
     border-radius: 12px;
     background: linear-gradient(
-      to right,
-      rgba(245, 243, 255, 0.6),
-      #fff,
-      rgba(254, 243, 199, 0.45)
+      90deg,
+      hsla(230, 70%, 24%, 1) 0%,
+      hsla(0, 0%, 0%, 1) 100%
     );
-    border: 1px solid rgba(124, 58, 237, 0.18);
+    border: 1px solid transparent;
     text-decoration: none;
-    transition: border-color 0.15s ease;
+    transition: opacity 0.15s ease;
 
     &:hover {
-      border-color: rgba(124, 58, 237, 0.4);
+      opacity: 0.92;
     }
   `,
 
@@ -98,46 +95,25 @@ export default {
     min-width: 0;
   `,
 
-  bannerIconWrap: css`
-    display: none;
-    flex-shrink: 0;
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    background: ${VIOLET};
-    align-items: center;
-    justify-content: center;
-
-    ${media.desktop} {
-      display: inline-flex;
-    }
-  `,
-
-  bannerIcon: css`
-    width: 14px;
-    height: 14px;
-    color: #fff;
-  `,
-
   bannerText: css`
     display: flex;
     align-items: baseline;
     gap: 8px;
     min-width: 0;
-    color: #18181b;
-    font-size: var(--font-size-13);
+    color: #fff;
+    font-size: var(--font-size-15);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
   `,
 
   bannerTitle: css`
-    color: ${VIOLET};
+    color: #fff;
   `,
 
   bannerSub: css`
-    color: #71717a;
-    font-size: var(--font-size-13);
+    color: #a1a1aa;
+    font-size: var(--font-size-15);
     font-weight: var(--font-weight-regular);
   `,
 
@@ -146,8 +122,8 @@ export default {
     align-items: center;
     gap: 4px;
     flex-shrink: 0;
-    color: #3f3f46;
-    font-size: var(--font-size-13);
+    color: #fff;
+    font-size: var(--font-size-15);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);

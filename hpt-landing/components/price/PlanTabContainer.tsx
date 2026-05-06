@@ -6,22 +6,6 @@ import styles from './PlanTabContainer.style';
 import PlanCalculator from './PlanCalculator';
 import PricingCards from './PricingCards';
 
-const BoltIcon = () => (
-  <svg
-    css={styles.bannerIcon}
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M13 10V3L4 14h7v7l9-11h-7z"
-    />
-  </svg>
-);
-
 const ArrowIcon = () => (
   <svg
     css={styles.bannerArrow}
@@ -62,14 +46,26 @@ export default function PlanTabContainer() {
         </div>
 
         {activeTab === 'recommend' ? (
-          <PlanCalculator />
+          <>
+            <a href="#enterprise" css={styles.banner}>
+              <div css={styles.bannerLeft}>
+                <p css={styles.bannerText}>
+                  <span css={styles.bannerTitle}>
+                    조건에 맞는 플랜이 없으신가요?
+                  </span>
+                </p>
+              </div>
+              <span css={styles.bannerCta}>
+                Enterprise 플랜으로 설계해보세요
+                <ArrowIcon />
+              </span>
+            </a>
+            <PlanCalculator />
+          </>
         ) : (
           <>
             <a href="#enterprise" css={styles.banner}>
               <div css={styles.bannerLeft}>
-                <span css={styles.bannerIconWrap}>
-                  <BoltIcon />
-                </span>
                 <p css={styles.bannerText}>
                   <span css={styles.bannerTitle}>기업 맞춤 상담 플랫폼</span>
                   <span css={styles.bannerSub}>Enterprise 플랜</span>

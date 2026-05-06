@@ -93,14 +93,13 @@ export default function PricingCards() {
       <div css={styles.grid}>
         {PLANS.map((plan) => (
           <div key={plan.name} css={styles.card(plan.highlight)}>
-            {plan.badge && (
-              <div css={styles.badgeWrap}>
-                <span css={styles.badge}>{plan.badge}</span>
-              </div>
-            )}
-
             <div css={styles.cardHeader}>
-              <h3 css={styles.planName(plan.highlight)}>{plan.name}</h3>
+              <div css={styles.nameRow}>
+                <h3 css={styles.planName(plan.highlight)}>{plan.name}</h3>
+                {plan.badge && (
+                  <span css={styles.badge}>{plan.badge}</span>
+                )}
+              </div>
               <div css={styles.priceRow}>
                 <span css={styles.price()}>{plan.price}</span>
                 <span css={styles.unit()}>{plan.unit}</span>

@@ -50,20 +50,17 @@ export default {
     }
   `,
 
-  badgeWrap: css`
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-  `,
-
   badge: css`
     display: inline-flex;
     align-items: center;
     padding: 4px 12px;
     border-radius: 9999px;
-    background: #fbbf24;
-    color: #78350f;
+    background: linear-gradient(
+      90deg,
+      hsla(230, 70%, 24%, 1) 0%,
+      hsla(0, 0%, 0%, 1) 100%
+    );
+    color: #fff;
     font-size: var(--font-size-13);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
@@ -77,8 +74,14 @@ export default {
     margin-bottom: 24px;
   `,
 
-  planName: (highlight: boolean) => css`
+  nameRow: css`
+    display: flex;
+    align-items: center;
+    gap: 8px;
     margin-bottom: 4px;
+  `,
+
+  planName: (highlight: boolean) => css`
     color: ${highlight ? BLUE : '#18181b'};
     font-size: var(--font-size-18);
     font-weight: var(--font-weight-bold);
@@ -163,11 +166,11 @@ export default {
   cta: (highlight: boolean) => css`
     display: block;
     width: 100%;
-    padding: 12px 16px;
+    padding: 14px 16px;
     border-radius: 12px;
     text-align: center;
     text-decoration: none;
-    font-size: var(--font-size-13);
+    font-size: var(--font-size-18);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
