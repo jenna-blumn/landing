@@ -152,18 +152,15 @@ export default {
 
     > div > strong,
     > strong {
-      color: #18181b;
-      background: #fff;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: var(--font-size-15);
+      color: #fff;
+      font-size: var(--font-size-18);
       font-weight: var(--font-weight-bold);
-      line-height: var(--line-height-normal);
+      line-height: var(--line-height-tight);
       letter-spacing: var(--letter-spacing-tight);
 
       ${media.desktop} {
-        font-size: var(--font-size-15);
-        line-height: var(--line-height-normal);
+        font-size: var(--font-size-21);
+        line-height: var(--line-height-tight);
       }
     }
 
