@@ -43,7 +43,7 @@ export default {
 
   subtitle: css`
     color: #71717a;
-    font-size: var(--font-size-13);
+    font-size: var(--font-size-18);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);

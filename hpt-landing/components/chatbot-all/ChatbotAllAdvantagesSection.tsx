@@ -105,7 +105,6 @@ export default function ChatbotAllAdvantagesSection() {
     <section css={styles.container}>
       <div css={styles.inner}>
         <div css={styles.header}>
-          <span css={styles.badge}>AI-Powered</span>
           <h2 css={styles.title}>
             AI 에이전트와 지식베이스 설정까지{' '}
             <br />

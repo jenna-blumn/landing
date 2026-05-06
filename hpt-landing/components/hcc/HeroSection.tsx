@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './HeroSection.style';
-import FlowCard6 from '@/assets/images/flow/flow-card-6.png';
+import HeroNew from '@/assets/images/hcc/hero_new.png';
 
 const ArrowRight = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
@@ -40,7 +40,7 @@ export default function HeroSection() {
         </div>
       </div>
       <motion.div css={styles.flowImageWrap} style={{ y: imageY }}>
-        <img src={FlowCard6.src} alt="" css={styles.flowImage} />
+        <img src={HeroNew.src} alt="" css={styles.flowImage} />
       </motion.div>
     </section>
   );

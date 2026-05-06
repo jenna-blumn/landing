@@ -53,8 +53,8 @@ export default function CTASection({
   gtmEvent,
   title = (
     <>
-      지금 바로 <br />
-      무료로 시작해보세요
+      가입부터 사용까지 5분, <br />
+      해피톡으로 상담해보세요
     </>
   ),
   description = null,

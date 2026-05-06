@@ -85,6 +85,8 @@ export default {
     gap: 16px;
     padding: 28px;
     align-items: center;
+    justify-content: space-between;
+    height: 100%;
     background: #fff;
     border: 1px solid #e4e4e7;
     border-radius: 12px;
@@ -100,6 +102,7 @@ export default {
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    flex: 1;
   `,
 
   icon: css`
@@ -134,28 +137,18 @@ export default {
 
   certLink: css`
     display: inline-flex;
-    align-self: center;
     align-items: center;
-    gap: 8px;
-    margin-top: 8px;
-    padding: 8px 14px;
-    border-radius: 8px;
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
+    gap: 4px;
     color: oklch(54.6% 0.245 262.881);
-    font-size: var(--font-size-13);
+    font-size: var(--font-size-15);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-tight);
     text-decoration: none;
-    transition: background 0.15s ease;
+    transition: opacity 0.15s ease;
 
     &:hover {
-      background: #dbeafe;
-    }
-
-    > svg {
-      width: 14px;
-      height: 14px;
+      opacity: 0.7;
     }
   `,
 };

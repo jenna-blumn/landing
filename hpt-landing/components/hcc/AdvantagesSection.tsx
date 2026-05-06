@@ -123,7 +123,6 @@ export default function AdvantagesSection() {
     <section css={styles.container}>
       <div css={styles.inner}>
         <div css={styles.header}>
-          <span css={styles.badge}>Build Types</span>
           <h2 css={styles.title}>구축 유형</h2>
           <p css={styles.subtitle}>
             기업 환경과 요구사항에 맞는 다양한 구축 유형을 제공합니다.

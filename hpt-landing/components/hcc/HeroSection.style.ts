@@ -28,23 +28,16 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    margin: 0 auto;
     z-index: 0;
     width: 100%;
-    max-width: 360px;
     pointer-events: none;
     user-select: none;
-
-    ${media.desktop} {
-      max-width: 600px;
-    }
   `,
 
   flowImage: css`
     width: 100%;
-    max-width: 100%;
     height: auto;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center bottom;
     display: block;
   `,
@@ -94,8 +87,8 @@ export default {
     letter-spacing: var(--letter-spacing-tight);
 
     ${media.desktop} {
-      font-size: var(--font-size-21);
-      line-height: var(--line-height-tight);
+      font-size: var(--font-size-18);
+      line-height: var(--line-height-normal);
     }
   `,
 

@@ -2,16 +2,15 @@
 
 import styles from './StatsSection.style';
 import GradientText from '@/components/ui/GradientText';
-import {
-  STATS,
-  STATS_GRADIENT_COLORS,
-  STATS_FOOTNOTE,
-} from '@/constants/product';
+import { STATS, STATS_GRADIENT_COLORS } from '@/constants/product';
 
 export default function StatsSection() {
   return (
     <section css={styles.container}>
       <div css={styles.content}>
+        <div css={styles.header}>
+          <h2 css={styles.title}>고객사가 만들어준 해피톡의 기록</h2>
+        </div>
         <div css={styles.statsGrid}>
           {STATS.map((stat, index) => (
             <div key={index} css={styles.statCard}>
@@ -36,7 +35,6 @@ export default function StatsSection() {
             </div>
           ))}
         </div>
-        <p css={styles.footnote}>{STATS_FOOTNOTE}</p>
       </div>
     </section>
   );

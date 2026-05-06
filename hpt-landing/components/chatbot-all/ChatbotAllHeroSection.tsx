@@ -8,7 +8,6 @@ export default function ChatbotAllHeroSection() {
   return (
     <section css={styles.container}>
       <div css={styles.inner}>
-        <span css={styles.badge}>업계 1위들의 이유있는 선택</span>
         <h1 css={styles.title}>
           복잡한 AI 에이전트,
           <br />

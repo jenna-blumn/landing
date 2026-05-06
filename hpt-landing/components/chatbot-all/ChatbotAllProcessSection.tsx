@@ -150,7 +150,6 @@ export default function ChatbotAllProcessSection() {
     <section id="service-desc" css={styles.container}>
       <div css={styles.inner}>
         <div css={styles.header}>
-          <span css={styles.badge}>All-in-One</span>
           <h2 css={styles.title}>컨설팅부터 세팅, 운영까지 전 과정 지원</h2>
           <p css={styles.subtitle}>
             직접 만들 필요 없습니다. 해피톡 전문가가 모든 과정을 대신합니다.

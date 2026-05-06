@@ -76,7 +76,6 @@ export default function SolutionSection() {
     <section css={styles.container}>
       <div css={styles.inner}>
         <div css={styles.header}>
-          <span css={styles.badge}>Core Capabilities</span>
           <h2 css={styles.title}>DCS 구축 역량</h2>
           <p css={styles.subtitle}>
             SaaS에서는 불가능한 엔터프라이즈 환경에 최적화된 기술력을

@@ -6,18 +6,18 @@ import styles from './AIAgentSection.style';
 
 const CAPS = [
   {
-    title: '고객 질문의 의도를 이해해요',
-    desc: '단순 키워드가 아니라 대화 맥락 기준',
+    title: '상담사의 일을 덜어줘요',
+    desc: '분류 / 요약 / 감정 분석 자동 처리',
     badge: 'AI 어시스턴트',
   },
   {
-    title: '지금 어떤 응대가 필요한지 판단해요',
-    desc: '상품 문의 / 정책 안내 / 상담 연결 등',
+    title: '고객을 직접 응대해요',
+    desc: '질문 이해 / 응대 판단 / 자동 답변',
     badge: 'AI 에이전트',
   },
   {
-    title: '답변하거나, 다음 흐름으로 연결해요',
-    desc: '답변 / 상담사 연결 / 업무처리',
+    title: '등록된 정보 기반으로 일관된 답변을 제공해요',
+    desc: 'FAQ / 정책 / 카테고리별 지식 관리',
     badge: '지식 기반',
   },
 ];
@@ -66,7 +66,6 @@ export default function AIAgentSection() {
     >
       <div css={styles.inner}>
         <div css={styles.header}>
-          <span css={styles.badge}>핵심기능</span>
           <h2 css={styles.title}>해피톡만의 AI, 상담의 핵심을 바꿉니다.</h2>
           <p css={styles.subtitle}>
             AI어시스턴트와 AI에이전트가

@@ -104,7 +104,7 @@ export default {
     border-radius: 9999px;
     background: oklch(54.6% 0.245 262.881);
     color: #fff;
-    font-size: var(--font-size-13);
+    font-size: var(--font-size-15);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
@@ -119,7 +119,7 @@ export default {
 
   stepTitle: css`
     color: #18181b;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-18);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
@@ -127,7 +127,7 @@ export default {
 
   stepDesc: css`
     color: #52525b;
-    font-size: var(--font-size-13);
+    font-size: var(--font-size-15);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);

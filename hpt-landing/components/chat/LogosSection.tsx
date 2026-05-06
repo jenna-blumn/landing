@@ -1,37 +1,40 @@
 'use client';
 
+import type { CSSProperties } from 'react';
+
 import styles from './LogosSection.style';
 import { LOGO_ROW1, LOGO_ROW2 } from '@/constants/chatting';
 
+type LogoStyle = CSSProperties & {
+  '--logo-width': string;
+  '--logo-height': string;
+  '--logo-radius': string;
+};
+
 export default function LogosSection() {
-  const renderTrack = (logos: typeof LOGO_ROW1) => (
-    <>
-      <div css={styles.logoSet}>
-        {logos.map((logo, i) => (
-          <div key={i} css={styles.logoItem}>
-            <img src={logo.src} alt={logo.name} css={styles.logoImage} />
-          </div>
-        ))}
-      </div>
-      <div css={styles.logoSet}>
-        {logos.map((logo, i) => (
-          <div key={`c-${i}`} css={styles.logoItem}>
-            <img src={logo.src} alt={logo.name} css={styles.logoImage} />
-          </div>
-        ))}
-      </div>
-    </>
-  );
+  const logos = [...LOGO_ROW1, ...LOGO_ROW2];
 
   return (
     <section css={styles.container}>
-      <div css={styles.marqueeWrapper}>
-        <div css={styles.track}>{renderTrack(LOGO_ROW1)}</div>
-      </div>
-      <div css={styles.marqueeWrapper}>
-        <div css={[styles.track, styles.trackReverse]}>
-          {renderTrack(LOGO_ROW2)}
-        </div>
+      <div css={styles.logoGrid}>
+        {logos.map((logo) => {
+          const logoStyle: LogoStyle = {
+            '--logo-width': `${logo.frame.width}px`,
+            '--logo-height': `${logo.frame.height}px`,
+            '--logo-radius': `${logo.radius ?? 0}px`,
+          };
+
+          return (
+            <div key={logo.name} css={styles.logoItem}>
+              <img
+                src={logo.src}
+                alt={logo.name}
+                css={styles.logoImage}
+                style={logoStyle}
+              />
+            </div>
+          );
+        })}
       </div>
     </section>
   );

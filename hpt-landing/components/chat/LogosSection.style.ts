@@ -1,69 +1,29 @@
-import { css, keyframes } from '@emotion/react';
+import { css } from '@emotion/react';
 import { media } from '@/styles/breakpoints';
-
-const marquee = keyframes`
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-`;
 
 export default {
   container: css`
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 40px 0;
+    padding: 40px 20px;
     overflow: hidden;
 
     ${media.desktop} {
-      gap: 20px;
-      padding: 60px 0;
+      padding: 60px;
     }
   `,
 
-  marqueeWrapper: css`
-    width: 100%;
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 10%,
-      black 90%,
-      transparent
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 10%,
-      black 90%,
-      transparent
-    );
-  `,
-
-  track: css`
+  logoGrid: css`
     display: flex;
-    align-items: center;
-    width: max-content;
-    animation: ${marquee} 30s linear infinite;
-  `,
-
-  logoSet: css`
-    display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
     gap: 12px;
-    padding-right: 12px;
+    margin: 0 auto;
+    max-width: 1280px;
 
     ${media.desktop} {
       gap: 20px;
-      padding-right: 20px;
     }
-  `,
-
-  trackReverse: css`
-    animation-direction: reverse;
   `,
 
   logoItem: css`
@@ -82,12 +42,18 @@ export default {
   `,
 
   logoImage: css`
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 8px;
+    width: calc(var(--logo-width) * 0.75);
+    height: calc(var(--logo-height) * 0.75);
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    border-radius: calc(var(--logo-radius) * 0.75);
+    flex-shrink: 0;
 
     ${media.desktop} {
-      border-radius: 10px;
+      width: var(--logo-width);
+      height: var(--logo-height);
+      border-radius: var(--logo-radius);
     }
   `,
 };

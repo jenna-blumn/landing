@@ -51,16 +51,11 @@ export default {
   `,
 
   subtitle: css`
-    color: #71717a;
-    font-size: var(--font-size-15);
+    color: #4e4e55;
+    font-size: var(--font-size-18);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
-
-    ${media.desktop} {
-      font-size: var(--font-size-15);
-      line-height: var(--line-height-normal);
-    }
   `,
 
   grid: css`

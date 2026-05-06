@@ -2,13 +2,6 @@
 
 import styles from './PreviewSection.style';
 
-const EyeIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-    <circle cx="12" cy="12" r="3" />
-    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-  </svg>
-);
-
 const SkeletonCard = () => (
   <div css={styles.skeletonCard}>
     <div css={styles.skelLine('40%', 16)} />
@@ -27,10 +20,6 @@ export default function PreviewSection() {
     <section css={styles.container}>
       <div css={styles.inner}>
         <div css={styles.header}>
-          <span css={styles.eyebrow}>
-            <EyeIcon />
-            설치 전 미리 체험
-          </span>
           <h2 css={styles.title}>설치하기 전에 미리 체험해 보세요</h2>
           <p css={styles.subtitle}>
             고객사 웹사이트에 노출되는 채팅 플로팅 버튼을

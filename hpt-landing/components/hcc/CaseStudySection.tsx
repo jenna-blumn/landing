@@ -98,7 +98,6 @@ export default function CaseStudySection() {
     <section css={styles.container}>
       <div css={styles.inner}>
         <div css={styles.header}>
-          <span css={styles.badge}>Case Studies</span>
           <h2 css={styles.title}>산업별 구축 사례</h2>
           <p css={styles.subtitle}>
             금융, 보험, 커머스, 핀테크 등 다양한 산업에서

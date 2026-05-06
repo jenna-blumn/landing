@@ -11,7 +11,6 @@ export default function ChatHeroSection() {
   return (
     <section css={styles.container}>
       <div css={styles.textBox}>
-        <span css={styles.badge}>채팅상담 솔루션</span>
         <h1 css={styles.mainTitle}>
           상담의 흐름을 설계하는 <br />
           AI 채팅 솔루션

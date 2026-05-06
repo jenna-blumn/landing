@@ -7,7 +7,7 @@ export default {
     flex-direction: column;
     align-items: center;
     padding: 72px 12px;
-    background: #fff;
+    background: #fafafa;
     width: 360px;
     margin: 0 auto;
 
@@ -17,32 +17,38 @@ export default {
     }
   `,
 
+  content: css`
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1280px;
+
+    ${media.desktop} {
+      gap: 60px;
+    }
+  `,
+
+  header: css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  `,
+
   title: css`
-    color: #0a0e0fdc;
+    color: rgba(17, 17, 21, 0.9);
     font-size: var(--font-size-32);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
     letter-spacing: var(--letter-spacing-tight);
-    text-align: center;
 
     ${media.desktop} {
       font-size: var(--font-size-42);
       line-height: var(--line-height-tight);
       letter-spacing: var(--letter-spacing-tight);
-    }
-  `,
-
-  content: css`
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: flex-start;
-    width: 100%;
-    max-width: 1280px;
-    margin-top: 40px;
-
-    ${media.desktop} {
-      margin-top: 60px;
     }
   `,
 
@@ -73,7 +79,8 @@ export default {
     gap: 20px;
     align-self: stretch;
     border-radius: 16px;
-    background: #f0f1e9;
+    background: #fff;
+    border: 1px solid #e4e4e7;
     overflow: hidden;
 
     ${media.desktop} {
@@ -141,18 +148,4 @@ export default {
     letter-spacing: var(--letter-spacing-tight);
   `,
 
-  footnote: css`
-    color: #6f6f77;
-    width: 100%;
-    text-align: right;
-    font-size: var(--font-size-13);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-normal);
-    letter-spacing: var(--letter-spacing-tight);
-
-    ${media.desktop} {
-      font-size: var(--font-size-15);
-      line-height: var(--line-height-normal);
-    }
-  `,
 };

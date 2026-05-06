@@ -67,7 +67,6 @@ export default function WhyHCCSection() {
     <section css={styles.container}>
       <div css={styles.inner}>
         <div css={styles.header}>
-          <span css={styles.badge}>Target Enterprise</span>
           <h2 css={styles.title}>이런 기업에게 적합합니다</h2>
         </div>
         <div css={styles.grid}>
@@ -77,7 +76,7 @@ export default function WhyHCCSection() {
                 <ShieldIcon />
               </span>
               <div css={styles.cardBody}>
-                <h4>내부 보안 정책 및 인증 기준을 충족해야 하는 기업</h4>
+                <h4>보안 및 인증 기준이 필요한 기업</h4>
               </div>
             </div>
             <a
@@ -86,8 +85,7 @@ export default function WhyHCCSection() {
               rel="noopener noreferrer"
               css={styles.certLink}
             >
-              <ShieldIcon id="hccWhyShieldLink" />
-              품질인증서
+              품질인증서 보러가기 →
             </a>
           </article>
 
