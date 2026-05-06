@@ -43,14 +43,9 @@ export default {
 
   subtitle: css`
     color: #71717a;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-13);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
-
-    ${media.desktop} {
-      font-size: var(--font-size-18);
-      line-height: var(--line-height-tight);
-    }
   `,
 };

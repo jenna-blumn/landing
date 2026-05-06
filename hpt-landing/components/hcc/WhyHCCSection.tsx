@@ -81,7 +81,7 @@ export default function WhyHCCSection() {
               </div>
             </div>
             <a
-              href="/dcs-product-guide.pdf"
+              href="/dcs-gs-certification.pdf"
               target="_blank"
               rel="noopener noreferrer"
               css={styles.certLink}

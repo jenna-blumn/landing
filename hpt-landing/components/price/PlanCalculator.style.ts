@@ -36,7 +36,7 @@ export default {
 
   panelTitle: css`
     color: #18181b;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-13);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
@@ -67,7 +67,7 @@ export default {
   categoryIcon: css`
     width: 16px;
     height: 16px;
-    color: #a1a1aa;
+    color: #71717a;
   `,
 
   chips: css`

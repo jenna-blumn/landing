@@ -211,7 +211,7 @@ export default {
     margin-bottom: 24px;
 
     ${media.desktop} {
-      font-size: var(--font-size-15);
+      font-size: var(--font-size-13);
     }
   `,
 
@@ -220,7 +220,7 @@ export default {
   `,
 
   featuresHeader: css`
-    color: #a1a1aa;
+    color: #71717a;
     font-size: var(--font-size-13);
     font-weight: var(--font-weight-bold);
     letter-spacing: 0.08em;
@@ -257,7 +257,7 @@ export default {
     line-height: var(--line-height-normal);
 
     ${media.desktop} {
-      font-size: var(--font-size-15);
+      font-size: var(--font-size-13);
     }
   `,
 
@@ -378,7 +378,7 @@ export default {
     }
 
     ${media.desktop} {
-      font-size: var(--font-size-15);
+      font-size: var(--font-size-13);
     }
   `,
 

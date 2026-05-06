@@ -13,9 +13,6 @@ import LeftDirectionIcon from '@/assets/svg/left-direction_s16.svg';
 import { SOLUTION_CARDS } from '@/constants/product';
 import ReviewTossLogo from '@/assets/images/review-toss-logo.png';
 
-const CHAT_OPERATION_IMAGE =
-  'https://landing.happytalk.io/_next/static/media/chatting-v2.cb6c1196.png';
-
 const IconGradient = ({ id }: { id: string }) => (
   <defs>
     <linearGradient id={id} x1="0%" y1="0%" x2="100%" y2="100%">
@@ -386,28 +383,6 @@ export default function SolutionCardsSection() {
               />
               <motion.path
                 d="M1127.5 0V84Q1127.5 124 1087.5 124H680Q640 124 640 164"
-                style={{ pathLength: bridgePathLength }}
-              />
-            </svg>
-          </div>
-          <img src={CHAT_OPERATION_IMAGE} alt="" css={styles.bridgeImage} />
-          <div css={styles.bridgeSvgWrap}>
-            <svg
-              viewBox="0 0 1280 248"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-              css={[styles.bridgeLines, styles.bridgeBaseLines]}
-            >
-              <path d="M640 0V248" />
-            </svg>
-            <svg
-              viewBox="0 0 1280 248"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-              css={[styles.bridgeLines, styles.bridgeOverlayLines]}
-            >
-              <motion.path
-                d="M640 0V248"
                 style={{ pathLength: bridgePathLength }}
               />
             </svg>

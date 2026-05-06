@@ -142,7 +142,7 @@ export default function PricingCards() {
       </div>
 
       <p css={styles.note}>
-        모든 플랜은 14일 동안 프로 플랜의 모든 기능을 무료로 체험할 수 있습니다.
+        가입 시 14일 동안 Pro 플랜 기능을 무료로 체험할 수 있습니다.
       </p>
     </div>
   );

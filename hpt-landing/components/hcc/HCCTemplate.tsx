@@ -5,7 +5,7 @@ import WhyHCCSection from '@/components/hcc/WhyHCCSection';
 import AdvantagesSection from '@/components/hcc/AdvantagesSection';
 import SolutionSection from '@/components/hcc/SolutionSection';
 import CaseStudySection from '@/components/hcc/CaseStudySection';
-import CTASection from '@/components/common/CTASection';
+import EnterpriseCTASection from '@/components/hcc/EnterpriseCTASection';
 
 export default function HCCTemplate() {
   return (
@@ -15,10 +15,7 @@ export default function HCCTemplate() {
       <AdvantagesSection />
       <SolutionSection />
       <CaseStudySection />
-      <CTASection
-        gtmEvent="HCC_SALES_INQUIRY"
-        title="복잡한 상담을 편리하게!"
-      />
+      <EnterpriseCTASection />
     </>
   );
 }

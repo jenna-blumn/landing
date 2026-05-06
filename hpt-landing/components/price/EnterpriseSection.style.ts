@@ -67,14 +67,10 @@ export default {
 
   subtitle: css`
     color: #d4d4d8;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-13);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
     max-width: 520px;
-
-    ${media.desktop} {
-      font-size: var(--font-size-18);
-    }
   `,
 
   featuresCard: css`
@@ -96,7 +92,7 @@ export default {
 
   featuresSub: css`
     color: #a1a1aa;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-13);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
     margin-bottom: 24px;
@@ -132,7 +128,7 @@ export default {
 
   featureName: css`
     color: #f4f4f5;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-13);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
@@ -144,7 +140,7 @@ export default {
 
   featureDesc: css`
     color: #a1a1aa;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-13);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
     margin-top: 4px;
@@ -188,7 +184,7 @@ export default {
 
   stepsNote: css`
     color: #d4d4d8;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-13);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
     margin-bottom: 32px;
@@ -235,7 +231,7 @@ export default {
 
   stepLabel: css`
     color: #d4d4d8;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-13);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
     text-align: center;
@@ -293,7 +289,7 @@ export default {
     background: #27272a;
     border: 1px solid #3f3f46;
     color: #d4d4d8;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-13);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
   `,
@@ -323,7 +319,7 @@ export default {
 
   ctaSub: css`
     color: #a1a1aa;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-13);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
     margin-bottom: 24px;

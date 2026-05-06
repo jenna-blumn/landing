@@ -101,13 +101,13 @@ export default {
   `,
 
   unit: () => css`
-    color: #a1a1aa;
-    font-size: var(--font-size-15);
+    color: #71717a;
+    font-size: var(--font-size-13);
     font-weight: var(--font-weight-regular);
   `,
 
   subtext: () => css`
-    color: #a1a1aa;
+    color: #71717a;
     font-size: var(--font-size-13);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
@@ -116,7 +116,7 @@ export default {
   description: () => css`
     margin-top: 8px;
     color: #71717a;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-13);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
@@ -153,8 +153,8 @@ export default {
   `,
 
   featureText: (_highlight: boolean, isInherited: boolean) => css`
-    color: ${isInherited ? '#a1a1aa' : '#52525b'};
-    font-size: var(--font-size-15);
+    color: ${isInherited ? '#71717a' : '#52525b'};
+    font-size: var(--font-size-13);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
@@ -167,7 +167,7 @@ export default {
     border-radius: 12px;
     text-align: center;
     text-decoration: none;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-13);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
@@ -197,7 +197,7 @@ export default {
   note: css`
     margin-top: 24px;
     text-align: center;
-    color: #a1a1aa;
+    color: #71717a;
     font-size: var(--font-size-13);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);

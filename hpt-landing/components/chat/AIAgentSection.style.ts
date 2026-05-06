@@ -146,6 +146,7 @@ export default {
 
   capBody: css`
     display: flex;
+    flex: 1;
     flex-direction: column;
     gap: 6px;
 
@@ -176,24 +177,67 @@ export default {
     }
   `,
 
-  capTags: css`
+  capTitleRow: css`
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 6px;
+    gap: 8px;
   `,
 
-  capTag: css`
+  capBadge: css`
     display: inline-flex;
     align-items: center;
-    padding: 3px 10px;
+    padding: 2px 8px;
     border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.72);
+    background: rgba(76, 222, 193, 0.16);
+    color: #7ee9d2;
     font-size: var(--font-size-13);
-    font-weight: var(--font-weight-regular);
+    font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
+    white-space: nowrap;
+  `,
+
+  capOutcome: css`
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    align-self: flex-start;
+  `,
+
+  capOutcomeLabel: css`
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: linear-gradient(
+      90deg,
+      #4cdec1 0%,
+      #24b9e8 50%,
+      #3e76f9 100%
+    );
+    color: #0f172a;
+    font-size: var(--font-size-13);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-tight);
+  `,
+
+  capOutcomeText: css`
+    color: #fff !important;
+    font-size: var(--font-size-13) !important;
+    font-weight: var(--font-weight-bold) !important;
+    line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-tight);
+
+    ${media.desktop} {
+      font-size: var(--font-size-15) !important;
+    }
   `,
 
   flowDiagram: css`

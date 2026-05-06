@@ -3,24 +3,28 @@
 import { motion, type Variants } from 'framer-motion';
 
 import styles from './AIAgentSection.style';
-import common from '@/styles/common';
-
-const ArrowRightIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-    <path d="M5 12h14M12 5l7 7-7 7" />
-  </svg>
-);
 
 const CAPS = [
   {
     emoji: '🧠',
     title: '고객 질문의 의도를 이해해요',
     desc: '단순 키워드가 아니라 대화 맥락 기준',
+    badge: 'AI 어시스턴트',
+    outcome: '상담 품질 표준화',
   },
   {
     emoji: '🎯',
     title: '지금 어떤 응대가 필요한지 판단해요',
     desc: '상품 문의 / 정책 안내 / 상담 연결 등',
+    badge: 'AI 에이전트',
+    outcome: '반복 문의 자동 처리',
+  },
+  {
+    emoji: '⚡',
+    title: '답변하거나, 다음 흐름으로 연결해요',
+    desc: '답변 / 상담사 연결 / 업무처리',
+    badge: '지식 기반',
+    outcome: '운영 기준 반영',
   },
 ];
 
@@ -83,22 +87,18 @@ export default function AIAgentSection() {
               <div key={cap.title} css={styles.cap}>
                 <span css={styles.capEmoji}>{cap.emoji}</span>
                 <div css={styles.capBody}>
-                  <strong>{cap.title}</strong>
+                  <div css={styles.capTitleRow}>
+                    <strong>{cap.title}</strong>
+                    <span css={styles.capBadge}>{cap.badge}</span>
+                  </div>
                   <span>{cap.desc}</span>
+                  <div css={styles.capOutcome}>
+                    <span css={styles.capOutcomeLabel}>결과</span>
+                    <span css={styles.capOutcomeText}>{cap.outcome}</span>
+                  </div>
                 </div>
               </div>
             ))}
-            <div css={styles.cap}>
-              <span css={styles.capEmoji}>⚡</span>
-              <div css={styles.capBody}>
-                <strong>답변하거나, 다음 흐름으로 연결해요</strong>
-                <div css={styles.capTags}>
-                  <span css={styles.capTag}>답변</span>
-                  <span css={styles.capTag}>상담사 연결</span>
-                  <span css={styles.capTag}>업무처리</span>
-                </div>
-              </div>
-            </div>
           </div>
 
           <motion.div
@@ -136,17 +136,6 @@ export default function AIAgentSection() {
               <span css={styles.branch('human')}>👤 상담사 연결</span>
             </motion.div>
           </motion.div>
-        </div>
-
-        <div css={styles.ctaWrapper}>
-          <a
-            href="/agent"
-            css={[common.primaryCta, styles.ctaButton]}
-            data-gtm-event="CHAT_AI_AGENT_EXPERIENCE"
-          >
-            AI 에이전트 체험하러 가기
-            <ArrowRightIcon />
-          </a>
         </div>
       </div>
     </motion.section>
