@@ -150,8 +150,12 @@ export default {
     flex-direction: column;
     gap: 6px;
 
+    > div > strong,
     > strong {
-      color: #fff;
+      color: #18181b;
+      background: #fff;
+      padding: 2px 6px;
+      border-radius: 4px;
       font-size: var(--font-size-15);
       font-weight: var(--font-weight-bold);
       line-height: var(--line-height-normal);
@@ -200,38 +204,26 @@ export default {
 
   capOutcome: css`
     display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 8px;
-    padding: 8px 12px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    align-self: flex-start;
+    align-items: baseline;
+    gap: 6px;
   `,
 
   capOutcomeLabel: css`
-    display: inline-flex;
-    align-items: center;
-    padding: 2px 8px;
-    border-radius: 6px;
-    background: linear-gradient(
-      90deg,
-      #4cdec1 0%,
-      #24b9e8 50%,
-      #3e76f9 100%
-    );
-    color: #0f172a;
+    color: rgba(255, 255, 255, 0.6);
     font-size: var(--font-size-13);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-regular);
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
+
+    ${media.desktop} {
+      font-size: var(--font-size-15);
+    }
   `,
 
   capOutcomeText: css`
-    color: #fff !important;
+    color: rgba(255, 255, 255, 0.6) !important;
     font-size: var(--font-size-13) !important;
-    font-weight: var(--font-weight-bold) !important;
+    font-weight: var(--font-weight-regular) !important;
     line-height: var(--line-height-normal);
     letter-spacing: var(--letter-spacing-tight);
 

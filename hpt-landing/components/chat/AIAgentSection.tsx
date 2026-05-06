@@ -6,25 +6,19 @@ import styles from './AIAgentSection.style';
 
 const CAPS = [
   {
-    emoji: '🧠',
     title: '고객 질문의 의도를 이해해요',
     desc: '단순 키워드가 아니라 대화 맥락 기준',
     badge: 'AI 어시스턴트',
-    outcome: '상담 품질 표준화',
   },
   {
-    emoji: '🎯',
     title: '지금 어떤 응대가 필요한지 판단해요',
     desc: '상품 문의 / 정책 안내 / 상담 연결 등',
     badge: 'AI 에이전트',
-    outcome: '반복 문의 자동 처리',
   },
   {
-    emoji: '⚡',
     title: '답변하거나, 다음 흐름으로 연결해요',
     desc: '답변 / 상담사 연결 / 업무처리',
     badge: '지식 기반',
-    outcome: '운영 기준 반영',
   },
 ];
 
@@ -85,17 +79,12 @@ export default function AIAgentSection() {
           <div css={styles.caps}>
             {CAPS.map((cap) => (
               <div key={cap.title} css={styles.cap}>
-                <span css={styles.capEmoji}>{cap.emoji}</span>
                 <div css={styles.capBody}>
                   <div css={styles.capTitleRow}>
                     <strong>{cap.title}</strong>
                     <span css={styles.capBadge}>{cap.badge}</span>
                   </div>
                   <span>{cap.desc}</span>
-                  <div css={styles.capOutcome}>
-                    <span css={styles.capOutcomeLabel}>결과</span>
-                    <span css={styles.capOutcomeText}>{cap.outcome}</span>
-                  </div>
                 </div>
               </div>
             ))}

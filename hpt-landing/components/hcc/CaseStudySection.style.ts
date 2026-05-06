@@ -111,6 +111,21 @@ export default {
     min-height: 300px;
   `,
 
+  cardTop: css`
+    display: flex;
+    align-items: center;
+    min-height: 29px;
+    margin-bottom: 4px;
+  `,
+
+  logo: css`
+    max-height: 29px;
+    max-width: 168px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  `,
+
   industry: css`
     display: inline-flex;
     align-items: center;
@@ -126,17 +141,12 @@ export default {
   `,
 
   client: css`
-    margin-top: 8px;
+    margin-top: 16px;
     color: rgba(17, 17, 21, 0.9);
-    font-size: var(--font-size-21);
+    font-size: var(--font-size-15);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
     letter-spacing: var(--letter-spacing-tight);
-
-    ${media.desktop} {
-      font-size: var(--font-size-22);
-      line-height: var(--line-height-tight);
-    }
   `,
 
   detail: css`
