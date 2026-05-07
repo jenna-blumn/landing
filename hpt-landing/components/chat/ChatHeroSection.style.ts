@@ -70,10 +70,6 @@ export default {
     ${media.desktop} {
       font-size: var(--font-size-18);
       line-height: var(--line-height-normal);
-
-      > br {
-        display: none;
-      }
     }
   `,
 

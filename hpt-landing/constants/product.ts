@@ -76,14 +76,14 @@ export const STATS = [
     description: '스케일이 다른 채팅 상담 처리량',
   },
   {
+    number: '월 \n230만+',
+    title: '월 평균 상담 처리량',
+    description: '지속적으로 처리되는 상담 규모',
+  },
+  {
     number: '97.9%',
     title: '챗봇 처리율',
     description: '웹으로 인입된 채팅은 챗봇이 알아서',
-  },
-  {
-    number: '1401일',
-    title: '평균 가입일',
-    description: '해피톡과 함께한 긴 인연은 신뢰로부터',
   },
 ];
 

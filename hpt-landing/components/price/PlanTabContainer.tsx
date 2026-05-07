@@ -51,7 +51,7 @@ export default function PlanTabContainer() {
               <div css={styles.bannerLeft}>
                 <p css={styles.bannerText}>
                   <span css={styles.bannerTitle}>
-                    조건에 맞는 플랜이 없으신가요?
+                    맞춤 상담 환경이 필요하신가요?
                   </span>
                 </p>
               </div>

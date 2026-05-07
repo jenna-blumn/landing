@@ -12,12 +12,12 @@ export default function ChatHeroSection() {
     <section css={styles.container}>
       <div css={styles.textBox}>
         <h1 css={styles.mainTitle}>
-          상담의 흐름을 설계하는 <br />
+          신뢰할 수 있는 상담을 만드는 <br />
           AI 채팅 솔루션
         </h1>
         <p css={styles.description}>
-          고객 문의부터 AI 자동 응대, 상담사 연결까지 <br />
-          채팅상담의 모든 흐름을 하나로 관리하세요.
+          고객 문의가 신뢰로 이어지도록, <br />
+          AI 응대부터 상담사 연결까지 해피톡이 지원합니다.
         </p>
       </div>
       <div css={styles.ctaContainer}>

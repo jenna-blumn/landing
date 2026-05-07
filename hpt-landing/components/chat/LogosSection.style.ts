@@ -1,28 +1,60 @@
-import { css } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 import { media } from '@/styles/breakpoints';
+
+const scroll = keyframes`
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+`;
 
 export default {
   container: css`
-    padding: 40px 20px;
+    padding: 40px 0;
     overflow: hidden;
 
     ${media.desktop} {
-      padding: 60px;
+      padding: 60px 0;
     }
   `,
 
-  logoGrid: css`
+  marquee: css`
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 80px,
+      #000 calc(100% - 80px),
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 80px,
+      #000 calc(100% - 80px),
+      transparent 100%
+    );
+  `,
+
+  track: css`
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: flex-start;
+    width: max-content;
+    animation: ${scroll} 60s linear infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation-duration: 120s;
+    }
+  `,
+
+  set: css`
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
     gap: 12px;
-    margin: 0 auto;
-    max-width: 1280px;
+    padding-right: 12px;
 
     ${media.desktop} {
       gap: 20px;
+      padding-right: 20px;
     }
   `,
 

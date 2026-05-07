@@ -54,7 +54,7 @@ export default function CTASection({
   title = (
     <>
       가입부터 사용까지 5분, <br />
-      해피톡으로 상담해보세요
+      바로 사용할 수 있습니다.
     </>
   ),
   description = null,
